@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Agenda del Equipo Directivo · CEIP Capitulaciones</title>
+<meta name="theme-color" content="#283593">
+<meta name="description" content="Calendario de tareas de Dirección, Jefatura de Estudios y Secretaría y directorio de la Delegación Territorial de Granada">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--bg:#f7f4ec;--paper:rgba(255,255,255,.88);--ink:#1f2a37;--muted:#5b6675;--line:#e6dfcf;--accent:#283593;--accent-soft:#e3e7fb;--warn:#b4531a;--done:#8a94a3;
+--rD:#b91c1c;--rJ:#1d4ed8;--rS:#0f766e;
+--c-ADM:#2563eb;--c-MAT:#7c3aed;--c-BON:#db2777;--c-SSCC:#ea580c;--c-GE:#0f766e;--c-EV:#4f46e5;--c-PGLT:#65a30d;--c-ORG:#0369a1;--c-CONV:#c026d3;--c-CE:#a16207;--c-PROG:#059669;--c-PER:#9f1239;--c-VAR:#475569}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:"Atkinson Hyperlegible",system-ui,sans-serif;font-size:15px;line-height:1.45;padding-bottom:env(safe-area-inset-bottom)}
+header{padding:22px 20px 0;max-width:1180px;margin:0 auto}
+.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:14px}
+.kicker{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h1{font-family:Fraunces,Georgia,serif;font-weight:800;font-size:clamp(1.6rem,4vw,2.5rem);margin:4px 0 4px;line-height:1.05}
+.today{color:var(--muted);margin:0}
+.roles{display:flex;background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:4px;gap:4px;flex-wrap:wrap}
+.roles button{font:inherit;font-weight:700;border:0;background:none;border-radius:10px;padding:9px 14px;cursor:pointer;min-height:44px;color:var(--muted)}
+.roles button.on{color:#fff;background:var(--ink)}
+.roles button.on[data-r=D]{background:var(--rD)}.roles button.on[data-r=J]{background:var(--rJ)}.roles button.on[data-r=S]{background:var(--rS)}
+nav.tabs{display:flex;gap:6px;overflow-x:auto;border-bottom:2px solid var(--line);margin-top:18px}
+nav.tabs button{font:inherit;font-weight:700;border:0;background:none;padding:12px 16px;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap;min-height:48px}
+nav.tabs button[aria-selected=true]{color:var(--ink);border-color:var(--accent)}
+main{max-width:1180px;margin:0 auto;padding:20px}
+.panel{display:none}.panel.on{display:block}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:14px}
+.months{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:inherit;border:1.5px solid var(--line);background:var(--paper);border-radius:999px;padding:7px 13px;cursor:pointer;min-height:40px;color:var(--ink)}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chip.now{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+select,.search input{font:inherit;border:1.5px solid var(--line);background:var(--paper);border-radius:10px;padding:9px 12px;min-height:44px;color:var(--ink)}
+label.chk{display:flex;gap:6px;align-items:center;color:var(--muted);cursor:pointer}
+.search{position:relative;flex:1;min-width:220px}
+.search input{width:100%;padding-left:40px}
+.search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:18px;height:18px;stroke:var(--muted)}
+.wrap{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:14px}
+table{border-collapse:collapse;width:100%;min-width:680px}
+th{text-align:left;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:10px 12px;border-bottom:1px solid var(--line);background:#fbf8f1}
+td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.date{white-space:nowrap;font-weight:700;width:118px}
+td.who{white-space:nowrap;width:92px}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;padding:3px 8px;border-radius:6px;color:#fff;white-space:nowrap}
+.rb{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;color:#fff;font-size:.72rem;font-weight:700;margin-right:3px}
+.rb.D{background:var(--rD)}.rb.J{background:var(--rJ)}.rb.S{background:var(--rS)}
+.t{font-weight:700}
+.d{color:var(--muted);font-size:.9rem;margin-top:3px}
+.r{font-family:ui-monospace,Consolas,monospace;font-size:.78rem;background:#f1ece0;border-radius:6px;padding:4px 7px;margin-top:5px;display:inline-block}
+.src{font-size:.72rem;color:var(--muted);margin-left:6px}
+a{color:var(--accent)}
+tr.done .t,tr.done .d{text-decoration:line-through;color:var(--done)}
+tr.hide{display:none}
+input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent);cursor:pointer}
+.monthrow td{background:#e3e7fb;color:#283593;font-family:Fraunces,Georgia,serif;font-weight:800;font-size:1.05rem}
+.weekhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin:4px 0 14px}
+.weekhead h2{font-family:Fraunces,Georgia,serif;font-size:1.6rem;margin:0}
+.pill{background:var(--accent-soft);color:var(--accent);font-weight:700;border-radius:999px;padding:3px 10px;font-size:.85rem}
+h3{font-family:Fraunces,Georgia,serif;font-size:1.15rem;margin:24px 0 10px}
+.urgent td.date{color:var(--warn)}
+.empty{padding:26px;text-align:center;color:var(--muted)}
+.count{color:var(--muted);font-size:.9rem}
+.tel{font-weight:700;white-space:nowrap;text-decoration:none}
+.corp{color:var(--muted);font-size:.85rem}
+.area{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+mark{background:#fde68a;border-radius:3px;padding:0 1px}
+.note{font-size:.85rem;color:var(--muted);margin-top:14px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.85rem;color:var(--muted);align-items:center}
+button.ghost{font:inherit;border:1.5px solid var(--line);background:var(--paper);border-radius:10px;padding:9px 12px;min-height:44px;cursor:pointer;color:var(--ink)}
+#install{display:none}
+@media print{header .roles,nav.tabs,.toolbar,.note{display:none}body{background:#fff}}
+body{background:#eef1fb}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(120deg,#e0e7ff,#fce7f3,#fef9c3,#dcfce7,#cffafe,#ede9fe,#e0e7ff);background-size:400% 400%;animation:fondo 24s ease-in-out infinite}
+@keyframes fondo{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@media (prefers-reduced-motion:reduce){body::before{animation:none}}
+.brand{display:flex;align-items:center;gap:16px}
+.brand img{width:96px;height:auto;flex-shrink:0;filter:drop-shadow(0 4px 10px rgba(40,53,147,.15))}
+@media (max-width:600px){.brand img{width:70px}}
+th{background:rgba(247,248,253,.95)!important}
+nav.tabs,.roles{backdrop-filter:blur(8px)}
+@media print{body::before{display:none}}
+.monthnav{display:flex;gap:6px;align-items:center}
+.monthnav select{min-width:220px;font-weight:700}
+.monthnav .ghost{width:44px;font-size:1.3rem;padding:0}
+.bar{height:12px;background:rgba(40,53,147,.12);border-radius:99px;overflow:hidden;margin:4px 0 6px}
+.bar div{height:100%;background:linear-gradient(90deg,#283593,#5c6bc0);border-radius:99px;transition:width .4s}
+.nextcard{background:var(--paper);border:1.5px solid #c5cae9;border-left:6px solid var(--accent);border-radius:14px;padding:12px 16px;margin:12px 0 16px}
+tr.current td{background:rgba(227,231,251,.7)}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <div>
+      <div class="kicker">CEIP Capitulaciones · Equipo Directivo</div>
+      <h1>Agenda del curso</h1>
+      <p class="today" id="today"></p>
+    </div>
+    <div class="roles" id="roles" role="group" aria-label="Filtrar por cargo">
+      <button data-r="">👥 Todo</button>
+      <button data-r="D">Dirección</button>
+      <button data-r="J">Jefatura</button>
+      <button data-r="S">Secretaría</button>
+    </div>
+  </div>
+  <nav class="tabs" role="tablist">
+    <button role="tab" data-p="mes" aria-selected="true">📅 Por meses</button>
+    <button role="tab" data-p="esta" aria-selected="false">⏳ Esta semana</button>
+    <button role="tab" data-p="prox" aria-selected="false">➡️ Semana que viene</button>
+    <button role="tab" data-p="ce" aria-selected="false">🗳️ Elecciones CE</button>
+    <button role="tab" data-p="dir" aria-selected="false">☎️ Directorio DT Granada</button>
+  </nav>
+</header>
+<main>
+  <section class="panel on" id="p-mes">
+    <div class="toolbar">
+      <div class="monthnav"><button class="ghost" id="prevM" aria-label="Mes anterior">‹</button><select id="monthSel" aria-label="Mes"></select><button class="ghost" id="nextM" aria-label="Mes siguiente">›</button></div>
+      <select id="catSel"><option value="">Todos los ámbitos</option></select>
+      <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="qMes" placeholder="Buscar en todo el curso…"></div>
+      <label class="chk"><input type="checkbox" id="hideDone"> Ocultar hechas</label>
+      <button class="ghost" onclick="print()">🖨️ Imprimir</button>
+      <button class="ghost" id="install">📲 Instalar app</button>
+    </div>
+    <div class="legend" style="margin-bottom:10px"><span><span class="rb D">D</span>Dirección</span><span><span class="rb J">J</span>Jefatura de Estudios</span><span><span class="rb S">S</span>Secretaría</span><span class="count" id="cMes"></span></div>
+    <div class="wrap"><table><thead><tr><th></th><th>Fecha</th><th>Cargo</th><th>Ámbito</th><th>Qué hay que hacer</th></tr></thead><tbody id="tMes"></tbody></table></div>
+    <p class="note">Fuentes: Agenda de Jefatura y Direcciones 26-27 y Calendario de elecciones al CE 2026 (prioritarios cuando hay fechas distintas) y Cronología de la Webcretaría. Varias fechas cambian cada curso: confirmad con los calendarios oficiales antes de actuar. Las tareas marcadas como hechas se guardan en este dispositivo.</p>
+  </section>
+  <section class="panel" id="p-esta"></section>
+  <section class="panel" id="p-prox"></section>
+  <section class="panel" id="p-ce">
+    <div id="ceHead"></div>
+    <div class="wrap"><table><thead><tr><th></th><th>Paso</th><th>Fecha</th><th>Actuación</th><th>Cargo</th></tr></thead><tbody id="tCE"></tbody></table></div>
+    <p class="note">Estos pasos también aparecen en el calendario por meses y en las semanas. En naranja: fecha pasada sin marcar como hecho.</p>
+  </section>
+  <section class="panel" id="p-dir">
+    <div class="toolbar">
+      <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="qDir" placeholder="Busca por nombre, servicio, tema (sustituciones, becas, comedor…) o teléfono" autocomplete="off"></div>
+      <span class="count" id="cDir"></span>
+    </div>
+    <div class="wrap"><table><thead><tr><th>Servicio / Unidad</th><th>Nombre</th><th>Teléfono</th><th>Correo</th></tr></thead><tbody id="tDir"></tbody></table></div>
+  </section>
+</main>
+<script>
+const W='https://webcretaria.iesgrancapitan.org/';
+const L={bon:'_bonificaciones_del_1_al_7_de_septiembre.html',cert:'certificacin_de_matrcula_y_publicacin_de_vacantes_tras_grabar_las_solicitudes_de_matriculacin.html',sscc:'servicios_complementarios_del_centro_del_1_al_10_de_junio.html',tipc:'procedimiento_tipo_c_participacin_sujeta_a_convocatoria_especfica.html',anx:'anexos.html',ev:'evaluacin.html',pres:'_control_de_presencia.html',prog:'planes_y_programas_educativos.html',neae:'becas_neae.html',ce:'_consejo_escolar.html',bprov:'bonificaciones_provisionales.html',bdef:'bonificaciones_definitivas.html',ape:'apertura_del_ejercicio_econmico.html',pglt:'_programa_de_gratuidad_de_libros_de_texto_pglt.html',man:'manuales_de_procedimientos_tutoriales_e_impresos.html',aeat:'ficheros_aeat.html',adsc:'adscripcin_al_ies_de_los_alumnos_que_terminan_6.html',prev:'previo_al_proceso_de_admisin_antes_del_1_de_marzo.html',adm:'_admisin_del_1_al_31_de_marzo.html',tras:'tras_grabar_las_solicitudes_de_admisin.html',pmat:'previo_al_proceso_de_matriculacin_antes_del_1_de_junio.html',mat:'_matriculacin_del_1_al_8_de_junio.html',proa:'proa_andaluca.html',aacc:'cuestionario_deteccin_altas_capacidades.html',ipasen:'ipasen.html',pc:'plan_de_centro.html',plant:'plantilla_de_funcionamiento_gestin_de_cupo.html',bil:'auxiliares_de_conversacin.html'};
+const CAT={ORG:'Organización y horarios',EV:'Evaluación',CONV:'Convivencia',CE:'Consejo Escolar',ADM:'Admisión',MAT:'Matriculación',SSCC:'Servicios y programas PAC',BON:'Bonificaciones',GE:'Gestión económica',PGLT:'Gratuidad libros',PROG:'Planes y programas',PER:'Personal',VAR:'Varios'};
+// [mes, inicio, fin, texto fecha, cargos, ámbito, título, detalle, ruta Séneca, enlace]   inicio 0 = sin fecha fija
+const TW=[
+[9,1,9,'Hasta el 9','S','MAT','Certificación de matrícula','','','cert'],
+[9,1,7,'','S','BON','Presentación de las solicitudes de bonificación','','','bon'],
+[9,1,1,'','DS','SSCC','Adjudicación provisional de SSCC Fase II: listado de admitidos/suplentes y certificado de publicación','Solo centros con alumnado de IES asociado. Listado: firma dirección. Certificado: firman dirección y secretaría (se genera UNA sola vez). Queda en Séneca.','Documentos → Centro → Servicios Complementarios del Plan de Ayuda a las Familias Andaluzas',''],
+[9,2,15,'','S','SSCC','Plazo de alegaciones a la Fase II de SSCC','','',''],
+[9,1,9,'Antes del 10','S','SSCC','Declaración de usuarios admitidos (centros que solo tienen Fase I)','Con Fase II se declaran desde el 18. Alumnado al corriente de pago del curso anterior.','','sscc'],
+[9,10,30,'Desde el 10','S','SSCC','Admisión manual en SSCC si hay vacantes (Fase III)','Antes hay que haber declarado los usuarios de la fase anterior.','','sscc'],
+[9,17,17,'','DS','SSCC','Último día de alegaciones Fase II y aprobación de listados definitivos en Consejo Escolar','A las 15:00 se bloquea la adjudicación.','',''],
+[9,18,18,'','DS','SSCC','Adjudicación definitiva Fase II (anexo IV) y certificado de publicación','Certificar para habilitar la consulta en Secretaría Virtual. Desde hoy se declaran usuarios de Fase II.','',''],
+[9,21,30,'Finales de mes','DJ','SSCC','Solicitud de PROA Andalucía','Fecha variable. Validar y cerrar el candado.','Centro → Servicios ofertados → Resto de servicios → Solicitud de servicios no PAC','tipc'],
+[9,21,30,'Finales de mes','DJ','SSCC','Solicitud de PREX (Refuerzo de Lengua Extranjera)','Nº de grupos por nivel. Validar y cerrar el candado.','Centro → Servicios ofertados → Resto de servicios → Solicitud de servicios no PAC','tipc'],
+[9,21,30,'Finales de mes','DS','SSCC','Solicitud de Más Deporte','Marcar deportes. Validar y cerrar el candado.','Centro → Servicios ofertados → Resto de servicios → Solicitud de servicios no PAC','tipc'],
+[9,1,30,'Hasta el 30','SD','GE','Aprobar en Consejo Escolar los anexos XI específicos (PROA, PALE, Transfórmate+…) y cierre de contabilidad del curso anterior','Mayoría absoluta; fecha de certificación posterior al CE; gastos ≤ ingresos. Firmar digitalmente.','Gestión económica → Generación de anexos → Anexo XI específico','anx'],
+[9,1,30,'Antes del 30','J','EV','Grabar equipos de tránsito Infantil–Primaria y Primaria–ESO','','Alumnado → Programa de tránsito','ev'],
+[9,0,0,'','J','EV','Activar las convocatorias oficiales de evaluación','','','ev'],
+[9,0,0,'','DJ','ORG','Configurar Control de Presencia (geolocalización, PIN y QR) y comunicar el PIN a cada docente','','','pres'],
+[9,0,0,'','S','ORG','Activar iPasen para familias','1º confirmar tutores legales; 2º activar usuarios (tutores y alumnado).','Utilidades → Panel de control Pasen → Gestión de usuarios Pasen','ipasen'],
+[9,1,30,'Hasta el 30','D','PROG','Solicitar Planes y Programas Educativos y asignar coordinaciones','','Centro → Planes y Programas Educativos','prog'],
+[9,1,15,'Antes del 15','D','PROG','Asignar perfiles de coordinación (programas, tutorías…)','','Personal → Personal del centro → Asignación de perfiles',''],
+[9,1,11,'Hasta el 11','S','VAR','Becas NEAE del Ministerio (tramitación)','','','neae'],
+[10,0,0,'','S','BON','Listado provisional de bonificaciones y certificado de publicación','','','bprov'],
+[10,0,0,'','SD','BON','Resolución de bonificaciones definitivas y notificación individual a familias','Enviar a la bandeja de firmas de dirección.','Documentos → Servicios Complementarios… → Notificaciones individuales de bonificaciones','bdef'],
+[10,0,0,'','S','GE','Apertura del nuevo ejercicio económico','','','ape'],
+[10,1,30,'Antes del 30','SD','GE','Cierre del ejercicio anterior: estado de cuentas y presupuesto aprobados en Consejo Escolar','Generar y firmar anexos (Orden 10/05/2006, arts. 4 y 15).','','ape'],
+[10,1,31,'Antes del 31','S','PGLT','Tener grabadas en Séneca todas las facturas de librerías','','','pglt'],
+[10,0,0,'','D','ORG','Grabar coordinadores de ciclo','','Centro → Organización del centro → Órganos del centro → Órganos de coordinación docente',''],
+[10,0,0,'','D','PER','Asignar tutores/as del profesorado en prácticas','Solo con perfil de dirección.','Personal → Profesorado en prácticas → Asignación de tutores','man'],
+[11,2,8,'','S','MAT','Certificación de matrícula','','','cert'],
+[11,1,15,'Hasta el 15','D','ORG','Grabar Plan de Mejora e informe de aprobación del Consejo Escolar','Ambos en el mismo sitio. Pendiente de novedades 26/27.','Centro → Proceso de Autoevaluación y Mejora → Plan de Mejora',''],
+[11,0,0,'','D','CE','Convocar CE extraordinario «Día de la Constitución» si no está en el PAC','','',''],
+[12,20,31,'Desde el 20','D','PER','Propuesta inicial de vacantes (hasta el 12 de enero)','','Personal → Planificación de la plantilla → Planificación de puestos',''],
+[1,1,17,'Hasta el 17','S','GE','Fichero 190 – Retenciones de IRPF','','','aeat'],
+[1,1,31,'Hasta el 31','S','GE','Fichero 347 – Pago a proveedores','','','aeat'],
+[1,25,31,'Final de mes','SD','GE','Consejo Escolar: presupuesto de ingresos y gastos actualizado','Tras conocer el presupuesto asignado al centro.','',''],
+[1,1,9,'Primeros días','S','VAR','Iniciar libro de registro de entrada y salida del año nuevo','Secuencia a 1 en entrada y salida.','Utilidades → Registro electrónico → Configuración',''],
+[1,1,12,'Hasta el 12','D','PER','Propuesta inicial de vacantes','','Personal → Planificación de la plantilla → Planificación de puestos',''],
+[1,0,0,'','DJ','EV','Claustro y Consejo Escolar: análisis de resultados de la 1ª evaluación','','',''],
+[1,28,31,'','DJS','ORG','Planificación de unidades y estimación de alumnado del próximo curso','Sin casillas en blanco (ceros). Justificar en Observaciones si difiere de la DT. Incluir aula específica.','Centro → Planificación → Gestión de la Planificación',''],
+[2,15,28,'2ª quincena','S','ADM','Comunicar a familias de 6º las adscripciones autorizadas al IES','','','adsc'],
+[2,15,28,'2ª quincena','D','ADM','Autorización de la oferta educativa','','','prev'],
+[2,15,28,'Antes del 1/03','D','ADM','Difundir el proceso de escolarización (guarderías, RRSS) y organizar jornadas de puertas abiertas','','','prev'],
+[2,0,0,'','D','CE','Convocar CE extraordinario «Día de Andalucía» si no está en el PAC','','',''],
+[3,1,2,'Antes del 2','S','ADM','Publicar en el tablón la documentación inicial de admisión','Web Consejería, oferta, áreas de influencia, adscripciones, Plan de Centro, recursos NEE, SSCC, normativa y calendario.','','prev'],
+[3,1,31,'','S','ADM','Plazo de solicitudes de admisión','','','adm'],
+[4,1,12,'','S','ADM','Grabar las solicitudes recibidas en papel','Desde el 13 no se graban nuevas (fuera de plazo: 5-13 mayo).','Alumnado → Admisión → Relación de solicitudes','tras'],
+[4,21,21,'','SD','ADM','Publicar relación alfabética de solicitudes y su certificado','Publicar en el tablón.','Alumnado → Admisión → Enseñanzas de 2º ciclo EI a Bachillerato','tras'],
+[4,22,22,'','SD','ADM','Publicar relación baremada del alumnado solicitante','Expuesta hasta el final del trámite de audiencia.','Alumnado → Admisión → Relación baremada','tras'],
+[4,23,30,'Desde el 23','S','ADM','Trámite de audiencia (10 días lectivos)','Vista de expedientes y alegaciones previa petición escrita.','','tras'],
+[5,5,13,'','S','ADM','Grabar solicitudes recibidas fuera de plazo','','Alumnado → Admisión → Relación de solicitudes','tras'],
+[5,11,11,'','S','ADM','Fin del trámite de audiencia: grabar modificaciones','','','tras'],
+[5,1,12,'Hasta el 12','D','ADM','Consejo Escolar: resolución de alegaciones y puntuación definitiva','','','tras'],
+[5,14,14,'','D','ADM','Sorteo público para dirimir empates','','','tras'],
+[5,15,15,'','SD','ADM','Publicar resultado del sorteo y resolución de admisión con sus certificados','','Alumnado → Admisión → Resultado del sorteo / Resolución del procedimiento','tras'],
+[5,1,15,'Antes del 15','S','ADM','Exposición de vacantes de los centros de la zona para el alumnado no admitido','','',''],
+[5,26,26,'','SD','ADM','Publicar adjudicación de plaza al alumnado no admitido (reubicación) y su certificado','','Alumnado → Admisión → Adjudicación de plaza escolar al alumnado no admitido','tras'],
+[5,27,31,'Desde el 27','D','ADM','Recursos de alzada y reclamaciones','','','tras'],
+[5,25,30,'Antes del 30','S','MAT','Configurar el sobre de matrícula','','','pmat'],
+[5,5,15,'','D','SSCC','Solicitar Programa de Refuerzo Educativo estival','Adjuntar actas de Claustro y Consejo Escolar.','Centro → Servicios ofertados → Resto de servicios → Solicitud de servicios no PAC','sscc'],
+[5,1,20,'Antes del 20','DS','SSCC','Uso de instalaciones fuera del horario escolar: anexo VI a la DT con informe del CE','','Centro → Servicios ofertados → Plan de apoyo a las familias → Autorización de proyectos',''],
+[5,1,31,'Antes del 31','SD','PGLT','Selección de libros de texto en Consejo Escolar (cuando toque cambiarlos)','','','pglt'],
+[5,1,31,'Antes del 31','S','PGLT','Solicitud de aumento de cuantía (anexo VI)','','','pglt'],
+[6,1,8,'','S','MAT','Matriculación en Infantil, Primaria y aula específica','','','mat'],
+[6,1,15,'Hasta el 15','SD','MAT','Certificación de matrícula (del 10 al 15, también Religión)','','','cert'],
+[6,20,30,'Desde el 20','S','MAT','Envío a la DT de anexos IX y solicitudes de reagrupación de hermanos','','','cert'],
+[6,1,10,'','S','SSCC','Grabar servicios complementarios (aula matinal, comedor, extraescolares, transporte)','El 11 de junio a las 15:00 se desactiva la opción de probar adjudicaciones.','','sscc'],
+[6,1,15,'','DS','SSCC','Solicitud del profesorado para colaborar en la atención al comedor','Orden 17/04/2017, art. 10.3.','','sscc'],
+[6,1,12,'Antes del 12','SD','SSCC','Publicar listado provisional de SSCC (anexo III, Fase I) y su certificado','Por resolución del Consejo Escolar.','','sscc'],
+[6,13,26,'','S','SSCC','Plazo de alegaciones a la adjudicación provisional de SSCC','','',''],
+[6,20,25,'Hasta el 25','SD','SSCC','Grabar horas de colaboración en comedor y generar certificación','Catering: máx. 1:30 h/día (267 h). Gestión directa: 2 h/día (356 h). Firma secretaría y dirección; valida la DT.','Centro → Servicios ofertados → Servicios del centro → Comedor → Empleados/as participantes','sscc'],
+[6,27,27,'','DS','SSCC','Último día de alegaciones SSCC y aprobación en CE de listados definitivos','','',''],
+[6,28,28,'','SD','SSCC','Adjudicación definitiva SSCC en Séneca y publicación de admitidos y suplentes (anexo IV, Fase I)','','','sscc'],
+[6,30,30,'','SD','SSCC','Generar listado definitivo de SSCC y certificado de publicación','','','sscc'],
+[6,1,30,'Antes del 30','DS','PROG','Certificar la participación en PROA y PREX','Coordinación, mentores, profesorado y Religión. Firma secretaría y dirección.','Documentos → Centro → Planes y Proyectos Educativos → PROA','proa'],
+[6,1,22,'Antes del 22','J','EV','Cuestionarios de detección de altas capacidades (5 años y 6º) para maestras y familias','','','aacc'],
+[6,0,0,'','S','EV','Calcular la nota media de los mejores expedientes','','','ev'],
+[6,0,0,'','J','EV','Facilitar a tutores la «sábana» de evaluación','','','ev'],
+[6,1,30,'Antes del 30','S','PGLT','Anexo XI específico de Gratuidad de Libros de Texto','','','pglt'],
+[6,1,25,'Antes del 25','S','PGLT','Generar y entregar cheques-libro a las familias','','','pglt'],
+[6,1,30,'Antes del 30','SD','PGLT','Grabar listado de libros aprobado por CE y publicar en tablón junto al material escolar','Decreto 227/2011, art. 17.','','pglt'],
+[6,1,9,'Antes del 10','J','VAR','Cuestionario de satisfacción con el asesoramiento del CEP','','Centro → Cuestionarios → Asesoramientos CEP',''],
+[6,1,22,'Del 1 al 22','DJ','ORG','Comunicar a Inspección los proyectos interdisciplinares (áreas de diseño propio)','Visto bueno ETCP y aprobación del Claustro. Por Ventanilla electrónica.','',''],
+[6,1,30,'Antes del 30','D','PER','Revisar tutorías y firmar la certificación final de la función tutorial','Recoger bajas y sustituciones del curso.','Documentos → Alumnado → Unidades del centro → Relación de funciones tutoriales',''],
+[7,22,31,'Desde el 22','S','MAT','Reagrupación de hermanos en colegios (hasta el 15 de septiembre)','','','cert']
+];
+const TA=[
+// SEPTIEMBRE
+[9,1,1,'Antes del 1','DJ','ORG','Plan de trabajo y reuniones para la semana previa a la llegada del alumnado','','',''],
+[9,1,9,'Antes del 10','DJ','ORG','Propuesta y nombramiento de tutores/as','','',''],
+[9,1,9,'Antes del 10','J','ORG','Periodo de adaptación del 2º ciclo de Infantil','Decreto 301/2009, art. 6.','',''],
+[9,1,9,'Antes del 10','S','PGLT','Publicar en el tablón libros de texto y listas de material de Infantil y Primaria','','',''],
+[9,1,9,'Antes del 10','J','ORG','Propuesta de horarios del profesorado para aprobación de dirección','Orden 15/01/2021, art. 9.','',''],
+[9,1,9,'Antes del 10','J','ORG','Sistema de gestión de sustituciones y cuadrante de vigilancia de recreos','','',''],
+[9,1,9,'Antes del 10','S','ORG','Generar, imprimir y entregar credenciales iPasen a nuevas familias','','','ipasen'],
+[9,1,9,'Antes del 10','DJ','CONV','Claustro: Plan de Convivencia y protocolos (NEAE, absentismo, progenitores separados, emergencias, maltrato, acoso)','','',''],
+[9,1,9,'Antes del 10','J','ORG','Información del alumnado a cada tutoría (NEAE, custodias, absentismo, alergias…) y autorizaciones de recogida','','',''],
+[9,1,9,'Antes del 10','J','ORG','Plan de reuniones del profesorado','','',''],
+[9,1,9,'Antes del 10','J','ORG','Definir jornada escolar y horarios base del personal en Séneca','','Centro → Calendario y Jornada → Jornada escolar · Personal → Ausencias → Horario base',''],
+[9,1,9,'Antes del 10','J','ORG','Grabación de tutorías de cada unidad','Repetir cada vez que llegue un sustituto o se amplíe la sustitución.','Alumnado → Unidades → Relación de unidades → Tutorías de la unidad',''],
+[9,1,9,'Antes del 10','DJ','ORG','Propuesta de coordinaciones de equipos de ciclo y orientación','','',''],
+[9,1,9,'Antes del 10','SD','VAR','Actualizar documentación de guarda y custodia del alumnado','Protocolo ante progenitores separados o divorciados.','',''],
+[9,1,15,'Antes del 15','J','PER','Detectar necesidades de formación (formación en centro, grupos de trabajo…)','Decreto 328/2010, art. 88.','',''],
+[9,1,20,'Antes del 20','J','ORG','Calendario de reuniones de tutoría con familias y citaciones','','',''],
+[9,1,20,'Antes del 20','J','ORG','Registro y propuestas sobre el Plan de Trabajo del EOE; revisar protocolos NEAE','','',''],
+[9,1,30,'Antes del 30','J','ORG','Grabación de los horarios del profesorado y verificación de carga horaria','Resolución 6/10/2005, art. 5.','Personal → Personal del centro → Horario regular',''],
+[9,1,30,'Antes del 30','J','PER','Grabar profesorado participante en el Prácticum de Grado de Maestro','','Centro → Planes y Programas Educativos',''],
+[9,1,30,'Antes del 30','J','ORG','Grabar delegados/as de madres y padres','Decreto 328/2010, art. 6.','Alumnado → Unidades → Madres/Padres delegados',''],
+[9,1,30,'Antes del 30','JS','VAR','Informar a familias NEAE de la convocatoria de becas y ayudas','','','neae'],
+[9,1,30,'Antes del 30','D','VAR','Grabar coordinador/a del Plan de Salud Laboral y PRL','Orden 16/04/2008.','',''],
+[9,1,30,'Antes del 30','J','PROG','Bilingüismo: horario del auxiliar de conversación y datos de enseñanza bilingüe','Posiblemente no se realice en 26/27.','Centro → Planes y Programas Educativos','bil'],
+[9,1,30,'Antes del 30','J','ORG','Plan de reuniones de los órganos de coordinación docente','','',''],
+[9,1,30,'Antes del 30','D','PER','Cargos de coordinación y equipo directivo en Séneca y envío a RRHH','','',''],
+[9,1,30,'Antes del 30','J','EV','Instar al profesorado a configurar el cuaderno de Séneca','','',''],
+[9,1,30,'Antes del 30','J','PER','Plan de formación del profesorado: elaborar, aprobar y enviar al CEP','','',''],
+[9,1,30,'Antes del 30','D','PROG','Elaboración del Plan de Actuación Digital (PAD)','','',''],
+// OCTUBRE
+[10,1,9,'Antes del 10','J','EV','Configurar y crear las sesiones de evaluación inicial (I3 a 6º)','La evaluación inicial numérica solo en Infantil.','Alumnado → Evaluación → Convocatorias / Sesiones de evaluación','ev'],
+[10,1,9,'Antes del 10','J','EV','Calendario de sesiones de evaluación inicial y convocatoria de equipos docentes','','',''],
+[10,1,9,'Antes del 10','J','EV','Sesión de evaluación inicial: actas con medidas de apoyo, refuerzo, adaptaciones y exentos de 2ª lengua','Orden 15/01/2021, art. 14.4.','',''],
+[10,1,9,'Antes del 10','J','EV','Programas de refuerzo en Séneca según la evaluación inicial','','',''],
+[10,1,9,'Antes del 10','JS','EV','Registrar alumnado exento de la 2ª lengua extranjera','','Alumnado → Matriculación → Relación de matrículas → Materias de la matrícula',''],
+[10,1,9,'Antes del 10','J','ORG','Documentación para la primera reunión de tutoría con familias y elección de delegados','Orden 20/06/2011, art. 15.','',''],
+[10,1,9,'Antes del 10','DJ','ORG','Constitución de equipos y comisiones de proyectos y aprobación en ETCP','','',''],
+[10,1,9,'Antes del 10','S','VAR','Recepción de becas y remisión a la Delegación Territorial','','','neae'],
+[10,1,9,'Antes del 10','J','PROG','Auxiliar de conversación: confirmar incorporación, anexos VIII y I','Posiblemente no se realice en 26/27.','','bil'],
+[10,1,15,'Antes del 15','J','ORG','Reuniones informativas de tutores con las familias','Orden 20/06/2011, art. 15.2.','',''],
+[10,1,15,'Antes del 15','D','PROG','Rúbrica TDE (Escuela STEAM 4.0), actualización del PAD y test CDD','','Personal → Competencia Digital Docente',''],
+[10,25,30,'','DJ','CONV','Revisión y actualización del Plan de Convivencia','Orden 20/06/2011.','',''],
+[10,1,30,'Antes del 30','J','PROG','Bilingüismo: horario del auxiliar a la DT y registro de profesorado y alumnado bilingüe','','','bil'],
+// NOVIEMBRE
+[11,1,5,'Antes del 5','DJ','PER','Revisar tutorías y firmar la certificación de la función tutorial (Instrucción 2/2009)','Firma dirección y queda en Séneca. Repetir si cambian interinos.','Alumnado → Unidades del centro → Relación de funciones tutoriales',''],
+[11,1,15,'Hasta el 15','J','EV','Grabar programaciones didácticas y propuestas pedagógicas (ponderaciones opcionales)','','Alumnado → Evaluación → Currículo por competencias → Programaciones didácticas',''],
+[11,1,15,'Antes del 15','DJ','ORG','Claustro: aprobación de propuestas pedagógicas y programaciones actualizadas','Decreto 328/2010, art. 27.','',''],
+[11,1,15,'Hasta el 15','D','ORG','Grabar el Plan de Centro con sus modificaciones','','Centro → Planes de Centro','pc'],
+// DICIEMBRE
+[12,1,21,'Antes del 21','J','EV','Crear las sesiones de evaluación del 1er trimestre','','Alumnado → Evaluación → Sesiones de evaluación','ev'],
+[12,1,22,'Antes del 22','DJ','EV','Análisis de resultados en ETCP y propuestas de mejora; informe a Inspección','','Documentos → Alumnado → Evaluación → Estadísticas de aprobados',''],
+[12,1,22,'Antes del 22','D','VAR','Simulacro de evacuación y grabación en Séneca','','',''],
+// FEBRERO
+[2,1,5,'Del 1 al 5','DJ','EV','Permanencia extraordinaria en Infantil (alumnado NEE)','Orden 29/12/2008.','',''],
+// MARZO
+[3,1,19,'Antes de Semana Santa','J','EV','Crear las sesiones de evaluación del 2º trimestre','Revisar fecha de Semana Santa 2027.','Alumnado → Evaluación → Sesiones de evaluación','ev'],
+[3,1,25,'Antes del 25','DJ','EV','Análisis de resultados y propuestas de mejora; informe a Inspección','','',''],
+// ABRIL
+[4,1,22,'Antes del 22','J','EV','Análisis en ETCP de los resultados del 2º trimestre','','Documentos → Alumnado → Evaluación → Estadísticas de aprobados',''],
+[4,1,30,'Antes del 30','DS','VAR','Solicitar a la DT obras y equipamientos para las unidades del próximo curso','','',''],
+// MAYO
+[5,1,15,'Antes del 15','D','ORG','Si finaliza mandato: remitir la Memoria de Autoevaluación de la dirección','Orden 09/11/2020, art. 24.2.','',''],
+[5,16,31,'','D','CE','Si finaliza mandato: Consejo Escolar extraordinario sobre la memoria','','',''],
+[5,1,31,'Todo el mes','DS','ADM','Proceso de escolarización: reuniones, certificaciones y publicaciones','','',''],
+[5,10,30,'','DJ','CONV','Escuela Espacio de Paz: memoria y solicitud de Convivencia+ (opcional)','Orden 11/04/2011.','Centro → Planes y Proyectos Educativos → Red Escuela Espacio de Paz',''],
+[5,25,30,'','DJ','CONV','Claustro monográfico sobre convivencia','','',''],
+[5,25,30,'','DJ','ORG','Planificación de actuaciones de tránsito entre etapas','Orden 15/01/2021, cap. V.','',''],
+[5,25,30,'Antes del 30','J','EV','Revisar la promoción del alumnado en Séneca','','Alumnado → Evaluación → Calificaciones → Promoción',''],
+// JUNIO
+[6,1,15,'Antes del 15','J','EV','Calendario y documentación de final de curso para el profesorado (calificaciones, actas, boletines)','','',''],
+[6,1,15,'Antes del 15','D','PROG','Certificación de la coordinación del Plan de Igualdad','Necesita la fecha de aprobación del CE.','Centro → Planes y Proyectos Educativos',''],
+[6,1,15,'Antes del 15','DJ','CONV','Informe de convivencia al Consejo Escolar, Comisión de Convivencia e Inspección','','',''],
+[6,1,15,'Antes del 15','J','PROG','Auxiliares de conversación: justificación de ayudas económicas','','','bil'],
+[6,1,20,'Hasta el 20','J','CONV','Enviar documentación Convivencia+ (opcional)','','',''],
+[6,1,23,'Antes del 23','J','EV','Crear las sesiones de evaluación final','','Alumnado → Evaluación → Sesiones de evaluación','ev'],
+[6,1,22,'Antes del 22','J','EV','Análisis en ETCP de los resultados y propuestas de mejora','','',''],
+[6,1,25,'Antes del 25','J','EV','Verificar boletines: ** para alumnado con ACI y no calificación de 2ª lengua a exentos','','',''],
+[6,1,25,'Antes del 25','DJ','EV','Análisis de resultados e informe a Inspección; actilla de evaluación a bandeja de firmas','','',''],
+[6,1,28,'Antes del 28','J','EV','Velar por la cumplimentación y firma de todos los documentos de evaluación','','',''],
+[6,25,30,'Desde el 25','D','EV','Informe de indicadores homologados del centro','','Documentos → Centro → Indicadores homologados',''],
+[6,1,30,'Antes del 30','DJ','PROG','Memorias anuales de programas educativos y certificación de participación','Firman coordinación y dirección.','Centro → Planes y Proyectos Educativos','prog'],
+[6,1,30,'Antes del 30','DJ','PER','Actas de desplazamiento del profesorado con insuficiencia horaria','Remitir a RRHH en 24 h desde su firma.','','plant'],
+[6,1,30,'Antes del 30','D','CE','Consejo Escolar: aprobación de la memoria del Plan de Igualdad','','',''],
+[6,1,30,'Antes del 30','S','PER','Certificación de la formación del profesorado','','Utilidades → Formación del personal del centro',''],
+[6,1,30,'Antes del 30','DS','PROG','Generar certificados de planes y programas','','','prog'],
+// JULIO / AGOSTO
+[7,1,3,'Antes del 3','D','PER','Planificación de la plantilla del próximo curso','','Personal → Planificación de la plantilla → Planificación de puestos','plant'],
+[7,1,31,'Hasta el 31/08','DJ','ORG','Grabar la Memoria de Autoevaluación tras su aprobación','Decreto 328/2010, art. 26.','Centro → Proceso de Autoevaluación y Mejora → Memoria de Autoevaluación',''],
+[8,1,31,'Hasta el 31','DJ','ORG','Grabar la Memoria de Autoevaluación (último plazo)','','Centro → Proceso de Autoevaluación y Mejora → Memoria de Autoevaluación',''],
+[7,0,0,'Periodo estival','DJ','ORG','Dossier/USB de bienvenida al profesorado con la documentación del centro','','',''],
+[8,0,0,'Periodo estival','DJ','ORG','Plan de trabajo y reuniones de la semana previa a la llegada del alumnado','','',''],
+[8,0,0,'Periodo estival','JS','VAR','Comunicar a familias NEAE la convocatoria de becas y ayudas','','','neae']
+];
+// tareas que se repiten
+const REP=[];
+[10,11,12,1,2,3,4,5,6].forEach(m=>{
+  REP.push([m,1,5,'Del 1 al 5','DJ','PER','Generar parte de baja mensual, firmarlo y publicarlo en la sala de profesorado','','',''],
+           [m,1,5,'Del 1 al 5','J','CONV','Revisión de la asistencia del alumnado y comunicación a familias','','',''],
+           [m,1,5,'Del 1 al 5','J','CONV','Grabar casos comunicados al Equipo Técnico de Absentismo','','','']);
+});
+[9,10,11,12,1,2,3,4,5,6].forEach(m=>REP.push([m,25,31,'Del 25 al 30','J','CONV','Grabación de partes de convivencia','','Alumnado → Seguimiento de la convivencia','']));
+[12,3,6].forEach(m=>REP.push([m,25,31,'Del 25 al 30','J','CONV','Informe trimestral de convivencia','Informar al CE, Comisión de Convivencia e Inspección.','Alumnado → Seguimiento de la convivencia → Evaluación de la convivencia','']));
+[9,1,4].forEach(m=>REP.push([m,1,30,'Antes del 30','D','VAR','Actualizar el Plan de Autoprotección en Séneca (trimestral)','Orden 16/04/2008 · Instrucción 10/2018.','','']));
+[9,10,11,12,1,2,3,4,5,6,7,8].forEach(m=>REP.push([m,0,0,'','S','GE','Arqueo de caja y conciliación bancaria','Anexos XIII y XII/XII bis. Obligatoria (Orden 10/05/2006, art. 14).','','anx']));
+
+const RS='Centro → Organización del Centro → Órganos del centro → Consejo Escolar → Consejo Escolar → ';
+// [paso, [mes,día inicio], [mes,día fin], texto fecha, actuación, observaciones, ruta]
+const CEP=[
+[1,[9,14],[9,14],'14/09','Convocar Claustro para el 21/09: información sobre el inicio de las elecciones','Punto único: procedimiento de elección convocado por Resolución de 7/09/2026.',''],
+[2,[9,14],[9,14],'14/09','Convocar Consejo Escolar para el 21/09: información sobre el inicio de las elecciones','Punto único: procedimiento de elección convocado por Resolución de 7/09/2026.',''],
+[3,[9,14],[9,14],'14/09','Publicar calendario y tutorial de voto electrónico en el tablón de Pasen','Noticia a las familias con la Resolución y el calendario.',''],
+[4,[9,14],[9,17],'Antes del 18/09','Configurar el proceso electoral en Séneca','Tipo de proceso y consejo; fechas de constitución de la Junta Electoral (p. ej. 28/09) y del Consejo Escolar (p. ej. 14/12).',RS+'Detalle del proceso electoral'],
+[5,[9,14],[9,17],'Antes del 18/09','Grabar el cupo de cada sector','Si el AMPA mayoritaria designa representante, restar un cupo al sector de familias (se graba en Definición de miembros).',RS+'Cupo del Consejo Escolar'],
+[6,[9,14],[9,18],'14–18/09','Generar el censo de acceso restringido para sortear la Junta Electoral','Cargar censo, validar y generar listado por sectores (consulta interna).',RS+'Censo del proceso electoral'],
+[7,[9,18],[9,21],'18 o 21/09','Enviar convocatoria de constitución de la Junta Electoral (p. ej. para el 28/09)','Al primer titular con registro de salida; suplentes por teléfono. Orden del día: constitución, censo, organización del proceso y solicitud al AMPA y Ayuntamiento.',''],
+[8,[9,21],[9,25],'21–25/09','Sorteo público de los miembros de la Junta Electoral','3 por sector (1 titular y 2 suplentes): familias, profesorado, PAS, PAE. Acta al tablón con registro de salida y llamar a los sorteados.',''],
+[9,[9,25],[9,30],'Antes del 01/10','Validar el cupo en Séneca','Marcar, validar y aceptar.',RS+'Cupo del Consejo Escolar'],
+[10,[9,28],[10,2],'28/09–02/10','Constituir la Junta Electoral','Acta, anexo con calendario y credenciales por sector con registro de salida. Grabar sus miembros en Séneca.',RS+'Junta Electoral'],
+[11,[10,1],[10,7],'01–07/10','Generar censo de acceso público y publicación provisional','Aparece en Pasen. Dejar copia impresa en Conserjería. Abre plazo de reclamaciones.',RS+'Censo del proceso electoral'],
+[12,[9,28],[10,7],'Tras constituir la Junta','Solicitar al AMPA/AFA y al Ayuntamiento que designen representante en el CE','Firmar, registro de salida y enviar por correo electrónico.',''],
+[13,[10,8],[10,13],'Antes del 14/10','Publicación definitiva del censo tras las reclamaciones','Aparece en Pasen. Copia en Conserjería.',''],
+[14,[10,14],[10,14],'Antes del 15/10','Validar el censo en Séneca','',RS+'Censo del proceso electoral'],
+[15,[10,14],[10,27],'14–27/10','Admisión de candidaturas','Facilitar modelo de candidatura y grabarlas en Séneca.',RS+'Candidaturas al Consejo Escolar'],
+[16,[10,14],[10,27],'Antes del 28/10','Grabar la persona representante designada por el AMPA/AFA','Marcar la casilla de representante.',RS+'Miembro del Consejo Escolar'],
+[17,[10,28],[10,28],'28/10','Publicar lista provisional de candidaturas','',RS+'Candidaturas al Consejo Escolar'],
+[18,[10,29],[10,29],'29/10','Día de reclamaciones a la lista provisional','Se presentan por registro.',''],
+[19,[10,30],[10,30],'30/10','Resolver reclamaciones y publicar lista definitiva de candidaturas','Art. 6.3 Orden 7/10/2010.',RS+'Candidaturas al Consejo Escolar'],
+[20,[10,30],[10,30],'Antes del 31/10','Validar las candidaturas en Séneca','',RS+'Candidaturas al Consejo Escolar'],
+[21,[11,3],[11,12],'03–12/11','Campaña electoral y voto electrónico de las familias','La campaña la realizan los candidatos.',''],
+[22,[11,1],[11,6],'Antes del 07/11','Confeccionar las papeletas de voto','Ruta Séneca pendiente de publicar.',''],
+[23,[11,3],[11,9],'Antes del 10/11','Sorteo y grabación de los componentes de las mesas electorales','',RS+'Mesas Electorales'],
+[24,[11,10],[11,16],'10–16/11','Recepción del voto no presencial en doble sobre (familias)','Recibir los votos en sobre cerrado.',''],
+[25,[11,16],[11,16],'16/11','Generar censo de acceso restringido para el control del voto en la mesa','Ruta Séneca pendiente de publicar.',''],
+[26,[11,17],[11,17],'17/11','Elecciones del sector familias y apertura de la urna electrónica','Publicar horarios con antelación.',RS+'Resultados de la votación electrónica'],
+[27,[11,19],[11,19],'19/11','Elecciones presenciales de profesorado, PAS y PAEC','Publicar horarios con antelación. (El 18/11 es para alumnado de ESO: no aplica.)',''],
+[28,[11,19],[11,19],'Antes del 20/11','Grabar el resultado de las votaciones de todos los sectores','Art. 15.5 Orden 7/10/2010.',RS+'Resultados del proceso electoral'],
+[29,[11,20],[12,1],'Antes del 02/12','Proclamación de representantes electos y grabación en Séneca','Si no hay reclamaciones puede hacerse antes. Art. 62 Decreto 328/2010.',''],
+[30,[12,2],[12,2],'02/12','Remitir las actas de las mesas electorales a la Delegación','Pendiente de confirmar con Inspección de referencia.',''],
+[31,[12,7],[12,7],'07/12','Convocar la constitución del nuevo Consejo Escolar','Art. 63 Decreto 328/2010.',''],
+[32,[12,8],[12,17],'Antes del 18/12','Constituir el nuevo Consejo Escolar (p. ej. 14/12)','Acta; comisiones Permanente, Convivencia y PGLT; persona que impulse medidas de igualdad.',''],
+[33,[12,2],[12,18],'Hasta el 18/12','Grabar los componentes del nuevo Consejo Escolar','',RS+'Miembros del Consejo Escolar']
+];
+const MES=['','enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+const ORDER=[9,10,11,12,1,2,3,4,5,6,7,8];
+const RN={D:'Dirección',J:'Jefatura de Estudios',S:'Secretaría'};
+const now=new Date(); now.setHours(0,0,0,0);
+const startY=now.getMonth()+1>=9?now.getFullYear():now.getFullYear()-1;
+const yOf=m=>m>=9?startY:startY+1;
+const dim=m=>new Date(yOf(m),m,0).getDate();
+const cap=s=>s[0].toUpperCase()+s.slice(1);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+const T=[...TW.map(a=>[...a,'Webcretaría']),...TA.map(a=>[...a,'Agenda ED']),...REP.map(a=>[...a,'Agenda ED'])]
+ .map(a=>{const e=a[2]?Math.min(a[2],dim(a[0])):0;const id=(a[0]+'|'+a[6]).replace(/\s+/g,'');
+  return {id,m:a[0],em:a[0],s:a[1],e,f:a[3],who:a[4],c:a[5],t:a[6],d:a[7],r:a[8],u:a[9]?W+L[a[9]]:'',src:a[10]}});
+const CEL=CEP.map(p=>({id:'CE26|'+p[0],paso:p[0],m:p[1][0],s:p[1][1],em:p[2][0],e:p[2][1],f:p[3],who:'DS',c:'CE',t:'Elecciones CE · '+p[4],tt:p[4],d:p[5],r:p[6],u:W+L.ce,src:'Calendario CE 2026'}));
+T.push(...CEL);
+document.getElementById('today').textContent='Hoy es '+now.toLocaleDateString('es-ES',{weekday:'long',day:'numeric',month:'long',year:'numeric'})+' · curso '+startY+'-'+String(startY+1).slice(2);
+
+// estado
+const LS=(k,v)=>{try{if(v===undefined)return JSON.parse(localStorage.getItem(k));localStorage.setItem(k,JSON.stringify(v))}catch(e){return null}};
+const KEY='capi-agendaED-'+startY;
+let done=LS(KEY)||{}, role=LS('capi-agendaED-rol')||'';
+const fits=x=>!role||x.who.includes(role);
+const dateTxt=x=>x.f||(x.s?(x.s===x.e&&x.m===x.em?x.s+' '+MES[x.m].slice(0,3):x.s+'–'+x.e+' '+MES[x.em].slice(0,3)):'Durante el mes');
+const whoHtml=w=>['D','J','S'].filter(r=>w.includes(r)).map(r=>`<span class="rb ${r}" title="${RN[r]}">${r}</span>`).join('');
+function row(x,urg){
+  return `<tr data-id="${esc(x.id)}" class="${done[x.id]?'done':''} ${urg?'urgent':''}"><td><input type="checkbox" data-id="${esc(x.id)}" ${done[x.id]?'checked':''} aria-label="Marcar como hecha"></td>
+  <td class="date">${dateTxt(x)}</td><td class="who">${whoHtml(x.who)}</td><td><span class="tag" style="background:var(--c-${x.c})">${CAT[x.c]}</span></td>
+  <td><div class="t">${esc(x.t)}</div>${x.d?`<div class="d">${esc(x.d)}</div>`:''}${x.r?`<div class="r">${esc(x.r)}</div>`:''}<div class="d">${x.u?`<a href="${x.u}" target="_blank" rel="noopener">Ver en Webcretaría ↗</a>`:''}<span class="src">${x.src}</span></div></td></tr>`;
+}
+document.addEventListener('change',e=>{
+  const id=e.target.dataset&&e.target.dataset.id; if(!id)return;
+  e.target.checked?done[id]=1:delete done[id]; LS(KEY,done);
+  document.querySelectorAll(`tr[data-id="${CSS.escape(id)}"]`).forEach(tr=>{tr.classList.toggle('done',e.target.checked);tr.querySelector('input').checked=e.target.checked});
+  renderAll();
+});
+
+// cargos
+const rolesEl=document.getElementById('roles');
+rolesEl.onclick=e=>{const b=e.target.closest('button');if(!b)return;role=b.dataset.r;LS('capi-agendaED-rol',role);renderAll()};
+
+// meses (desplegable)
+let curM=now.getMonth()+1;
+const monthSel=document.getElementById('monthSel');
+monthSel.innerHTML=ORDER.map(m=>`<option value="${m}">${cap(MES[m])} ${yOf(m)}${m===now.getMonth()+1?' · mes actual':''}</option>`).join('')+'<option value="0">Todo el curso</option>';
+monthSel.value=curM;
+monthSel.onchange=()=>{curM=+monthSel.value;document.getElementById('qMes').value='';renderMes()};
+const stepM=k=>{const i=ORDER.indexOf(curM);if(i<0)return;curM=ORDER[Math.max(0,Math.min(11,i+k))];monthSel.value=curM;renderMes()};
+document.getElementById('prevM').onclick=()=>stepM(-1);document.getElementById('nextM').onclick=()=>stepM(1);
+const catSel=document.getElementById('catSel');
+catSel.innerHTML+=Object.entries(CAT).map(([k,v])=>`<option value="${k}">${v}</option>`).join('');
+catSel.onchange=renderMes;
+document.getElementById('qMes').oninput=renderMes;
+document.getElementById('hideDone').onchange=renderMes;
+const sortT=(a,b)=>(a.s?(a.em-a.m)*40+a.e:99)-(b.s?(b.em-b.m)*40+b.e:99)||(a.s||99)-(b.s||99);
+function renderMes(){
+  const q=norm(document.getElementById('qMes').value.trim()), hd=document.getElementById('hideDone').checked;
+  const months=q||curM===0?ORDER:[curM]; let h='',n=0;
+  months.forEach(m=>{
+    const list=T.filter(x=>x.m===m&&fits(x)&&(!catSel.value||x.c===catSel.value)&&(!hd||!done[x.id])&&(!q||norm(x.t+' '+x.d+' '+x.r+' '+CAT[x.c]).includes(q))).sort(sortT);
+    if(!list.length)return; n+=list.length;
+    if(months.length>1)h+=`<tr class="monthrow"><td colspan="5">${cap(MES[m])} ${yOf(m)}</td></tr>`;
+    h+=list.map(x=>row(x)).join('');
+  });
+  document.getElementById('cMes').textContent=n+' tareas'+(role?' · '+RN[role]:'');
+  document.getElementById('tMes').innerHTML=h||'<tr><td colspan="5" class="empty">Sin tareas con estos filtros</td></tr>';
+}
+
+// semanas
+function weekPanel(el,offset,title){
+  const mon=new Date(now); mon.setDate(now.getDate()-((now.getDay()+6)%7)+7*offset);
+  const sun=new Date(mon); sun.setDate(mon.getDate()+6);
+  const months=new Set(); for(let d=new Date(mon);d<=sun;d.setDate(d.getDate()+1))months.add(d.getMonth()+1);
+  const dated=T.filter(x=>x.s&&fits(x)).map(x=>({x,a:new Date(yOf(x.m),x.m-1,x.s),b:new Date(yOf(x.em),x.em-1,x.e)}))
+    .filter(p=>p.a<=sun&&p.b>=mon).sort((p,q)=>p.b-q.b);
+  const undated=T.filter(x=>!x.s&&fits(x)&&months.has(x.m));
+  const pend=dated.filter(p=>!done[p.x.id]).length;
+  const byRole=['D','J','S'].map(r=>`<span><span class="rb ${r}">${r}</span>${dated.filter(p=>!done[p.x.id]&&p.x.who.includes(r)).length}</span>`).join('');
+  el.innerHTML=`<div class="weekhead"><h2>${title}${role?' · '+RN[role]:''}</h2><span class="pill">Lunes ${mon.getDate()} ${MES[mon.getMonth()+1].slice(0,3)} – domingo ${sun.getDate()} ${MES[sun.getMonth()+1].slice(0,3)}</span><span class="count">${pend} pendientes</span>${role?'':`<span class="legend">${byRole}</span>`}</div>
+  <div class="wrap"><table><thead><tr><th></th><th>Fecha</th><th>Cargo</th><th>Ámbito</th><th>Qué hay que hacer</th></tr></thead><tbody>${
+   dated.length?dated.map(p=>row(p.x,p.b>=mon&&p.b<=sun)).join(''):'<tr><td colspan="5" class="empty">No hay tareas con fecha esta semana</td></tr>'}</tbody></table></div>
+  <p class="note">En naranja: el plazo termina dentro de esta semana.</p>
+  ${undated.length?`<h3>Sin fecha fija este mes (${[...months].map(m=>MES[m]).join(' / ')})</h3><div class="wrap"><table><tbody>${undated.map(x=>row(x)).join('')}</tbody></table></div>`:''}`;
+}
+function renderCE(){
+  const today=+now; let next=null;
+  CEL.forEach(x=>{x.A=new Date(yOf(x.m),x.m-1,x.s);x.B=new Date(yOf(x.em),x.em-1,x.e)});
+  const pend=CEL.filter(x=>!done[x.id]); next=pend.find(x=>+x.B>=today)||pend[0];
+  const n=CEL.length-pend.length, pct=Math.round(n*100/CEL.length);
+  const vencidas=pend.filter(x=>+x.B<today).length;
+  document.getElementById('ceHead').innerHTML=`<div class="weekhead"><h2>Elecciones al Consejo Escolar 2026</h2><span class="pill">Resolución de 7 de septiembre de 2026</span></div>
+   <div class="bar"><div style="width:${pct}%"></div></div>
+   <p class="count">${n} de ${CEL.length} pasos hechos${vencidas?` · <b style="color:var(--warn)">${vencidas} con fecha ya pasada sin marcar</b>`:''}</p>
+   ${next?`<div class="nextcard"><span class="kicker">Siguiente paso</span><div class="t">${next.paso}. ${esc(next.tt)}</div><div class="d">${next.f}${next.d?' · '+esc(next.d):''}</div></div>`:'<div class="nextcard"><div class="t">✅ Proceso completado</div></div>'}`;
+  document.getElementById('tCE').innerHTML=CEL.map(x=>{
+    const late=!done[x.id]&&+x.B<today, cur=next&&x.id===next.id;
+    return `<tr data-id="${esc(x.id)}" class="${done[x.id]?'done':''} ${late?'urgent':''} ${cur?'current':''}"><td><input type="checkbox" data-id="${esc(x.id)}" ${done[x.id]?'checked':''} aria-label="Hecho"></td>
+    <td class="date" style="width:40px">${x.paso}</td><td class="date">${x.f}</td>
+    <td><div class="t">${esc(x.tt)}</div>${x.d?`<div class="d">${esc(x.d)}</div>`:''}${x.r?`<div class="r">${esc(x.r)}</div>`:''}</td><td class="who">${whoHtml('DS')}</td></tr>`}).join('');
+}
+function renderAll(){
+  rolesEl.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.r===role));
+  renderMes(); renderCE();
+  weekPanel(document.getElementById('p-esta'),0,'Esta semana');
+  weekPanel(document.getElementById('p-prox'),1,'Semana que viene');
+}
+
+// pestañas
+document.querySelectorAll('nav.tabs button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('nav.tabs button').forEach(x=>x.setAttribute('aria-selected',x===b));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id==='p-'+b.dataset.p));
+  rolesEl.style.visibility=(b.dataset.p==='dir'||b.dataset.p==='ce')?'hidden':'visible';
+  if(b.dataset.p==='dir')document.getElementById('qDir').focus();
+});
+const D=[
+['Atención general','Información general Junta de Andalucía','','012 / 955 012 012','',''],
+['Atención general','Cita previa oficinas de registro','','955 062 627','',''],
+['Atención general','Centralita Servicios Centrales','','955 064 000','',''],
+['Atención general','CAUCE – Soporte Séneca e infraestructuras TIC','','955 405 619 / 900 848 000','',''],
+['Atención a la ciudadanía DT','Información y atención a la ciudadanía','Elisa Prados Delgado','958029078','',''],
+['Atención a la ciudadanía DT','Información y atención a la ciudadanía','','958029079','',''],
+['Atención a la ciudadanía DT','Centralita','Mª José Rodríguez Quesada','958029000','','informacion'],
+['Atención a la ciudadanía DT','Centralita','','958024637','','informacion'],
+['Atención a la ciudadanía DT','Registro General','Mª Dolores Prados Prados','958024488','',''],
+['Delegación Territorial','Delegada Territorial','María José Martín Gómez','958029048','','delegada'],
+['Delegación Territorial','Secretaría de la Delegada','Laura Requena Cruz','958029049','',''],
+['Delegación Territorial','Secretaría de la Delegada','Reyes Sampedro Sánchez','958029056','',''],
+['Delegación Territorial','Coordinación','Ricardo de la Blanca Torres','958024611','','coordinacion'],
+['Secretaría General','Secretario General Provincial','Luis Carrasco Robles','958029051','','secretariageneral'],
+['Secretaría General','Régimen jurídico','Lydia Quintana Lechado','958024496','','regimen.juridico'],
+['Gestión Económica','Jefatura de Servicio','José Salas Rodríguez','958029070','','gestioneconomica'],
+['Gestión Económica','Gestión económica','María José Torres Trujillo','958029122','','gestioneconomica'],
+['Gestión Económica','Gestión económica','Mª del Carmen Torres Sierra','958029137','','gestioneconomica'],
+['Gestión Económica','Sección de Gestión Económica','Cintia Ferrer Cuesta','958024519','','gestioneconomica'],
+['Gestión Económica','Sección de Gestión Económica','Alejandro Casares','958029134','','gestioneconomica'],
+['Gestión Económica','Sección de Gestión Económica','María del Mar Pulido','958029071','','gestioneconomica'],
+['Gestión Económica','Sección de Gestión Económica','Sara María Asensio Muñoz','958029133','','gestioneconomica'],
+['Gestión Económica','Sección de Gestión Económica','Astrid Luisa Díaz Erath','958029135','','gestioneconomica'],
+['Gestión Económica','Sección de Gestión Económica','María Angustias Alemán','958029109','','gestioneconomica'],
+['Gestión Económica','Sección de Gestión Económica','María Carmen Sánchez García','958029097','','gestioneconomica'],
+['Gestión Económica','Sección de Gestión Económica','','958029132','','gestioneconomica'],
+['Gestión Económica','Sección de Retribuciones (nóminas)','Cristina Cárdenas Fuentes','958029072','','retribuciones'],
+['Gestión Económica','Sección de Retribuciones (nóminas)','Belén Garzón Orzáez','958029413','','retribuciones'],
+['Gestión Económica','Sección de Retribuciones (nóminas)','Encarnación López Pinzón','958029096','','retribuciones'],
+['Gestión Económica','Sección de Retribuciones (nóminas)','V. Francisco Quero Rueda','958029171','','retribuciones'],
+['Gestión Económica','Sección de Retribuciones (nóminas)','Emilio Patricio López López','958029136','','retribuciones'],
+['Gestión Económica','Sección de Seguridad Social','Ignacio Pallares Ayala','958029095','','segsocial18'],
+['Gestión Económica','Sección de Seguridad Social','Francisco Triguero Moreno','958029138','','segsocial18'],
+['Gestión Económica','Sección de Seguridad Social','Celia Marfil Martínez','958029005','','segsocial18'],
+['Gestión Económica','Sección de Centros Concertados','Julián Peinado Campos','958029016','','pagodelegado'],
+['Gestión Económica','Sección de Centros Concertados','Mª del Carmen López Romera','958024521','','pagodelegado'],
+['Recursos Humanos','Jefatura de Servicio','Ricardo de la Blanca Moreno','958029090','','recursoshumanos'],
+['RRHH · Primaria','Jefatura de Sección Primaria','','958029101','','correoprimaria'],
+['RRHH · Primaria','Sustituciones (SIPRI), bolsas e interinos · Licencias y permisos','Jaime Martín Barba','958029098','','sustituciones.primaria'],
+['RRHH · Primaria','Sustituciones (SIPRI), bolsas e interinos · Licencias y permisos','Rubén Utrilla Martínez','958029130','','sustituciones.primaria'],
+['RRHH · Primaria','Sustituciones (SIPRI), bolsas e interinos · Licencias y permisos','Celia Martín Tirado','958024484','','sustituciones.primaria'],
+['RRHH · Primaria','Servicios previos, colocación, plantillas, CGT méritos objetivos, supresiones, comisiones de servicio, sexenios','Mª Gracia Fernández Maldonado','958024478','','correoprimaria'],
+['RRHH · Primaria','Nombramientos, jubilaciones y excedencias','Mª Begoña Cobos López','958029119','','correoprimaria'],
+['RRHH · Secundaria','Jefatura de Sección Secundaria','','958029092','','correosecundaria'],
+['RRHH · Secundaria','Sustituciones, bolsas e interinos (SIPRI)','Adela Megías González','958029021','','sustitucionessecundaria'],
+['RRHH · Secundaria','Licencias y permisos · Formación retribuida · Erasmus','Carmen López Jiménez','958024477','','correosecundaria'],
+['RRHH · Secundaria','Licencias y permisos','Mercedes Leis Moreno','958029151','','correosecundaria'],
+['RRHH · Secundaria','Servicios previos, trienios y sexenios','José Francisco Díaz Rojas','958029126','','correosecundaria'],
+['RRHH · Secundaria','Jubilaciones','Rocío del Valle Quevedo','958029152','','correosecundaria'],
+['RRHH · Primaria/Secundaria','Permisos de maternidad y paternidad','Martina Mª López Gutiérrez','958029006','','martinam.lopez@juntadeandalucia.es'],
+['RRHH · PAS','Jefatura de Sección PAS','Constanza González Ferrer','958029199','',''],
+['RRHH · PAS','Cobertura de vacantes · Sustituciones','Pedro José Rubio Ruiz','958029162','','correopnd'],
+['RRHH · PAS','Cobertura de vacantes · Sustituciones','Eva Mª Fernández Ramal','958024476','','correopnd'],
+['RRHH · PAS','Cobertura de vacantes · Sustituciones','Mª Dolores Sutil Lozano','958029128','','correopnd'],
+['RRHH · PAS','Cobertura de vacantes · Sustituciones','Pedro Rodríguez','958029069','','correopnd'],
+['RRHH · PAS','Licencias y permisos, teletrabajo y cursos','Juan Manuel Torres Sánchez','958029415','','correopnd'],
+['RRHH · PAS','Jubilaciones parciales e inscripción de títulos','Susana Pérez Reyes','958029127','','correopnd'],
+['RRHH · PAS','Jubilaciones, trienios, jornadas especiales, ropa de trabajo, servicios previos','Mª Gracia Castillo Vergara','958024492 / 958029080','','correopnd'],
+['Recursos Humanos','Asesor','José Antonio Masegosa Navarro','606913248','608620',''],
+['Asesoría Médica · PRL','Jefatura','Rosario Gallardo Soto','958029400','','asesoriamedica'],
+['Asesoría Médica · PRL','Administración','Álvaro García López','958024487','','asesoriamedica'],
+['Asesoría Médica · PRL','Coordinación','Mª Esther Castillo García','958029084','','asesoriamedica'],
+['Asesoría Médica · PRL','Asesora médica','Isabel Maleno Jiménez','958029031','','asesoriamedica'],
+['Asesoría Médica · PRL','Prevención de Riesgos Laborales','Isabel Mª Motos Jiménez','958024513','','unidadprevencion'],
+['Asesoría Médica · PRL','Administración','Mª Ángeles Millán González','958029068','','unidadprevencion'],
+['Asesoría Médica · PRL','Prevencionistas','Mª Ángeles Jiménez Gamero','958024618','','unidadprevencion'],
+['Asesoría Médica · PRL','Prevencionistas','María Millán Rubio','958029111','','unidadprevencion'],
+['Asesoría Médica · PRL','Prevencionistas','Cristina Mª Bermúdez Ruiz','958029093','','unidadprevencion'],
+['Recursos Humanos','Oposiciones, baremación y puestos específicos','Mª Teresa Guerrero Expósito','958029073','','oposiciones'],
+['Recursos Humanos','CGT (concurso de traslados) méritos subjetivos','Francisco Javier Cabrera López','958024509','','concursotraslados'],
+['Recursos Humanos','Religiones','','958024515','','puestosespecificos'],
+['Recursos Humanos','Asesoría técnica (régimen disciplinario y jurídico)','Margarita Villén Rodríguez','958024515','','recursoshumanos'],
+['Recursos Humanos','Asesoría técnica (régimen disciplinario y jurídico)','Isabel Virginia Castellano Simón','958029081','','recursoshumanos'],
+['Planificación y Escolarización','Jefatura de Servicio','José Antonio Ruiz Escolano','958029405','','planificacion'],
+['Planificación y Escolarización','Escolarización','Encarnación Vasco Ortega','958029113','','escolarizacion'],
+['Planificación y Escolarización','Escolarización','Eloísa Muñoz González','958024491','','escolarizacion'],
+['Planificación y Escolarización','Escolarización','Mariví Noguera Gómez','958024482','','escolarizacion'],
+['Planificación y Escolarización','Escolarización','Mario Ortega Rodríguez','958029148','','escolarizacion'],
+['Planificación y Escolarización','Primera Infancia','Isabel Mª Vázquez Corbacho','958029145','','primera.infancia'],
+['Planificación y Escolarización','Planificación Primaria','Esther Vílchez Pérez','958029418','','planificacionprimaria'],
+['Planificación y Escolarización','Planificación Secundaria','José Luis Uribe Torres','958029414','','planificacionsecundaria'],
+['Planificación y Escolarización','Enseñanzas Artísticas','Laura Fernández Fernández','958029404','','planificacioneres'],
+['Planificación y Escolarización','Educación Permanente y Régimen Especial','Esteban Maldonado Romero','958029146','','educacionpermanente'],
+['Planificación y Escolarización','Autorización de centros','Mª Emilia Jiménez García','958024500','','planificacion'],
+['Planificación y Escolarización','Transporte escolar','Margarita Miedes Ugarte','958024501','','planificacion'],
+['Planificación y Escolarización','Servicios complementarios (comedor, aula matinal, extraescolares)','Mª Carmen Ruiz Jiménez','958029002','','servicios.complementarios'],
+['Planificación y Escolarización','Uso de instalaciones','','958029003','','servicios.complementarios'],
+['Planificación y Escolarización','Conciertos educativos','Belén Rodríguez Hervás','958029416','','conciertos'],
+['Planificación y Escolarización','ACREDITA','Carmen Sheila Cabrerizo Aguilera','958029165','','acreditagranada'],
+['Ordenación Educativa','Jefatura de Servicio','José Rodríguez Ruiz','958029075','','ordenacioneducativa'],
+['Ordenación Educativa','Sección de Becas y Títulos','','958024615','','becas'],
+['Ordenación Educativa','Negociado de Becas','','958029053','','becas'],
+['Ordenación Educativa','Negociado de Títulos','María Pilar Moreno Palomares','958029088','','titulos'],
+['Ordenación Educativa','Sección de Promoción Educativa','','958024507','','fct'],
+['Ordenación Educativa','Sección de Orientación Educativa','','958029159','','ordenacioneducativa'],
+['Ordenación Educativa','Asesoría de actividades estudiantiles','Mª José García Millán','958029412','','asesoria'],
+['Ordenación Educativa','Sección de Formación del Profesorado','María Bernarda Gallardo Bolaños','958024506','','formacionprofesorado'],
+['Ordenación Educativa','Coordinación Formación del Profesorado','Natividad Martínez Marín','958029057','','formacionprofesorado'],
+['Ordenación Educativa','Sección de Planes y Programas Educativos','Manuel López Ramos','958029407','','programasedugranada'],
+['Ordenación Educativa','Plurilingüismo','Juan José Carmona Fernández','958024530','','plurilinguismo'],
+['Ordenación Educativa','Bibliotecas escolares','Mª del Tránsito Estévez Hornero','958024534','','becrea'],
+['Ordenación Educativa','Gabinete Bellas Artes','Rosa María Suárez Muñoz','958029408','','bellasartes'],
+['Ordenación Educativa','Convenio Justicia · ETPOEP','Ester Ruiz Casares','958024632','','equipotecnicoprovincialgranada'],
+['Ordenación Educativa','Convenio Justicia · ETPOEP','María Angustias Molina Almazán','958024638','','equipotecnicoprovincialgranada'],
+['Ordenación Educativa','Convenio Justicia · ETPOEP','Rocío Rodríguez Pleguezuelo','958024610','','equipotecnicoprovincialgranada'],
+['ETPOEP (Equipo Técnico Provincial)','Coordinación','Regina Fernández Mirón','958029114','','equipotecnicoprovincialgranada'],
+['ETPOEP (Equipo Técnico Provincial)','Compensación educativa','Rosario María Contreras Molino','958029417','','compensacioneducativa'],
+['ETPOEP (Equipo Técnico Provincial)','Apoyo a la función tutorial y convivencia escolar','Rosa María Marín Díaz','958029120','','apoyoalafunciontutorial'],
+['ETPOEP (Equipo Técnico Provincial)','Necesidades educativas especiales (NEE)','Guillermo Ruiz Molero','958024481','','necesidadeseducativas'],
+['ETPOEP (Equipo Técnico Provincial)','Orientación vocacional y profesional','Gema Morago Andújar','958029129','','orientacionvocacional'],
+['ETPOEP (Equipo Técnico Provincial)','Recursos técnicos','Ana María López Jaén','958029172','','recursostecnicos'],
+['ETPOEP (Equipo Técnico Provincial)','Gabinete de asesoramiento de convivencia e igualdad','Juan José Padial Suárez','958029089','','gabineteconvivencia'],
+['ETPOEP (Equipo Técnico Provincial)','Gabinete de asesoramiento de convivencia e igualdad','Álvaro Díaz Ortiz','958029153','','gabineteconvivencia'],
+['Inspección de Educación','Jefatura de Servicio','Mª Ángeles Almirón Lozano','958029058','','inspeccioneducativa'],
+['Inspección de Educación','Jefatura Adjunta de Inspección','Javier Moreno Álvarez','958029035','','inspeccioneducativa'],
+['Inspección de Educación','Jefatura de Sección','Inocencia Bailón Árbol','958029059','','inspeccioneducativa'],
+['Inspección de Educación','Negociado · Administración · AT','Mª José Martínez Jiménez','958029028','','inspeccioneducativa'],
+['Inspección de Educación','Negociado · Administración · AT','Anabel Barnes Castaño','958024533','','inspeccioneducativa'],
+['Inspección de Educación','Negociado · Administración · AT','José Manuel de la Rosa Várez','958029038','','inspeccioneducativa'],
+['Inspección de Educación','Negociado · Administración · AT','Francisco Javier Cordero Tejero','958029140','','inspeccioneducativa'],
+['Inspección de Educación','Negociado · Administración · AT','','958029029','','inspeccioneducativa'],
+['Formación Profesional','Jefatura de Servicio','Rafael Luis Campaña Jiménez','958029103','','fp'],
+['Formación Profesional','Planificación y escolarización FP','Mª de las Mercedes Martín Luque','958029409','','fp'],
+['Formación Profesional','Administración','Antonio José Mancebo Funes','958024480','','fp'],
+['Formación Profesional','Administración','Francisco Javier Pérez Reyes','958029411','','fp'],
+['Formación Profesional','ACREDITA','Carmen Sheila Cabrerizo Aguilera','958029165','','acreditagranada'],
+['Formación Profesional','Equipo de dinamización','Raquel Genoveva Fresneda Rodríguez','679332382','619596','raquelg.fresneda.edu@juntadeandalucia.es'],
+['Formación Profesional','Equipo de dinamización','Laura Navas León','650157759','613597','laura.navas.leo.edu@juntadeandalucia.es'],
+['Formación Profesional','Equipo de dinamización','Francisco José Pérez Carreño','686472475','644458','francisco.perez.c.edu@juntadeandalucia.es'],
+['Formación Profesional','Equipo de dinamización','Antonio Puente Gil','600369581','613598','antonio.puente.edu@juntadeandalucia.es']
+];
+const pretty=t=>t.replace(/(\d{3})(\d{3})(\d{3})/,'$1 $2 $3');
+const corpOf=(raw,c)=>c||(/^9580\d{5}$/.test(raw)?'1'+raw.slice(4):'');
+function telHtml(tel,corp){return tel.split(' / ').map(t=>{const raw=t.replace(/\s/g,'');const c=corpOf(raw,corp);
+  return `<a class="tel" href="tel:${raw}">📞 ${raw.length===9?pretty(raw):t}</a>${c?` <span class="corp">corp. ${c}</span>`:''}`}).join('<br>')}
+const DIR=D.map(a=>{const mail=a[5]?(a[5].includes('@')?a[5]:a[5]+'.dpgr.ced@juntadeandalucia.es'):'';
+  const corps=a[3].split(' / ').map(t=>corpOf(t.replace(/\s/g,''),a[4])).join(' ');
+  return {a:a[0],u:a[1],n:a[2],tel:a[3],corp:a[4],mail,k:norm([a[0],a[1],a[2],a[3].replace(/\s/g,''),corps,mail].join(' '))}});
+const hl=(s,q)=>{if(!q)return esc(s);const i=norm(s).indexOf(q);return i<0?esc(s):esc(s.slice(0,i))+'<mark>'+esc(s.slice(i,i+q.length))+'</mark>'+esc(s.slice(i+q.length))};
+function renderDir(){
+  const words=norm(document.getElementById('qDir').value.trim()).split(/\s+/).filter(Boolean);
+  const list=DIR.filter(x=>words.every(w=>x.k.includes(w)||x.k.replace(/\s/g,'').includes(w)));
+  document.getElementById('cDir').textContent=list.length+' de '+DIR.length+' contactos';
+  const w1=words.length===1?words[0]:'';
+  document.getElementById('tDir').innerHTML=list.map(x=>`<tr><td><div class="area">${hl(x.a,w1)}</div><div>${hl(x.u,w1)}</div></td><td class="t">${x.n?hl(x.n,w1):'—'}</td><td>${telHtml(x.tel,x.corp)}</td><td>${x.mail?`<a href="mailto:${x.mail}">${hl(x.mail,w1)}</a>`:''}</td></tr>`).join('')||'<tr><td colspan="4" class="empty">Nadie coincide con la búsqueda</td></tr>';
+}
+document.getElementById('qDir').oninput=renderDir;
+
+renderAll(); renderDir();
+
+// PWA
+if('serviceWorker' in navigator) addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+let deferred; addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e;const b=document.getElementById('install');b.style.display='inline-block';b.onclick=()=>{deferred.prompt();b.style.display='none'}});
+</script></body></html>
