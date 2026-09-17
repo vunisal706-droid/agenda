@@ -75,7 +75,12 @@ mark{background:#fde68a;border-radius:3px;padding:0 1px}
 .note{font-size:.85rem;color:var(--muted);margin-top:14px}
 .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.85rem;color:var(--muted);align-items:center}
 button.ghost{font:inherit;border:1.5px solid var(--line);background:var(--paper);border-radius:10px;padding:9px 12px;min-height:44px;cursor:pointer;color:var(--ink)}
-#install{display:none}
+.install{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:700;box-shadow:0 4px 12px rgba(40,53,147,.25)}
+.install:hover{filter:brightness(1.1)}
+.top{position:relative}
+dialog{border:0;border-radius:16px;padding:22px;max-width:420px;background:#fff;color:var(--ink);box-shadow:0 20px 50px rgba(0,0,0,.25)}
+dialog::backdrop{background:rgba(31,42,55,.45)}
+@media (max-width:600px){.install{width:100%;order:-1}}
 @media print{header .roles,nav.tabs,.toolbar,.note{display:none}body{background:#fff}}
 body{background:#eef1fb}
 body::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(120deg,#e0e7ff,#fce7f3,#fef9c3,#dcfce7,#cffafe,#ede9fe,#e0e7ff);background-size:400% 400%;animation:fondo 24s ease-in-out infinite}
@@ -104,6 +109,7 @@ tr.current td{background:rgba(227,231,251,.7)}
       <h1>Agenda del curso</h1>
       <p class="today" id="today"></p>
     </div>
+    <button class="ghost install" id="install">📲 Instalar app</button>
     <div class="roles" id="roles" role="group" aria-label="Filtrar por cargo">
       <button data-r="">👥 Todo</button>
       <button data-r="D">Dirección</button>
@@ -127,7 +133,6 @@ tr.current td{background:rgba(227,231,251,.7)}
       <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="qMes" placeholder="Buscar en todo el curso…"></div>
       <label class="chk"><input type="checkbox" id="hideDone"> Ocultar hechas</label>
       <button class="ghost" onclick="print()">🖨️ Imprimir</button>
-      <button class="ghost" id="install">📲 Instalar app</button>
     </div>
     <div class="legend" style="margin-bottom:10px"><span><span class="rb D">D</span>Dirección</span><span><span class="rb J">J</span>Jefatura de Estudios</span><span><span class="rb S">S</span>Secretaría</span><span class="count" id="cMes"></span></div>
     <div class="wrap"><table><thead><tr><th></th><th>Fecha</th><th>Cargo</th><th>Ámbito</th><th>Qué hay que hacer</th></tr></thead><tbody id="tMes"></tbody></table></div>
@@ -147,6 +152,14 @@ tr.current td{background:rgba(227,231,251,.7)}
     </div>
     <div class="wrap"><table><thead><tr><th>Servicio / Unidad</th><th>Nombre</th><th>Teléfono</th><th>Correo</th></tr></thead><tbody id="tDir"></tbody></table></div>
   </section>
+  <dialog id="howto">
+    <h3 style="margin-top:0">Instalar la app en este dispositivo</h3>
+    <p><b>Android / Chrome:</b> menú ⋮ → «Instalar aplicación» o «Añadir a pantalla de inicio».</p>
+    <p><b>iPhone / iPad (Safari):</b> botón Compartir ⬆️ → «Añadir a pantalla de inicio».</p>
+    <p><b>Ordenador (Chrome o Edge):</b> icono ⊕ o 🖥️ de la barra de direcciones → «Instalar».</p>
+    <p class="note">Una vez instalada funciona sin conexión.</p>
+    <button class="ghost" onclick="howto.close()">Cerrar</button>
+  </dialog>
 </main>
 <script>
 const W='https://webcretaria.iesgrancapitan.org/';
@@ -646,5 +659,10 @@ renderAll(); renderDir();
 
 // PWA
 if('serviceWorker' in navigator) addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
-let deferred; addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e;const b=document.getElementById('install');b.style.display='inline-block';b.onclick=()=>{deferred.prompt();b.style.display='none'}});
+let deferred; const btn=document.getElementById('install');
+const instalada=matchMedia('(display-mode: standalone)').matches||navigator.standalone;
+if(instalada) btn.style.display='none';
+addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e});
+btn.onclick=async()=>{ if(deferred){deferred.prompt();const r=await deferred.userChoice;deferred=null;if(r.outcome==='accepted')btn.style.display='none';} else document.getElementById('howto').showModal(); };
+addEventListener('appinstalled',()=>btn.style.display='none');
 </script></body></html>
