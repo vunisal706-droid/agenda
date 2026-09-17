@@ -78,9 +78,33 @@ button.ghost{font:inherit;border:1.5px solid var(--line);background:var(--paper)
 .install{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:700;box-shadow:0 4px 12px rgba(40,53,147,.25)}
 .install:hover{filter:brightness(1.1)}
 .top{position:relative}
+.docs{background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:12px 16px;margin:0 0 16px}
+.doclist{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.doclist a{background:var(--accent-soft);border-radius:999px;padding:7px 13px;text-decoration:none;font-weight:700;font-size:.88rem}
 dialog{border:0;border-radius:16px;padding:22px;max-width:420px;background:#fff;color:var(--ink);box-shadow:0 20px 50px rgba(0,0,0,.25)}
 dialog::backdrop{background:rgba(31,42,55,.45)}
 @media (max-width:600px){.install{width:100%;order:-1}}
+@media (max-width:720px){
+  main{padding:14px}
+  .wrap{border-radius:12px}
+  table{min-width:0;width:100%}
+  thead{display:none}
+  tbody tr{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:12px;border-bottom:1px solid var(--line)}
+  tbody tr:last-child{border-bottom:0}
+  tbody td{display:block;padding:0;border:0;width:auto!important;white-space:normal}
+  tbody td.date{font-size:.9rem;color:var(--accent)}
+  tbody tr.urgent td.date{color:var(--warn)}
+  tbody td:last-child,tbody td.full{width:100%!important}
+  #tMes tr td:nth-child(5),#tCE tr td:nth-child(4),#tDir tr td{width:100%!important}
+  #tCE tr td:last-child,#tDir tr td:nth-child(3){width:auto!important}
+  .monthrow td{width:100%!important;padding:6px 0}
+  .r{font-size:.74rem;word-break:break-word}
+  .brand img{width:64px}
+  h1{font-size:1.5rem}
+  .weekhead h2{font-size:1.3rem}
+  .doclist a{font-size:.82rem}
+}
+@media (max-width:420px){body{font-size:14px}}
 @media print{header .roles,nav.tabs,.toolbar,.note{display:none}body{background:#fff}}
 body{background:#eef1fb}
 body::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(120deg,#e0e7ff,#fce7f3,#fef9c3,#dcfce7,#cffafe,#ede9fe,#e0e7ff);background-size:400% 400%;animation:fondo 24s ease-in-out infinite}
@@ -91,6 +115,27 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-grad
 @media (max-width:600px){.brand img{width:70px}}
 th{background:rgba(247,248,253,.95)!important}
 nav.tabs,.roles{backdrop-filter:blur(8px)}
+@media (max-width:720px){
+  main{padding:14px}
+  .wrap{border-radius:12px}
+  table{min-width:0;width:100%}
+  thead{display:none}
+  tbody tr{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:12px;border-bottom:1px solid var(--line)}
+  tbody tr:last-child{border-bottom:0}
+  tbody td{display:block;padding:0;border:0;width:auto!important;white-space:normal}
+  tbody td.date{font-size:.9rem;color:var(--accent)}
+  tbody tr.urgent td.date{color:var(--warn)}
+  tbody td:last-child,tbody td.full{width:100%!important}
+  #tMes tr td:nth-child(5),#tCE tr td:nth-child(4),#tDir tr td{width:100%!important}
+  #tCE tr td:last-child,#tDir tr td:nth-child(3){width:auto!important}
+  .monthrow td{width:100%!important;padding:6px 0}
+  .r{font-size:.74rem;word-break:break-word}
+  .brand img{width:64px}
+  h1{font-size:1.5rem}
+  .weekhead h2{font-size:1.3rem}
+  .doclist a{font-size:.82rem}
+}
+@media (max-width:420px){body{font-size:14px}}
 @media print{body::before{display:none}}
 .monthnav{display:flex;gap:6px;align-items:center}
 .monthnav select{min-width:220px;font-weight:700}
@@ -136,14 +181,15 @@ tr.current td{background:rgba(227,231,251,.7)}
     </div>
     <div class="legend" style="margin-bottom:10px"><span><span class="rb D">D</span>Dirección</span><span><span class="rb J">J</span>Jefatura de Estudios</span><span><span class="rb S">S</span>Secretaría</span><span class="count" id="cMes"></span></div>
     <div class="wrap"><table><thead><tr><th></th><th>Fecha</th><th>Cargo</th><th>Ámbito</th><th>Qué hay que hacer</th></tr></thead><tbody id="tMes"></tbody></table></div>
-    <p class="note">Fuentes: Agenda de Jefatura y Direcciones 26-27 y Calendario de elecciones al CE 2026 (prioritarios cuando hay fechas distintas) y Cronología de la Webcretaría. Varias fechas cambian cada curso: confirmad con los calendarios oficiales antes de actuar. Las tareas marcadas como hechas se guardan en este dispositivo.</p>
+    <p class="note">Las fechas de servicios complementarios siguen la <a href="https://www.juntadeandalucia.es/boja/2026/46/42" target="_blank" rel="noopener">Resolución de 3 de marzo de 2026 (BOJA 46)</a>, que se publica cada curso: revisar la nueva antes de junio. Fuentes: Agenda de Jefatura y Direcciones 26-27 y Calendario de elecciones al CE 2026 (prioritarios cuando hay fechas distintas) y Cronología de la Webcretaría. Varias fechas cambian cada curso: confirmad con los calendarios oficiales antes de actuar. Las tareas marcadas como hechas se guardan en este dispositivo.</p>
   </section>
   <section class="panel" id="p-esta"></section>
   <section class="panel" id="p-prox"></section>
   <section class="panel" id="p-ce">
     <div id="ceHead"></div>
+    <div class="docs"><span class="kicker">Documentación oficial</span><div class="doclist"><a href="https://www.juntadeandalucia.es/boja/2026/177/34" target="_blank" rel="noopener">📄 Resolución de 7/09/2026 (BOJA)</a><a href="https://www.juntadeandalucia.es/educacion/portales/documents/20123/6100673/1%20Tutorial%20Gesti%C3%B3n%20Elecciones%20Consejos%20Escolares%20en%20S%C3%A9neca%202026.pdf/a0f76d0d-d380-c77a-5e44-cde8e2368a90?version=1.1" target="_blank" rel="noopener">🖥️ Tutorial de gestión en Séneca</a><a href="https://www.juntadeandalucia.es/educacion/portales/documents/20123/6100673/2%20Preguntas%20Frecuentes%20Elecciones%20Consejos%20Escolares%202026.pdf/54678778-9607-0fa3-9e16-27dccd7d9451?version=1.1" target="_blank" rel="noopener">❓ Preguntas frecuentes</a><a href="https://www.juntadeandalucia.es/educacion/portales/documents/20123/6100673/L%C3%ADnea%20de%20Tiempo%20Elecciones%20CCEE%202026.pdf/23c39bad-258a-a496-4937-304f990cac71?version=1.1" target="_blank" rel="noopener">🗓️ Línea de tiempo oficial</a><a href="https://www.juntadeandalucia.es/educacion/portales/documents/20123/6100673/Composici%C3%B3n%20del%20Consejo%20Escolar%20seg%C3%BAn%20el%20tipo%20de%20centro.pdf/78e58bdf-d484-f430-3b47-94534bb12976?version=1.0" target="_blank" rel="noopener">👥 Composición del CE por tipo de centro</a><a href="https://www.juntadeandalucia.es/educacion/portales/documents/20123/6100673/Resumen%20de%20normas%20de%20funcionamiento.pdf/3aff9479-9b18-0992-f4e8-10760f27493f?version=1.1" target="_blank" rel="noopener">📘 Resumen de normas de funcionamiento</a><a href="https://www.juntadeandalucia.es/educacion/portales/documents/20123/6100673/Modelos%20de%20impresos%20elecciones%20Consejos%20Escolares%202026.pdf/dee00172-c1ab-db4f-cbd2-e5586a680f82?version=1.2" target="_blank" rel="noopener">🖨️ Modelos de impresos</a><a href="https://www.juntadeandalucia.es/educacion/portales/centros/organizacion-y-funcionamiento/consejos-escolares" target="_blank" rel="noopener">🌐 Portal de la Junta</a></div></div>
     <div class="wrap"><table><thead><tr><th></th><th>Paso</th><th>Fecha</th><th>Actuación</th><th>Cargo</th></tr></thead><tbody id="tCE"></tbody></table></div>
-    <p class="note">Fechas de la línea de tiempo oficial «Gestión en Séneca · Elecciones a Consejos Escolares 2026» (CCEE); los pasos marcados como «Centro» son los del calendario propio. Estos pasos también aparecen en el calendario por meses y en las semanas. En naranja: fecha pasada sin marcar como hecho.</p>
+    <p class="note">Fechas contrastadas con el portal de Consejos Escolares de la Junta y su línea de tiempo oficial «Gestión en Séneca · Elecciones a Consejos Escolares 2026» (CCEE). El voto electrónico de las familias por iPasen es del 3 al 12 de noviembre; los pasos marcados como «Centro» son los del calendario propio. Estos pasos también aparecen en el calendario por meses y en las semanas. En naranja: fecha pasada sin marcar como hecho.</p>
   </section>
   <section class="panel" id="p-dir">
     <div class="toolbar">
@@ -170,11 +216,12 @@ const TW=[
 [9,1,9,'Hasta el 9','S','MAT','Certificación de matrícula','','','cert'],
 [9,1,7,'','S','BON','Presentación de las solicitudes de bonificación','','','bon'],
 [9,1,1,'','DS','SSCC','Adjudicación provisional de SSCC Fase II: listado de admitidos/suplentes y certificado de publicación','Solo centros con alumnado de IES asociado. Listado: firma dirección. Certificado: firman dirección y secretaría (se genera UNA sola vez). Queda en Séneca.','Documentos → Centro → Servicios Complementarios del Plan de Ayuda a las Familias Andaluzas',''],
-[9,2,15,'','S','SSCC','Plazo de alegaciones a la Fase II de SSCC','','',''],
+[9,2,15,'','S','SSCC','Plazo de alegaciones a la resolución provisional de SSCC (centros con alumnado de etapas posteriores)','Resolución de 3/03/2026 (BOJA 46): del 2 al 15 de septiembre, ambos inclusive.','',''],
 [9,1,9,'Antes del 10','S','SSCC','Declaración de usuarios admitidos (centros que solo tienen Fase I)','Con Fase II se declaran desde el 18. Alumnado al corriente de pago del curso anterior.','','sscc'],
-[9,10,30,'Desde el 10','S','SSCC','Admisión manual en SSCC si hay vacantes (Fase III)','Antes hay que haber declarado los usuarios de la fase anterior.','','sscc'],
-[9,17,17,'','DS','SSCC','Último día de alegaciones Fase II y aprobación de listados definitivos en Consejo Escolar','A las 15:00 se bloquea la adjudicación.','',''],
-[9,18,18,'','DS','SSCC','Adjudicación definitiva Fase II (anexo IV) y certificado de publicación','Certificar para habilitar la consulta en Secretaría Virtual. Desde hoy se declaran usuarios de Fase II.','',''],
+[9,10,30,'Desde el 10','S','SSCC','Admisión manual en SSCC si hay vacantes (Fase III), centros sin Fase II','Antes hay que haber declarado los usuarios de la fase anterior.','','sscc'],
+[9,1,10,'','S','SSCC','Seleccionar en Séneca la empresa homologada del acuerdo marco para las actividades extraescolares','','Centro → Servicios ofertados → Servicios del centro → Actividades extraescolares',''],
+[9,16,16,'','DS','SSCC','Último día para atender alegaciones de la Fase II','A las 15:00 se desactiva probar adjudicaciones y modificar datos de las solicitudes. Aprobar los listados definitivos en Consejo Escolar.','',''],
+[9,17,17,'','DS','SSCC','Publicar la resolución definitiva de admitidos y suplentes (anexo IV) y su certificado','Fase II: se reparten las plazas reservadas. Certificar la publicación en Séneca para habilitar la consulta en Secretaría Virtual. Desde hoy (no antes) se declaran usuarios de fase I y de fase II. Recurso de alzada: 1 mes.','',''],
 [9,21,30,'Finales de mes','DJ','SSCC','Solicitud de PROA Andalucía','Fecha variable. Validar y cerrar el candado.','Centro → Servicios ofertados → Resto de servicios → Solicitud de servicios no PAC','tipc'],
 [9,21,30,'Finales de mes','DJ','SSCC','Solicitud de PREX (Refuerzo de Lengua Extranjera)','Nº de grupos por nivel. Validar y cerrar el candado.','Centro → Servicios ofertados → Resto de servicios → Solicitud de servicios no PAC','tipc'],
 [9,21,30,'Finales de mes','DS','SSCC','Solicitud de Más Deporte','Marcar deportes. Validar y cerrar el candado.','Centro → Servicios ofertados → Resto de servicios → Solicitud de servicios no PAC','tipc'],
@@ -186,8 +233,8 @@ const TW=[
 [9,1,30,'Hasta el 30','D','PROG','Solicitar Planes y Programas Educativos y asignar coordinaciones','','Centro → Planes y Programas Educativos','prog'],
 [9,1,15,'Antes del 15','D','PROG','Asignar perfiles de coordinación (programas, tutorías…)','','Personal → Personal del centro → Asignación de perfiles',''],
 [9,1,11,'Hasta el 11','S','VAR','Becas NEAE del Ministerio (tramitación)','','','neae'],
-[10,0,0,'','S','BON','Listado provisional de bonificaciones y certificado de publicación','','','bprov'],
-[10,0,0,'','SD','BON','Resolución de bonificaciones definitivas y notificación individual a familias','Enviar a la bandeja de firmas de dirección.','Documentos → Servicios Complementarios… → Notificaciones individuales de bonificaciones','bdef'],
+[10,0,0,'','S','BON','Publicar el listado de bonificaciones provisionales y certificarlo en Séneca','Fecha variable: la DG avisa cuando llegan los datos de la AEAT. Las solicitudes con incidencias figuran con bonificación 0. Plazo de alegaciones: 10 días hábiles ante la dirección; fuera de plazo se desestiman.','','bprov'],
+[10,0,0,'','SD','BON','Notificación individualizada de las bonificaciones definitivas (punto de recogida o iPasen) y remisión a la DT de los recursos de reposición recibidos','Tras la firma de la resolución por la DT. Recurso de reposición: 1 mes desde la notificación. El alumnado suplente tiene 3 días desde la notificación de admisión para pedir la bonificación.','Documentos → Servicios Complementarios… → Notificaciones individuales de bonificaciones','bdef'],
 [10,0,0,'','S','GE','Apertura del nuevo ejercicio económico','','','ape'],
 [10,1,30,'Antes del 30','SD','GE','Cierre del ejercicio anterior: estado de cuentas y presupuesto aprobados en Consejo Escolar','Generar y firmar anexos (Orden 10/05/2006, arts. 4 y 15).','','ape'],
 [10,1,31,'Antes del 31','S','PGLT','Tener grabadas en Séneca todas las facturas de librerías','','','pglt'],
@@ -224,25 +271,26 @@ const TW=[
 [5,27,31,'Desde el 27','D','ADM','Recursos de alzada y reclamaciones','','','tras'],
 [5,25,30,'Antes del 30','S','MAT','Configurar el sobre de matrícula','','','pmat'],
 [5,5,15,'','D','SSCC','Solicitar Programa de Refuerzo Educativo estival','Adjuntar actas de Claustro y Consejo Escolar.','Centro → Servicios ofertados → Resto de servicios → Solicitud de servicios no PAC','sscc'],
-[5,1,20,'Antes del 20','DS','SSCC','Uso de instalaciones fuera del horario escolar: anexo VI a la DT con informe del CE','','Centro → Servicios ofertados → Plan de apoyo a las familias → Autorización de proyectos',''],
+[5,1,20,'Hasta el 20','DS','SSCC','Grabar en Séneca las solicitudes de proyectos de uso de las instalaciones (anexo VI) con informe del CE','Después solo en los supuestos del art. 26.6 de la Orden de 17/04/2017 (modificada por la Orden de 27/03/2019).','Centro → Servicios ofertados → Plan de apoyo a las familias → Autorización de proyectos',''],
+[5,20,29,'Antes del 30','S','SSCC','Dar de alta en Séneca las actividades extraescolares ofertadas e indicar fechas de inicio y fin y horario semanal de cada servicio','Necesario para que las familias presenten la solicitud conjunta.','Centro → Servicios ofertados → Servicios del centro',''],
 [5,1,31,'Antes del 31','SD','PGLT','Selección de libros de texto en Consejo Escolar (cuando toque cambiarlos)','','','pglt'],
 [5,1,31,'Antes del 31','S','PGLT','Solicitud de aumento de cuantía (anexo VI)','','','pglt'],
 [6,1,8,'','S','MAT','Matriculación en Infantil, Primaria y aula específica','','','mat'],
 [6,1,15,'Hasta el 15','SD','MAT','Certificación de matrícula (del 10 al 15, también Religión)','','','cert'],
 [6,20,30,'Desde el 20','S','MAT','Envío a la DT de anexos IX y solicitudes de reagrupación de hermanos','','','cert'],
-[6,1,10,'','S','SSCC','Grabar servicios complementarios (aula matinal, comedor, extraescolares, transporte)','El 11 de junio a las 15:00 se desactiva la opción de probar adjudicaciones.','','sscc'],
-[6,1,15,'','DS','SSCC','Solicitud del profesorado para colaborar en la atención al comedor','Orden 17/04/2017, art. 10.3.','','sscc'],
-[6,1,12,'Antes del 12','SD','SSCC','Publicar listado provisional de SSCC (anexo III, Fase I) y su certificado','Por resolución del Consejo Escolar.','','sscc'],
-[6,13,26,'','S','SSCC','Plazo de alegaciones a la adjudicación provisional de SSCC','','',''],
+[6,1,10,'','S','SSCC','Grabar servicios complementarios (aula matinal, comedor, extraescolares, transporte)','Plazo oficial de solicitudes: 1-10 de junio (Resolución de 3/03/2026). En Séneca, el 11 a las 15:00 se desactiva probar adjudicaciones.','','sscc'],
+[6,1,15,'','DS','SSCC','Solicitud del profesorado para colaborar en la atención al comedor','Incompatible con la coordinación, que corresponde a la dirección o la secretaría. Orden 17/04/2017, art. 10.3.','','sscc'],
+[6,12,12,'','SD','SSCC','Publicar la resolución provisional de admitidos y suplentes (anexo III) y su certificado','Resolución de 3/03/2026 (BOJA 46): el 12 de junio.','','sscc'],
+[6,13,26,'','S','SSCC','Plazo de alegaciones a la resolución provisional de SSCC','Resolución de 3/03/2026 (BOJA 46): del 13 al 26 de junio, ambos inclusive.','',''],
 [6,20,25,'Hasta el 25','SD','SSCC','Grabar horas de colaboración en comedor y generar certificación','Catering: máx. 1:30 h/día (267 h). Gestión directa: 2 h/día (356 h). Firma secretaría y dirección; valida la DT.','Centro → Servicios ofertados → Servicios del centro → Comedor → Empleados/as participantes','sscc'],
-[6,27,27,'','DS','SSCC','Último día de alegaciones SSCC y aprobación en CE de listados definitivos','','',''],
-[6,28,28,'','SD','SSCC','Adjudicación definitiva SSCC en Séneca y publicación de admitidos y suplentes (anexo IV, Fase I)','','','sscc'],
-[6,30,30,'','SD','SSCC','Generar listado definitivo de SSCC y certificado de publicación','','','sscc'],
+[6,29,29,'','DS','SSCC','Último día para atender alegaciones y aprobar los listados definitivos en Consejo Escolar','Antes de la adjudicación definitiva del 30 de junio.','',''],
+[6,30,30,'','SD','SSCC','Publicar la resolución definitiva de admitidos y suplentes (anexo IV), listado y certificado','Resolución de 3/03/2026 (BOJA 46): el 30 de junio, fecha límite del art. 21.8 de la Orden de 17/04/2017. Recurso de alzada: 1 mes.','','sscc'],
 [6,1,30,'Antes del 30','DS','PROG','Certificar la participación en PROA y PREX','Coordinación, mentores, profesorado y Religión. Firma secretaría y dirección.','Documentos → Centro → Planes y Proyectos Educativos → PROA','proa'],
 [6,1,22,'Antes del 22','J','EV','Cuestionarios de detección de altas capacidades (5 años y 6º) para maestras y familias','','','aacc'],
 [6,0,0,'','S','EV','Calcular la nota media de los mejores expedientes','','','ev'],
 [6,0,0,'','J','EV','Facilitar a tutores la «sábana» de evaluación','','','ev'],
 [6,1,30,'Antes del 30','S','PGLT','Anexo XI específico de Gratuidad de Libros de Texto','','','pglt'],
+[6,25,30,'Hasta el 30','S','SSCC','Comedor de gestión directa: comprobar usos registrados, datos del alumnado PRAI y contabilizar gastos e ingresos','Para la liquidación provisional del ejercicio. La DT valida antes del 30 la certificación de horas de colaboración docente.','Centro → Servicios ofertados → Servicios del centro → Comedor',''],
 [6,1,25,'Antes del 25','S','PGLT','Generar y entregar cheques-libro a las familias','','','pglt'],
 [6,1,30,'Antes del 30','SD','PGLT','Grabar listado de libros aprobado por CE y publicar en tablón junto al material escolar','Decreto 227/2011, art. 17.','','pglt'],
 [6,1,9,'Antes del 10','J','VAR','Cuestionario de satisfacción con el asesoramiento del CEP','','Centro → Cuestionarios → Asesoramientos CEP',''],
