@@ -138,7 +138,7 @@ tr.current td{background:rgba(227,231,251,.7)}
   <section class="panel" id="p-ce">
     <div id="ceHead"></div>
     <div class="wrap"><table><thead><tr><th></th><th>Paso</th><th>Fecha</th><th>Actuación</th><th>Cargo</th></tr></thead><tbody id="tCE"></tbody></table></div>
-    <p class="note">Estos pasos también aparecen en el calendario por meses y en las semanas. En naranja: fecha pasada sin marcar como hecho.</p>
+    <p class="note">Fechas de la línea de tiempo oficial «Gestión en Séneca · Elecciones a Consejos Escolares 2026» (CCEE); los pasos marcados como «Centro» son los del calendario propio. Estos pasos también aparecen en el calendario por meses y en las semanas. En naranja: fecha pasada sin marcar como hecho.</p>
   </section>
   <section class="panel" id="p-dir">
     <div class="toolbar">
@@ -346,39 +346,39 @@ const REP=[];
 const RS='Centro → Organización del Centro → Órganos del centro → Consejo Escolar → Consejo Escolar → ';
 // [paso, [mes,día inicio], [mes,día fin], texto fecha, actuación, observaciones, ruta]
 const CEP=[
-[1,[9,14],[9,14],'14/09','Convocar Claustro para el 21/09: información sobre el inicio de las elecciones','Punto único: procedimiento de elección convocado por Resolución de 7/09/2026.',''],
-[2,[9,14],[9,14],'14/09','Convocar Consejo Escolar para el 21/09: información sobre el inicio de las elecciones','Punto único: procedimiento de elección convocado por Resolución de 7/09/2026.',''],
-[3,[9,14],[9,14],'14/09','Publicar calendario y tutorial de voto electrónico en el tablón de Pasen','Noticia a las familias con la Resolución y el calendario.',''],
-[4,[9,14],[9,17],'Antes del 18/09','Configurar el proceso electoral en Séneca','Tipo de proceso y consejo; fechas de constitución de la Junta Electoral (p. ej. 28/09) y del Consejo Escolar (p. ej. 14/12).',RS+'Detalle del proceso electoral'],
-[5,[9,14],[9,17],'Antes del 18/09','Grabar el cupo de cada sector','Si el AMPA mayoritaria designa representante, restar un cupo al sector de familias (se graba en Definición de miembros).',RS+'Cupo del Consejo Escolar'],
-[6,[9,14],[9,18],'14–18/09','Generar el censo de acceso restringido para sortear la Junta Electoral','Cargar censo, validar y generar listado por sectores (consulta interna).',RS+'Censo del proceso electoral'],
-[7,[9,18],[9,21],'18 o 21/09','Enviar convocatoria de constitución de la Junta Electoral (p. ej. para el 28/09)','Al primer titular con registro de salida; suplentes por teléfono. Orden del día: constitución, censo, organización del proceso y solicitud al AMPA y Ayuntamiento.',''],
-[8,[9,21],[9,25],'21–25/09','Sorteo público de los miembros de la Junta Electoral','3 por sector (1 titular y 2 suplentes): familias, profesorado, PAS, PAE. Acta al tablón con registro de salida y llamar a los sorteados.',''],
-[9,[9,25],[9,30],'Antes del 01/10','Validar el cupo en Séneca','Marcar, validar y aceptar.',RS+'Cupo del Consejo Escolar'],
-[10,[9,28],[10,2],'28/09–02/10','Constituir la Junta Electoral','Acta, anexo con calendario y credenciales por sector con registro de salida. Grabar sus miembros en Séneca.',RS+'Junta Electoral'],
-[11,[10,1],[10,7],'01–07/10','Generar censo de acceso público y publicación provisional','Aparece en Pasen. Dejar copia impresa en Conserjería. Abre plazo de reclamaciones.',RS+'Censo del proceso electoral'],
-[12,[9,28],[10,7],'Tras constituir la Junta','Solicitar al AMPA/AFA y al Ayuntamiento que designen representante en el CE','Firmar, registro de salida y enviar por correo electrónico.',''],
-[13,[10,8],[10,13],'Antes del 14/10','Publicación definitiva del censo tras las reclamaciones','Aparece en Pasen. Copia en Conserjería.',''],
-[14,[10,14],[10,14],'Antes del 15/10','Validar el censo en Séneca','',RS+'Censo del proceso electoral'],
-[15,[10,14],[10,27],'14–27/10','Admisión de candidaturas','Facilitar modelo de candidatura y grabarlas en Séneca.',RS+'Candidaturas al Consejo Escolar'],
-[16,[10,14],[10,27],'Antes del 28/10','Grabar la persona representante designada por el AMPA/AFA','Marcar la casilla de representante.',RS+'Miembro del Consejo Escolar'],
-[17,[10,28],[10,28],'28/10','Publicar lista provisional de candidaturas','',RS+'Candidaturas al Consejo Escolar'],
-[18,[10,29],[10,29],'29/10','Día de reclamaciones a la lista provisional','Se presentan por registro.',''],
-[19,[10,30],[10,30],'30/10','Resolver reclamaciones y publicar lista definitiva de candidaturas','Art. 6.3 Orden 7/10/2010.',RS+'Candidaturas al Consejo Escolar'],
-[20,[10,30],[10,30],'Antes del 31/10','Validar las candidaturas en Séneca','',RS+'Candidaturas al Consejo Escolar'],
-[21,[11,3],[11,12],'03–12/11','Campaña electoral y voto electrónico de las familias','La campaña la realizan los candidatos.',''],
-[22,[11,1],[11,6],'Antes del 07/11','Confeccionar las papeletas de voto','Ruta Séneca pendiente de publicar.',''],
-[23,[11,3],[11,9],'Antes del 10/11','Sorteo y grabación de los componentes de las mesas electorales','',RS+'Mesas Electorales'],
-[24,[11,10],[11,16],'10–16/11','Recepción del voto no presencial en doble sobre (familias)','Recibir los votos en sobre cerrado.',''],
-[25,[11,16],[11,16],'16/11','Generar censo de acceso restringido para el control del voto en la mesa','Ruta Séneca pendiente de publicar.',''],
-[26,[11,17],[11,17],'17/11','Elecciones del sector familias y apertura de la urna electrónica','Publicar horarios con antelación.',RS+'Resultados de la votación electrónica'],
-[27,[11,19],[11,19],'19/11','Elecciones presenciales de profesorado, PAS y PAEC','Publicar horarios con antelación. (El 18/11 es para alumnado de ESO: no aplica.)',''],
-[28,[11,19],[11,19],'Antes del 20/11','Grabar el resultado de las votaciones de todos los sectores','Art. 15.5 Orden 7/10/2010.',RS+'Resultados del proceso electoral'],
-[29,[11,20],[12,1],'Antes del 02/12','Proclamación de representantes electos y grabación en Séneca','Si no hay reclamaciones puede hacerse antes. Art. 62 Decreto 328/2010.',''],
-[30,[12,2],[12,2],'02/12','Remitir las actas de las mesas electorales a la Delegación','Pendiente de confirmar con Inspección de referencia.',''],
-[31,[12,7],[12,7],'07/12','Convocar la constitución del nuevo Consejo Escolar','Art. 63 Decreto 328/2010.',''],
-[32,[12,8],[12,17],'Antes del 18/12','Constituir el nuevo Consejo Escolar (p. ej. 14/12)','Acta; comisiones Permanente, Convivencia y PGLT; persona que impulse medidas de igualdad.',''],
-[33,[12,2],[12,18],'Hasta el 18/12','Grabar los componentes del nuevo Consejo Escolar','',RS+'Miembros del Consejo Escolar']
+[1,[9,14],[9,14],'14/09','Convocar Claustro para el 21/09: información sobre el inicio de las elecciones','Punto único: procedimiento de elección convocado por Resolución de 7/09/2026.','','Centro'],
+[2,[9,14],[9,14],'14/09','Convocar Consejo Escolar para el 21/09: información sobre el inicio de las elecciones','Punto único: procedimiento de elección convocado por Resolución de 7/09/2026.','','Centro'],
+[3,[9,14],[9,14],'14/09','Publicar calendario y tutorial de voto electrónico en el tablón de Pasen','Noticia a las familias con la Resolución y el calendario.','','Centro'],
+[4,[9,14],[9,17],'Antes del 18/09','Configurar el proceso electoral en Séneca','Tipo de proceso y consejo; fechas de constitución de la Junta Electoral (p. ej. 28/09) y del Consejo Escolar (p. ej. 14/12).',RS+'Detalle del proceso electoral','Centro'],
+[5,[9,14],[9,30],'14–30/09','Cupos: preparar y validar el cupo de cada sector','Fecha límite de validación: 30/09. Si el AMPA mayoritaria designa representante, restar un cupo al sector de familias.',RS+'Cupo del Consejo Escolar','CCEE'],
+[6,[9,14],[10,14],'14/09–14/10','Censos: preparar y validar los censos electorales de acceso público de todos los sectores','Fecha límite de validación: 14/10. El censo aparece en Pasen; dejar copia impresa en Conserjería.',RS+'Censo del proceso electoral','CCEE'],
+[7,[9,14],[9,18],'14–18/09','Generar el censo de acceso restringido para sortear la Junta Electoral','Cargar censo, validar y generar listado por sectores (consulta interna).',RS+'Censo del proceso electoral','Centro'],
+[8,[9,18],[9,21],'18 o 21/09','Enviar convocatoria de constitución de la Junta Electoral (p. ej. para el 28/09)','Al primer titular con registro de salida; suplentes por teléfono. Orden del día: constitución, censo, organización del proceso y solicitud al AMPA y al Ayuntamiento.','','Centro'],
+[9,[9,21],[9,25],'21–25/09','Sorteo público de los miembros de la Junta Electoral','3 por sector (1 titular y 2 suplentes): familias, profesorado, PAS, PAE. Acta al tablón con registro de salida y llamar a los sorteados.','','Centro'],
+[10,[9,28],[10,2],'28/09–02/10','Constituir la Junta Electoral','Acta, anexo con calendario y credenciales por sector con registro de salida. Grabar sus miembros en Séneca.',RS+'Junta Electoral','CCEE'],
+[11,[9,28],[10,7],'Tras constituir la Junta','Solicitar al AMPA/AFA y al Ayuntamiento que designen representante en el CE','Firmar, registro de salida y enviar por correo electrónico.','','Centro'],
+[12,[10,1],[10,7],'01–07/10','Publicación provisional del censo y plazo de reclamaciones','Publicar en el tablón y en Pasen para comprobación de datos de cada sector.',RS+'Censo del proceso electoral','Centro'],
+[13,[10,8],[10,14],'01–14/10','Publicación definitiva y validación de los censos tras las reclamaciones','Fecha límite: 14/10.',RS+'Censo del proceso electoral','CCEE'],
+[14,[10,2],[10,27],'02–27/10','Grabar la persona representante designada por el AMPA/AFA','Marcar la casilla de representante.',RS+'Miembro del Consejo Escolar','CCEE'],
+[15,[10,2],[10,27],'02–27/10','Mesas electorales: sorteo y grabación en Séneca de sus componentes','',RS+'Mesas Electorales','CCEE'],
+[16,[10,14],[10,27],'14–27/10','Admisión de candidaturas','Facilitar modelo de candidatura y grabarlas en Séneca.',RS+'Candidaturas al Consejo Escolar','CCEE'],
+[17,[10,28],[10,28],'28/10','Publicar la lista provisional de candidaturas','',RS+'Candidaturas al Consejo Escolar','Centro'],
+[18,[10,29],[10,29],'29/10','Día de reclamaciones a la lista provisional','Se presentan por registro.','','Centro'],
+[19,[10,30],[10,30],'30/10','Resolver reclamaciones, publicar la lista definitiva y validar las candidaturas','Fecha límite de validación en Séneca: 30/10. Art. 6.3 Orden 7/10/2010.',RS+'Candidaturas al Consejo Escolar','CCEE'],
+[20,[10,30],[11,6],'30/10–06/11','Generación de las papeletas de voto','',RS+'Candidaturas al Consejo Escolar','CCEE'],
+[21,[11,3],[11,12],'03–12/11','Campaña electoral y voto electrónico de las familias por iPasen','La campaña la realizan las personas candidatas.','','CCEE'],
+[22,[11,10],[11,16],'10–16/11','Recepción del voto no presencial en doble sobre (familias)','Recibir los votos en sobre cerrado.','','Centro'],
+[23,[11,13],[11,13],'13/11','Recuento del voto electrónico en Séneca','Para evitar la doble votación.','','CCEE'],
+[24,[11,16],[11,16],'16/11','Generar el censo de acceso restringido para la mesa electoral','Censo definitivo con indicación de quién ha votado.','','CCEE'],
+[25,[11,17],[11,17],'17/11','Jornada electoral del sector de familias (presencial)','Publicar los horarios con antelación.','','CCEE'],
+[26,[11,17],[11,17],'17/11 a las 20:00','Apertura de la urna electrónica','Simultánea en todos los centros de Andalucía.',RS+'Resultados de la votación electrónica','CCEE'],
+[27,[11,19],[11,19],'19/11','Jornada electoral de profesorado, PAS y PAEC','Publicar los horarios con antelación. El 18/11 es la del alumnado: no aplica en CEIP.','','CCEE'],
+[28,[11,18],[11,20],'18–20/11','Grabar los resultados electorales tras cada elección','Art. 15.5 Orden 7/10/2010.',RS+'Resultados del proceso electoral','CCEE'],
+[29,[11,20],[12,1],'Antes del 02/12','Proclamación de representantes electos y grabación en Séneca','Si no hay reclamaciones puede hacerse antes. Art. 62 Decreto 328/2010.','','Centro'],
+[30,[12,2],[12,2],'02/12','Remitir las actas de las mesas electorales a la Delegación','Pendiente de confirmar con Inspección de referencia.','','Centro'],
+[31,[12,2],[12,18],'02–18/12','Composición del Consejo Escolar: grabar todos sus componentes','',RS+'Miembros del Consejo Escolar','CCEE'],
+[32,[12,7],[12,7],'07/12','Convocar la constitución del nuevo Consejo Escolar','Art. 63 Decreto 328/2010.','','Centro'],
+[33,[12,8],[12,17],'Antes del 18/12','Constituir el nuevo Consejo Escolar (p. ej. el 14/12)','Acta; comisiones Permanente, Convivencia y PGLT; persona que impulse medidas de igualdad.','','Centro']
 ];
 const MES=['','enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
 const ORDER=[9,10,11,12,1,2,3,4,5,6,7,8];
@@ -393,7 +393,7 @@ const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 const T=[...TW.map(a=>[...a,'Webcretaría']),...TA.map(a=>[...a,'Agenda ED']),...REP.map(a=>[...a,'Agenda ED'])]
  .map(a=>{const e=a[2]?Math.min(a[2],dim(a[0])):0;const id=(a[0]+'|'+a[6]).replace(/\s+/g,'');
   return {id,m:a[0],em:a[0],s:a[1],e,f:a[3],who:a[4],c:a[5],t:a[6],d:a[7],r:a[8],u:a[9]?W+L[a[9]]:'',src:a[10]}});
-const CEL=CEP.map(p=>({id:'CE26|'+p[0],paso:p[0],m:p[1][0],s:p[1][1],em:p[2][0],e:p[2][1],f:p[3],who:'DS',c:'CE',t:'Elecciones CE · '+p[4],tt:p[4],d:p[5],r:p[6],u:W+L.ce,src:'Calendario CE 2026'}));
+const CEL=CEP.map(p=>({id:'CE26|'+p[0],paso:p[0],m:p[1][0],s:p[1][1],em:p[2][0],e:p[2][1],f:p[3],who:'DS',c:'CE',t:'Elecciones CE · '+p[4],tt:p[4],d:p[5],r:p[6],u:W+L.ce,src:p[7]==='CCEE'?'CCEE · Séneca':'Calendario del centro'}));
 T.push(...CEL);
 document.getElementById('today').textContent='Hoy es '+now.toLocaleDateString('es-ES',{weekday:'long',day:'numeric',month:'long',year:'numeric'})+' · curso '+startY+'-'+String(startY+1).slice(2);
 
@@ -477,7 +477,7 @@ function renderCE(){
     const late=!done[x.id]&&+x.B<today, cur=next&&x.id===next.id;
     return `<tr data-id="${esc(x.id)}" class="${done[x.id]?'done':''} ${late?'urgent':''} ${cur?'current':''}"><td><input type="checkbox" data-id="${esc(x.id)}" ${done[x.id]?'checked':''} aria-label="Hecho"></td>
     <td class="date" style="width:40px">${x.paso}</td><td class="date">${x.f}</td>
-    <td><div class="t">${esc(x.tt)}</div>${x.d?`<div class="d">${esc(x.d)}</div>`:''}${x.r?`<div class="r">${esc(x.r)}</div>`:''}</td><td class="who">${whoHtml('DS')}</td></tr>`}).join('');
+    <td><div class="t">${esc(x.tt)}</div>${x.d?`<div class="d">${esc(x.d)}</div>`:''}${x.r?`<div class="r">${esc(x.r)}</div>`:''}</td><td class="who">${whoHtml('DS')}<div class="src">${x.src.startsWith('CCEE')?'CCEE':'Centro'}</div></td></tr>`}).join('');
 }
 function renderAll(){
   rolesEl.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.r===role));
