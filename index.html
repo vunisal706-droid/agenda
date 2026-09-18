@@ -85,10 +85,12 @@ button.ghost{font:inherit;border:1.5px solid var(--line);background:var(--paper)
 .add:hover{filter:brightness(1.08)}
 .linkbtn{font:inherit;font-size:.78rem;border:0;background:none;color:var(--rD);cursor:pointer;padding:0 4px;text-decoration:underline}
 .fld{display:block;margin-bottom:10px;font-weight:700;font-size:.9rem}
-.fld input[type=text],.fld input,.fld textarea{display:block;width:100%;font:inherit;font-weight:400;margin-top:4px;border:1.5px solid var(--line);border-radius:10px;padding:10px;min-height:44px;background:#fff;color:var(--ink)}
+.fld input:not([type=checkbox]),.fld textarea{display:block;width:100%;font:inherit;font-weight:400;margin-top:4px;border:1.5px solid var(--line);border-radius:10px;padding:10px;min-height:44px;background:#fff;color:var(--ink);-webkit-appearance:none;appearance:none}
 .row2{display:flex;gap:10px}.row2 .fld{flex:1}
 .who3{display:flex;flex-direction:column;gap:8px;margin-top:6px;font-weight:400}
-.who3 label{display:flex;align-items:center;gap:8px;cursor:pointer}
+.who3 label{display:flex;align-items:center;gap:10px;cursor:pointer;border:1.5px solid var(--line);border-radius:10px;padding:10px;min-height:44px;background:#fff}
+.who3 input[type=checkbox]{flex:0 0 20px;width:20px;height:20px;margin:0}
+.who3 label span.rb{flex:0 0 24px}
 dialog{border:0;border-radius:16px;padding:22px;max-width:420px;background:#fff;color:var(--ink);box-shadow:0 20px 50px rgba(0,0,0,.25)}
 dialog::backdrop{background:rgba(31,42,55,.45)}
 @media (max-width:600px){.install{width:100%;order:-1}}
@@ -122,7 +124,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-grad
 .brand img{width:96px;height:auto;flex-shrink:0;filter:drop-shadow(0 4px 10px rgba(40,53,147,.15))}
 @media (max-width:600px){.brand img{width:70px}}
 th{background:rgba(247,248,253,.95)!important}
-nav.tabs,.roles{backdrop-filter:blur(8px)}
+nav.tabs,.roles{-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 @media (max-width:720px){
   main{padding:14px}
   .wrap{border-radius:12px}
@@ -505,7 +507,7 @@ function row(x,urg){
 document.addEventListener('change',e=>{
   const id=e.target.dataset&&e.target.dataset.id; if(!id)return;
   e.target.checked?done[id]=1:delete done[id]; LS(KEY,done);
-  document.querySelectorAll(`tr[data-id="${CSS.escape(id)}"]`).forEach(tr=>{tr.classList.toggle('done',e.target.checked);tr.querySelector('input').checked=e.target.checked});
+  document.querySelectorAll('tr[data-id]').forEach(tr=>{if(tr.getAttribute('data-id')===id){tr.classList.toggle('done',e.target.checked);const c=tr.querySelector('input');if(c)c.checked=e.target.checked}});
   renderAll();
 });
 
@@ -758,11 +760,13 @@ function renderDir(){
 }
 document.getElementById('qDir').oninput=renderDir;
 
-renderAll(); renderDir();
+try{ renderAll(); renderDir(); }
+catch(err){ document.querySelector('main').innerHTML='<div class="wrap" style="padding:20px"><b>Error al cargar la agenda</b><p>'+err.message+'</p><p class="note">Cierra la app, bórrala de la pantalla de inicio y vuelve a abrirla desde Safari.</p></div>'; }
 
 // PWA
 if('serviceWorker' in navigator) addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 let deferred; const btn=document.getElementById('install');
+if(btn&&!('showModal' in document.createElement('dialog'))){document.querySelectorAll('dialog').forEach(x=>{x.showModal=function(){this.setAttribute('open','');this.style.display='block';this.style.position='fixed';this.style.top='10%';this.style.left='50%';this.style.transform='translateX(-50%)';this.style.zIndex=99};x.close=function(){this.removeAttribute('open');this.style.display='none'};x.close()});}
 const instalada=(window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone;
 if(instalada) btn.style.display='none';
 addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e});
