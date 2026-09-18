@@ -81,6 +81,14 @@ button.ghost{font:inherit;border:1.5px solid var(--line);background:var(--paper)
 .docs{background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:12px 16px;margin:0 0 16px}
 .doclist{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
 .doclist a{background:var(--accent-soft);border-radius:999px;padding:7px 13px;text-decoration:none;font-weight:700;font-size:.88rem}
+.add{font:inherit;font-weight:700;border:0;border-radius:12px;padding:10px 16px;min-height:44px;cursor:pointer;color:#fff;background:linear-gradient(135deg,#f59e0b,#ea580c);box-shadow:0 4px 14px rgba(234,88,12,.35)}
+.add:hover{filter:brightness(1.08)}
+.linkbtn{font:inherit;font-size:.78rem;border:0;background:none;color:var(--rD);cursor:pointer;padding:0 4px;text-decoration:underline}
+.fld{display:block;margin-bottom:10px;font-weight:700;font-size:.9rem}
+.fld input[type=text],.fld input,.fld textarea{display:block;width:100%;font:inherit;font-weight:400;margin-top:4px;border:1.5px solid var(--line);border-radius:10px;padding:10px;min-height:44px;background:#fff;color:var(--ink)}
+.row2{display:flex;gap:10px}.row2 .fld{flex:1}
+.who3{display:flex;flex-direction:column;gap:8px;margin-top:6px;font-weight:400}
+.who3 label{display:flex;align-items:center;gap:8px;cursor:pointer}
 dialog{border:0;border-radius:16px;padding:22px;max-width:420px;background:#fff;color:var(--ink);box-shadow:0 20px 50px rgba(0,0,0,.25)}
 dialog::backdrop{background:rgba(31,42,55,.45)}
 @media (max-width:600px){.install{width:100%;order:-1}}
@@ -177,6 +185,7 @@ tr.current td{background:rgba(227,231,251,.7)}
       <select id="catSel"><option value="">Todos los ámbitos</option></select>
       <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="qMes" placeholder="Buscar en todo el curso…"></div>
       <label class="chk"><input type="checkbox" id="hideDone"> Ocultar hechas</label>
+      <button class="add" id="addBtn">➕ Nueva tarea</button>
       <button class="ghost" onclick="print()">🖨️ Imprimir</button>
     </div>
     <div class="legend" style="margin-bottom:10px"><span><span class="rb D">D</span>Dirección</span><span><span class="rb J">J</span>Jefatura de Estudios</span><span><span class="rb S">S</span>Secretaría</span><span class="count" id="cMes"></span></div>
@@ -198,6 +207,22 @@ tr.current td{background:rgba(227,231,251,.7)}
     </div>
     <div class="wrap"><table><thead><tr><th>Servicio / Unidad</th><th>Nombre</th><th>Teléfono</th><th>Correo</th></tr></thead><tbody id="tDir"></tbody></table></div>
   </section>
+  <dialog id="nueva">
+    <h3 style="margin-top:0">➕ Nueva tarea</h3>
+    <p class="note" style="margin-top:0">Se añade al ámbito «Varios» y se guarda en este dispositivo.</p>
+    <label class="fld">Descripción<input id="fTit" placeholder="Ej.: Llamar a la DT por el comedor" maxlength="140"></label>
+    <label class="fld">Detalle (opcional)<textarea id="fDet" rows="2" maxlength="300"></textarea></label>
+    <div class="row2"><label class="fld">Fecha<input type="date" id="fIni"></label><label class="fld">Hasta (opcional)<input type="date" id="fFin"></label></div>
+    <div class="fld">Encargado
+      <div class="who3">
+        <label><input type="checkbox" id="fD"> <span class="rb D">D</span> Dirección</label>
+        <label><input type="checkbox" id="fJ"> <span class="rb J">J</span> Jefatura</label>
+        <label><input type="checkbox" id="fS"> <span class="rb S">S</span> Secretaría</label>
+      </div>
+    </div>
+    <p id="fErr" style="color:var(--rD);font-weight:700;min-height:1.2em;margin:6px 0"></p>
+    <div style="display:flex;gap:8px;justify-content:flex-end"><button class="ghost" id="cancelBtn">Cancelar</button><button class="add" id="saveBtn">Guardar tarea</button></div>
+  </dialog>
   <dialog id="howto">
     <h3 style="margin-top:0">Instalar la app en este dispositivo</h3>
     <p><b>Android / Chrome:</b> menú ⋮ → «Instalar aplicación» o «Añadir a pantalla de inicio».</p>
@@ -441,6 +466,8 @@ const CEP=[
 [32,[12,7],[12,7],'07/12','Convocar la constitución del nuevo Consejo Escolar','Art. 63 Decreto 328/2010.','','Centro'],
 [33,[12,8],[12,17],'Antes del 18/12','Constituir el nuevo Consejo Escolar (p. ej. el 14/12)','Acta; comisiones Permanente, Convivencia y PGLT; persona que impulse medidas de igualdad.','','Centro']
 ];
+const LS0=k=>{try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}};
+const LS=(k,v)=>{try{if(v===undefined)return JSON.parse(localStorage.getItem(k));localStorage.setItem(k,JSON.stringify(v))}catch(e){return null}};
 const MES=['','enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
 const ORDER=[9,10,11,12,1,2,3,4,5,6,7,8];
 const RN={D:'Dirección',J:'Jefatura de Estudios',S:'Secretaría'};
@@ -451,24 +478,29 @@ const dim=m=>new Date(yOf(m),m,0).getDate();
 const cap=s=>s[0].toUpperCase()+s.slice(1);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
-const T=[...TW.map(a=>[...a,'Webcretaría']),...TA.map(a=>[...a,'Agenda ED']),...REP.map(a=>[...a,'Agenda ED'])]
+const BASE=[...TW.map(a=>[...a,'Webcretaría']),...TA.map(a=>[...a,'Agenda ED']),...REP.map(a=>[...a,'Agenda ED'])]
  .map(a=>{const e=a[2]?Math.min(a[2],dim(a[0])):0;const id=(a[0]+'|'+a[6]).replace(/\s+/g,'');
   return {id,m:a[0],em:a[0],s:a[1],e,f:a[3],who:a[4],c:a[5],t:a[6],d:a[7],r:a[8],u:a[9]?W+L[a[9]]:'',src:a[10]}});
 const CEL=CEP.map(p=>({id:'CE26|'+p[0],paso:p[0],m:p[1][0],s:p[1][1],em:p[2][0],e:p[2][1],f:p[3],who:'DS',c:'CE',t:'Elecciones CE · '+p[4],tt:p[4],d:p[5],r:p[6],u:W+L.ce,src:p[7]==='CCEE'?'CCEE · Séneca':'Calendario del centro'}));
-T.push(...CEL);
+BASE.push(...CEL);
+let extras=LS0('capi-agendaED-extra')||[];
+let T=[];
+function rebuild(){
+  T=BASE.concat(extras.map(x=>({...x,c:'VAR',src:'Tarea propia',propia:true})));
+}
 document.getElementById('today').textContent='Hoy es '+now.toLocaleDateString('es-ES',{weekday:'long',day:'numeric',month:'long',year:'numeric'})+' · curso '+startY+'-'+String(startY+1).slice(2);
 
-// estado
-const LS=(k,v)=>{try{if(v===undefined)return JSON.parse(localStorage.getItem(k));localStorage.setItem(k,JSON.stringify(v))}catch(e){return null}};
+
 const KEY='capi-agendaED-'+startY;
 let done=LS(KEY)||{}, role=LS('capi-agendaED-rol')||'';
+rebuild();
 const fits=x=>!role||x.who.includes(role);
 const dateTxt=x=>x.f||(x.s?(x.s===x.e&&x.m===x.em?x.s+' '+MES[x.m].slice(0,3):x.s+'–'+x.e+' '+MES[x.em].slice(0,3)):'Durante el mes');
 const whoHtml=w=>['D','J','S'].filter(r=>w.includes(r)).map(r=>`<span class="rb ${r}" title="${RN[r]}">${r}</span>`).join('');
 function row(x,urg){
   return `<tr data-id="${esc(x.id)}" class="${done[x.id]?'done':''} ${urg?'urgent':''}"><td><input type="checkbox" data-id="${esc(x.id)}" ${done[x.id]?'checked':''} aria-label="Marcar como hecha"></td>
   <td class="date">${dateTxt(x)}</td><td class="who">${whoHtml(x.who)}</td><td><span class="tag" style="background:var(--c-${x.c})">${CAT[x.c]}</span></td>
-  <td><div class="t">${esc(x.t)}</div>${x.d?`<div class="d">${esc(x.d)}</div>`:''}${x.r?`<div class="r">${esc(x.r)}</div>`:''}<div class="d">${x.u?`<a href="${x.u}" target="_blank" rel="noopener">Ver en Webcretaría ↗</a>`:''}<span class="src">${x.src}</span></div></td></tr>`;
+  <td><div class="t">${esc(x.t)}</div>${x.d?`<div class="d">${esc(x.d)}</div>`:''}${x.r?`<div class="r">${esc(x.r)}</div>`:''}<div class="d">${x.u?`<a href="${x.u}" target="_blank" rel="noopener">Ver en Webcretaría ↗</a>`:''}<span class="src">${x.src}</span>${x.propia?` <button class="linkbtn" data-del="${esc(x.id)}">🗑️ Borrar</button>`:''}</div></td></tr>`;
 }
 document.addEventListener('change',e=>{
   const id=e.target.dataset&&e.target.dataset.id; if(!id)return;
@@ -493,7 +525,9 @@ const catSel=document.getElementById('catSel');
 catSel.innerHTML+=Object.entries(CAT).map(([k,v])=>`<option value="${k}">${v}</option>`).join('');
 catSel.onchange=renderMes;
 document.getElementById('qMes').oninput=renderMes;
-document.getElementById('hideDone').onchange=renderMes;
+const hd0=document.getElementById('hideDone');
+hd0.checked=!!LS('capi-agendaED-hide');
+hd0.onchange=()=>{LS('capi-agendaED-hide',hd0.checked);renderMes()};
 const sortT=(a,b)=>(a.s?(a.em-a.m)*40+a.e:99)-(b.s?(b.em-b.m)*40+b.e:99)||(a.s||99)-(b.s||99);
 function renderMes(){
   const q=norm(document.getElementById('qMes').value.trim()), hd=document.getElementById('hideDone').checked;
@@ -524,6 +558,27 @@ function weekPanel(el,offset,title){
   <p class="note">En naranja: el plazo termina dentro de esta semana.</p>
   ${undated.length?`<h3>Sin fecha fija este mes (${[...months].map(m=>MES[m]).join(' / ')})</h3><div class="wrap"><table><tbody>${undated.map(x=>row(x)).join('')}</tbody></table></div>`:''}`;
 }
+// tareas propias
+const dlg=document.getElementById('nueva');
+document.getElementById('addBtn').onclick=()=>{document.getElementById('fIni').value=new Date().toISOString().slice(0,10);dlg.showModal()};
+document.getElementById('cancelBtn').onclick=()=>dlg.close();
+document.getElementById('saveBtn').onclick=()=>{
+  const t=document.getElementById('fTit').value.trim(), ini=document.getElementById('fIni').value;
+  const who=['D','J','S'].filter(r=>document.getElementById('f'+r).checked).join('');
+  const err=document.getElementById('fErr');
+  if(!t||!ini||!who){err.textContent='Faltan datos: descripción, fecha y al menos un cargo.';return}
+  err.textContent='';
+  const fin=document.getElementById('fFin').value||ini;
+  const a1=new Date(ini+'T00:00'), a2=new Date(fin+'T00:00');
+  extras.push({id:'X'+Date.now(),m:a1.getMonth()+1,s:a1.getDate(),em:a2.getMonth()+1,e:a2.getDate(),f:'',who,t,d:document.getElementById('fDet').value.trim(),r:'',u:''});
+  LS('capi-agendaED-extra',extras); rebuild();
+  ['fTit','fDet','fFin'].forEach(i=>document.getElementById(i).value='');
+  dlg.close(); renderAll();
+};
+document.addEventListener('click',e=>{const id=e.target.dataset&&e.target.dataset.del; if(!id)return;
+  if(!confirm('¿Borrar esta tarea propia?'))return;
+  extras=extras.filter(x=>x.id!==id); LS('capi-agendaED-extra',extras); delete done[id]; LS(KEY,done); rebuild(); renderAll();});
+
 function renderCE(){
   const today=+now; let next=null;
   CEL.forEach(x=>{x.A=new Date(yOf(x.m),x.m-1,x.s);x.B=new Date(yOf(x.em),x.em-1,x.e)});
@@ -708,7 +763,7 @@ renderAll(); renderDir();
 // PWA
 if('serviceWorker' in navigator) addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 let deferred; const btn=document.getElementById('install');
-const instalada=matchMedia('(display-mode: standalone)').matches||navigator.standalone;
+const instalada=(window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone;
 if(instalada) btn.style.display='none';
 addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e});
 btn.onclick=async()=>{ if(deferred){deferred.prompt();const r=await deferred.userChoice;deferred=null;if(r.outcome==='accepted')btn.style.display='none';} else document.getElementById('howto').showModal(); };
