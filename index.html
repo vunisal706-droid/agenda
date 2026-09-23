@@ -186,13 +186,13 @@ tr.current td{background:rgba(227,231,251,.7)}
       <div class="monthnav"><button class="ghost" id="prevM" aria-label="Mes anterior">‹</button><select id="monthSel" aria-label="Mes"></select><button class="ghost" id="nextM" aria-label="Mes siguiente">›</button></div>
       <select id="catSel"><option value="">Todos los ámbitos</option></select>
       <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="qMes" placeholder="Buscar en todo el curso…"></div>
-      <label class="chk"><input type="checkbox" id="hideDone"> Ocultar hechas</label>
+      <label class="chk"><input type="checkbox" id="hideDone"> Ver hechas (para desmarcar)</label>
       <button class="add" id="addBtn">➕ Nueva tarea</button>
       <button class="ghost" onclick="print()">🖨️ Imprimir</button>
     </div>
     <div class="legend" style="margin-bottom:10px"><span><span class="rb D">D</span>Dirección</span><span><span class="rb J">J</span>Jefatura de Estudios</span><span><span class="rb S">S</span>Secretaría</span><span class="count" id="cMes"></span></div>
     <div class="wrap"><table><thead><tr><th></th><th>Fecha</th><th>Cargo</th><th>Ámbito</th><th>Qué hay que hacer</th></tr></thead><tbody id="tMes"></tbody></table></div>
-    <p class="note">Las fechas de servicios complementarios siguen la <a href="https://www.juntadeandalucia.es/boja/2026/46/42" target="_blank" rel="noopener">Resolución de 3 de marzo de 2026 (BOJA 46)</a>, que se publica cada curso: revisar la nueva antes de junio. Fuentes: Agenda de Jefatura y Direcciones 26-27 y Calendario de elecciones al CE 2026 (prioritarios cuando hay fechas distintas) y Cronología de la Webcretaría. Varias fechas cambian cada curso: confirmad con los calendarios oficiales antes de actuar. Las tareas marcadas como hechas se guardan en este dispositivo.</p>
+    <p class="note">Las fechas de servicios complementarios siguen la <a href="https://www.juntadeandalucia.es/boja/2026/46/42" target="_blank" rel="noopener">Resolución de 3 de marzo de 2026 (BOJA 46)</a>, que se publica cada curso: revisar la nueva antes de junio. Fuentes: Agenda de Jefatura y Direcciones 26-27 y Calendario de elecciones al CE 2026 (prioritarios cuando hay fechas distintas) y Cronología de la Webcretaría. Varias fechas cambian cada curso: confirmad con los calendarios oficiales antes de actuar. Las tareas marcadas como hechas desaparecen de la agenda y se guardan en este dispositivo; para recuperarlas, activad «Ver hechas».</p>
   </section>
   <section class="panel" id="p-esta"></section>
   <section class="panel" id="p-prox"></section>
@@ -528,11 +528,11 @@ catSel.innerHTML+=Object.entries(CAT).map(([k,v])=>`<option value="${k}">${v}</o
 catSel.onchange=renderMes;
 document.getElementById('qMes').oninput=renderMes;
 const hd0=document.getElementById('hideDone');
-hd0.checked=!!LS('capi-agendaED-hide');
-hd0.onchange=()=>{LS('capi-agendaED-hide',hd0.checked);renderMes()};
+hd0.checked=false;
+hd0.onchange=renderMes;
 const sortT=(a,b)=>(a.s?(a.em-a.m)*40+a.e:99)-(b.s?(b.em-b.m)*40+b.e:99)||(a.s||99)-(b.s||99);
 function renderMes(){
-  const q=norm(document.getElementById('qMes').value.trim()), hd=document.getElementById('hideDone').checked;
+  const q=norm(document.getElementById('qMes').value.trim()), hd=!document.getElementById('hideDone').checked;
   const months=q||curM===0?ORDER:[curM]; let h='',n=0;
   months.forEach(m=>{
     const list=T.filter(x=>x.m===m&&fits(x)&&(!catSel.value||x.c===catSel.value)&&(!hd||!done[x.id])&&(!q||norm(x.t+' '+x.d+' '+x.r+' '+CAT[x.c]).includes(q))).sort(sortT);
@@ -550,13 +550,13 @@ function weekPanel(el,offset,title){
   const sun=new Date(mon); sun.setDate(mon.getDate()+6);
   const months=new Set(); for(let d=new Date(mon);d<=sun;d.setDate(d.getDate()+1))months.add(d.getMonth()+1);
   const dated=T.filter(x=>x.s&&fits(x)).map(x=>({x,a:new Date(yOf(x.m),x.m-1,x.s),b:new Date(yOf(x.em),x.em-1,x.e)}))
-    .filter(p=>p.a<=sun&&p.b>=mon).sort((p,q)=>p.b-q.b);
-  const undated=T.filter(x=>!x.s&&fits(x)&&months.has(x.m));
+    .filter(p=>p.a<=sun&&p.b>=mon&&!done[p.x.id]).sort((p,q)=>p.b-q.b);
+  const undated=T.filter(x=>!x.s&&fits(x)&&months.has(x.m)&&!done[x.id]);
   const pend=dated.filter(p=>!done[p.x.id]).length;
   const byRole=['D','J','S'].map(r=>`<span><span class="rb ${r}">${r}</span>${dated.filter(p=>!done[p.x.id]&&p.x.who.includes(r)).length}</span>`).join('');
   el.innerHTML=`<div class="weekhead"><h2>${title}${role?' · '+RN[role]:''}</h2><span class="pill">Lunes ${mon.getDate()} ${MES[mon.getMonth()+1].slice(0,3)} – domingo ${sun.getDate()} ${MES[sun.getMonth()+1].slice(0,3)}</span><span class="count">${pend} pendientes</span>${role?'':`<span class="legend">${byRole}</span>`}</div>
   <div class="wrap"><table><thead><tr><th></th><th>Fecha</th><th>Cargo</th><th>Ámbito</th><th>Qué hay que hacer</th></tr></thead><tbody>${
-   dated.length?dated.map(p=>row(p.x,p.b>=mon&&p.b<=sun)).join(''):'<tr><td colspan="5" class="empty">No hay tareas con fecha esta semana</td></tr>'}</tbody></table></div>
+   dated.length?dated.map(p=>row(p.x,p.b>=mon&&p.b<=sun)).join(''):'<tr><td colspan="5" class="empty">No quedan tareas pendientes con fecha esta semana</td></tr>'}</tbody></table></div>
   <p class="note">En naranja: el plazo termina dentro de esta semana.</p>
   ${undated.length?`<h3>Sin fecha fija este mes (${[...months].map(m=>MES[m]).join(' / ')})</h3><div class="wrap"><table><tbody>${undated.map(x=>row(x)).join('')}</tbody></table></div>`:''}`;
 }
@@ -591,7 +591,7 @@ function renderCE(){
    <div class="bar"><div style="width:${pct}%"></div></div>
    <p class="count">${n} de ${CEL.length} pasos hechos${vencidas?` · <b style="color:var(--warn)">${vencidas} con fecha ya pasada sin marcar</b>`:''}</p>
    ${next?`<div class="nextcard"><span class="kicker">Siguiente paso</span><div class="t">${next.paso}. ${esc(next.tt)}</div><div class="d">${next.f}${next.d?' · '+esc(next.d):''}</div></div>`:'<div class="nextcard"><div class="t">✅ Proceso completado</div></div>'}`;
-  document.getElementById('tCE').innerHTML=CEL.map(x=>{
+  document.getElementById('tCE').innerHTML=CEL.filter(x=>!done[x.id]).map(x=>{
     const late=!done[x.id]&&+x.B<today, cur=next&&x.id===next.id;
     return `<tr data-id="${esc(x.id)}" class="${done[x.id]?'done':''} ${late?'urgent':''} ${cur?'current':''}"><td><input type="checkbox" data-id="${esc(x.id)}" ${done[x.id]?'checked':''} aria-label="Hecho"></td>
     <td class="date" style="width:40px">${x.paso}</td><td class="date">${x.f}</td>
