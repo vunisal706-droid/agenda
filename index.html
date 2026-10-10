@@ -154,6 +154,16 @@ nav.tabs,.roles{-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 .bar div{height:100%;background:linear-gradient(90deg,#283593,#5c6bc0);border-radius:99px;transition:width .4s}
 .nextcard{background:var(--paper);border:1.5px solid #c5cae9;border-left:6px solid var(--accent);border-radius:14px;padding:12px 16px;margin:12px 0 16px}
 tr.current td{background:rgba(227,231,251,.7)}
+.nb{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 6px;border-radius:99px;background:#b91c1c;color:#fff;font-size:.72rem;margin-left:4px}
+.bday{font-family:Fraunces,Georgia,serif;font-weight:800;font-size:1.05rem;margin:18px 0 8px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.bday small{font-family:inherit;font-weight:400;color:var(--muted);font-size:.85rem}
+.bitem{background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:12px;padding:10px 14px;margin-bottom:8px}
+.bitem.imp{border-left-color:#b4531a}
+.bitem a{font-weight:700;color:var(--ink);text-decoration:none}
+.bitem a:hover{text-decoration:underline}
+.bmeta{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-size:.8rem;color:var(--muted);margin-top:5px}
+.btag{background:var(--accent-soft);color:var(--accent);border-radius:6px;padding:2px 8px;font-weight:700}
+.bnew{background:#b91c1c;color:#fff;border-radius:6px;padding:2px 7px;font-weight:700;font-size:.7rem}
 </style>
 </head>
 <body>
@@ -178,6 +188,7 @@ tr.current td{background:rgba(227,231,251,.7)}
     <button role="tab" data-p="prox" aria-selected="false">➡️ Semana que viene</button>
     <button role="tab" data-p="ce" aria-selected="false">🗳️ Elecciones CE</button>
     <button role="tab" data-p="dir" aria-selected="false">☎️ Directorio DT Granada</button>
+    <button role="tab" data-p="boja" aria-selected="false">📢 BOJA <span class="nb" id="bojaNb" hidden></span></button>
   </nav>
 </header>
 <main>
@@ -208,6 +219,17 @@ tr.current td{background:rgba(227,231,251,.7)}
       <span class="count" id="cDir"></span>
     </div>
     <div class="wrap"><table><thead><tr><th>Servicio / Unidad</th><th>Nombre</th><th>Teléfono</th><th>Correo</th></tr></thead><tbody id="tDir"></tbody></table></div>
+  </section>
+  <section class="panel" id="p-boja">
+    <div class="toolbar">
+      <div class="months" role="group" aria-label="Qué ver">
+        <button class="chip on" data-bf="imp">⭐ Lo importante para el cole</button>
+        <button class="chip" data-bf="edu">🎓 Todo lo de Educación</button>
+      </div>
+      <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="qBoja" placeholder="Buscar (comedor, maestros, Granada…)"></div>
+    </div>
+    <div id="lBoja"><p class="note">Cargando novedades…</p></div>
+    <p class="note">Se revisa el BOJA cada mañana de lunes a viernes y se guardan los últimos 4 meses. «Lo importante» deja fuera autorizaciones de centros privados, FP, Bachillerato y asuntos de otras provincias.</p>
   </section>
   <dialog id="nueva">
     <h3 style="margin-top:0">➕ Nueva tarea</h3>
@@ -608,7 +630,8 @@ function renderAll(){
 document.querySelectorAll('nav.tabs button').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('nav.tabs button').forEach(x=>x.setAttribute('aria-selected',x===b));
   document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id==='p-'+b.dataset.p));
-  rolesEl.style.visibility=(b.dataset.p==='dir'||b.dataset.p==='ce')?'hidden':'visible';
+  rolesEl.style.visibility=(b.dataset.p==='dir'||b.dataset.p==='ce'||b.dataset.p==='boja')?'hidden':'visible';
+  if(b.dataset.p==='boja') bojaVisto();
   if(b.dataset.p==='dir')document.getElementById('qDir').focus();
 });
 const D=[
@@ -762,6 +785,36 @@ document.getElementById('qDir').oninput=renderDir;
 
 try{ renderAll(); renderDir(); }
 catch(err){ document.querySelector('main').innerHTML='<div class="wrap" style="padding:20px"><b>Error al cargar la agenda</b><p>'+err.message+'</p><p class="note">Cierra la app, bórrala de la pantalla de inicio y vuelve a abrirla desde Safari.</p></div>'; }
+
+// ===== Novedades del BOJA (boja.json lo actualiza GitHub Actions cada mañana) =====
+let BOJA=[], bojaF='imp', bojaNuevos=new Set();
+const DSEM=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+function bojaFecha(d){const f=new Date(d+'T12:00');return `${DSEM[f.getDay()][0].toUpperCase()+DSEM[f.getDay()].slice(1)} ${f.getDate()} de ${f.toLocaleDateString('es-ES',{month:'long'})}`}
+function renderBoja(){
+  const q=norm(document.getElementById('qBoja').value.trim());
+  const list=BOJA.filter(x=>(bojaF==='imp'?x.imp:true)&&(!q||norm(x.t+' '+x.org).includes(q)));
+  const el=document.getElementById('lBoja');
+  if(!BOJA.length){el.innerHTML='<p class="note">Todavía no hay novedades guardadas. Se irán añadiendo cada mañana.</p>';return}
+  if(!list.length){el.innerHTML='<p class="note">Nada que coincida. Prueba con «Todo lo de Educación».</p>';return}
+  let out='',dia='';
+  list.forEach(x=>{
+    if(x.fecha!==dia){dia=x.fecha;out+=`<div class="bday">${bojaFecha(dia)}<small>${x.bol?'BOJA nº '+esc(x.bol.split('/')[0]):''}</small></div>`}
+    out+=`<div class="bitem ${x.imp?'imp':''}"><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.t)}</a>
+      <div class="bmeta">${bojaNuevos.has(x.url)?'<span class="bnew">NUEVO</span>':''}<span class="btag">${x.emoji||'📄'} ${esc(x.tipo||'')}</span><span>${esc(x.org)}</span><span>· ${esc(x.sec||'')}</span></div></div>`;
+  });
+  el.innerHTML=out;
+}
+function bojaBadge(){const nb=document.getElementById('bojaNb');const n=BOJA.filter(x=>x.imp&&bojaNuevos.has(x.url)).length;nb.hidden=!n;nb.textContent=n}
+function bojaVisto(){renderBoja();LS('boja-visto',BOJA.map(x=>x.url));setTimeout(()=>{bojaNuevos=new Set();bojaBadge()},400)}
+document.querySelectorAll('[data-bf]').forEach(b=>b.onclick=()=>{bojaF=b.dataset.bf;document.querySelectorAll('[data-bf]').forEach(x=>x.classList.toggle('on',x===b));renderBoja()});
+document.getElementById('qBoja').oninput=renderBoja;
+fetch('boja.json?_='+Date.now(),{cache:'no-store'}).then(r=>r.ok?r.json():null).then(j=>{
+  if(!j||!Array.isArray(j.items))return renderBoja();
+  BOJA=j.items; const vistos=LS('boja-visto');
+  bojaNuevos=new Set(Array.isArray(vistos)?BOJA.map(x=>x.url).filter(u=>!vistos.includes(u)):[]);
+  if(!Array.isArray(vistos))LS('boja-visto',BOJA.map(x=>x.url));   // la primera vez no se marca todo como nuevo
+  bojaBadge(); renderBoja();
+}).catch(()=>renderBoja());
 
 // PWA
 if('serviceWorker' in navigator) addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));

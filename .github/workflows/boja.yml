@@ -1,0 +1,30 @@
+name: Novedades del BOJA
+
+on:
+  schedule:
+    - cron: '30 6 * * 1-5'   # de lunes a viernes, hacia las 8:30 (el BOJA sale de madrugada)
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/boja.py'
+      - '.github/workflows/boja.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  boja:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Leer el BOJA
+        run: python scripts/boja.py
+      - name: Guardar cambios
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add boja.json 2>/dev/null || true
+          git diff --cached --quiet || (git commit -m "Novedades del BOJA" && git pull --rebase && git push)

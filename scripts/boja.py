@@ -1,0 +1,103 @@
+"""Vigila el BOJA cada mañana y guarda en boja.json lo que afecta a un colegio.
+Fuente: canales Atom oficiales del BOJA (una por sección), que traen el último
+boletín. Se van acumulando día a día (se guardan los últimos 120 días)."""
+import json, re, html, datetime, unicodedata, urllib.request, sys
+import xml.etree.ElementTree as ET
+
+UA = {'User-Agent': 'Mozilla/5.0 (Agenda ED CEIP Capitulaciones; novedades BOJA)'}
+SECCIONES = {'s51': '1. Disposiciones generales', 's52': '2.1 Nombramientos y ceses', 's53': '2.2 Oposiciones y concursos',
+             's54': '3. Otras disposiciones', 's55': '4. Administración de Justicia', 's56': '5. Anuncios'}
+DIAS = 120
+A = '{http://www.w3.org/2005/Atom}'
+
+def norm(t):
+    return unicodedata.normalize('NFD', (t or '').lower()).encode('ascii', 'ignore').decode()
+
+def get(url):
+    with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=40) as r:
+        return r.read()
+
+# ¿Es de educación? (Consejería o, en otras consejerías, temas escolares)
+EDU_ORG = re.compile(r'desarrollo educativo|educacion|agencia publica andaluza de educacion', re.I)
+EDU_TXT = re.compile(r'centros? docentes?|educacion infantil|educacion primaria|segundo ciclo de educacion infantil|'
+                     r'escolar|alumnado|profesorado|comedor|aula matinal|actividades extraescolares|'
+                     r'necesidades especificas de apoyo educativo|consejos? escolar', re.I)
+# Lo que casi nunca le toca a un CEIP de Granada
+RUIDO = re.compile(r'centro docente privado|centro privado|escuela de arte|conservatorio|universidad|'
+                   r'formacion profesional para el empleo|ensenanzas deportivas|escuela oficial de idiomas|'
+                   r'bachillerato|ciclos? formativos?|educacion secundaria obligatoria y bachillerato', re.I)
+PROV = re.compile(r'\b(almeria|cadiz|cordoba|huelva|jaen|malaga|sevilla)\b', re.I)
+# Lo importante para un colegio
+CLAVE = re.compile(r'instrucciones?|calendario|escolarizacion|admision|matricula|plan(es)? |programa|'
+                   r'convocatoria|ayudas?|subvencion|evaluacion|direccion|director|reglamento organico|'
+                   r'plantilla|cuerpo de maestros|maestros|adjudicacion|concurso de traslados|interinos|'
+                   r'bolsa|comedor|aula matinal|gratuidad|libros de texto|transporte escolar|granada', re.I)
+
+TIPOS = [('📌', 'Instrucciones', r'instrucciones?|orden de .* por la que se (regula|establece|desarrolla)|decreto'),
+         ('🗓️', 'Calendario', r'calendario|plazos?'),
+         ('👥', 'Personal', r'maestros|profesorado|cuerpo|plantilla|interinos|bolsa|adjudicacion|traslados|nombra|cese|direccion|director'),
+         ('💶', 'Ayudas', r'ayudas?|subvencion|becas?|gratuidad|bonificacion'),
+         ('📝', 'Convocatoria', r'convocatoria|convoca|premios?|concurso'),
+         ('🏫', 'Centros', r'centros?|escolarizacion|admision|comedor|aula matinal|transporte')]
+
+def tipo(t):
+    n = norm(t)
+    for e, nombre, rx in TIPOS:
+        if re.search(rx, n):
+            return e, nombre
+    return '📄', 'Otros'
+
+def leer_feed(sec):
+    raiz = ET.fromstring(get(f'https://juntadeandalucia.es/boja/distribucion/{sec}.xml'))
+    out = []
+    for e in raiz.iter(A + 'entry'):
+        titulo = html.unescape((e.findtext(A + 'title') or '').strip())
+        link = (e.find(A + 'link').get('href') if e.find(A + 'link') is not None else '').replace('http://', 'https://')
+        cont = html.unescape(e.findtext(A + 'content') or '')
+        org = re.search(r'Organismo:\s*([^;]+)', cont)
+        bol = re.search(r'BOJA n[ºo°]\s*(\d+)\s*de\s*(\d{4})', cont)
+        fecha = (e.findtext(A + 'updated') or '')[:10]
+        out.append({'t': titulo, 'url': link, 'org': org.group(1).strip() if org else '', 'sec': SECCIONES[sec],
+                    'bol': f'{bol.group(1)}/{bol.group(2)}' if bol else '', 'fecha': fecha})
+    return out
+
+def clasificar(x):
+    n, o = norm(x['t']), norm(x['org'])
+    es_edu = bool(EDU_ORG.search(o)) or bool(EDU_TXT.search(n))
+    if not es_edu:
+        return None
+    ruido = bool(RUIDO.search(n)) or (bool(PROV.search(n)) and 'granada' not in n and 'andalucia' not in n)
+    importante = (not ruido) and bool(CLAVE.search(n))
+    e, nombre = tipo(x['t'])
+    return {**x, 'imp': importante, 'ruido': ruido, 'emoji': e, 'tipo': nombre}
+
+def main():
+    try:
+        previo = json.load(open('boja.json', encoding='utf-8')).get('items', [])
+    except Exception:
+        previo = []
+    vistos = {x['url'] for x in previo}
+    nuevos, errores = [], 0
+    for sec in SECCIONES:
+        try:
+            items = leer_feed(sec)
+            print(f'{sec}: {len(items)} disposiciones')
+        except Exception as ex:
+            errores += 1; print(f'{sec}: ERROR {ex}', file=sys.stderr); continue
+        for x in items:
+            c = clasificar(x)
+            if c and c['url'] not in vistos:
+                nuevos.append(c); vistos.add(c['url'])
+                print(f'  {"★" if c["imp"] else "·"} {c["t"][:110]}')
+    if errores == len(SECCIONES):
+        print('No se ha podido leer el BOJA: no se cambia nada.'); return
+    limite = (datetime.date.today() - datetime.timedelta(days=DIAS)).isoformat()
+    items = [x for x in nuevos + previo if x.get('fecha', '9999') >= limite]
+    items.sort(key=lambda x: (x.get('fecha', ''), x['url']), reverse=True)
+    with open('boja.json', 'w', encoding='utf-8') as f:
+        json.dump({'actualizado': datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='minutes'),
+                   'items': items}, f, ensure_ascii=False, indent=1)
+    print(f'boja.json: {len(nuevos)} nuevas, {len(items)} en total')
+
+if __name__ == '__main__':
+    main()
