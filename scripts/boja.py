@@ -8,7 +8,7 @@ UA = {'User-Agent': 'Mozilla/5.0 (Agenda ED CEIP Capitulaciones; novedades BOJA)
 SECCIONES = {'s51': '1. Disposiciones generales', 's52': '2.1 Nombramientos y ceses', 's53': '2.2 Oposiciones y concursos',
              's54': '3. Otras disposiciones', 's55': '4. Administración de Justicia', 's56': '5. Anuncios'}
 DIAS = 120
-DEPURAR = True
+DEPURAR = False
 A = '{http://www.w3.org/2005/Atom}'
 
 def norm(t):
@@ -43,11 +43,11 @@ CLAVE = re.compile(r'instrucciones?|calendario|escolarizacion|admision|matricula
 
 TIPOS = [('📌', 'Instrucciones', r'instrucciones?|orden de .* por la que se (regula|establece|desarrolla)|decreto'),
          ('🗓️', 'Calendario', r'calendario|plazos?'),
-         ('🏫', 'Centros', r'autoriza|centro de educacion|centros? docentes?|cese de actividad|escolarizacion|admision'),
+         ('🏫', 'Centros', r'autoriza|cese de actividad|titularidad|denominacion especifica'),
          ('👥', 'Personal', r'maestros|profesorado|cuerpo|plantilla|interinos|bolsa|adjudicacion|traslados|nombra|\bcese\b|direccion|director'),
          ('💶', 'Ayudas', r'ayudas?|subvencion|becas?|gratuidad|bonificacion'),
          ('📝', 'Convocatoria', r'convocatoria|convoca|premios?|concurso'),
-         ('🏫', 'Centros', r'centros?|comedor|aula matinal|transporte')]
+         ('🏫', 'Centros', r'centros?|escolarizacion|admision|comedor|aula matinal|transporte')]
 
 def tipo(t):
     n = norm(t)
@@ -68,7 +68,7 @@ def leer_feed(sec):
             bruto = ET.tostring(nodo, encoding='unicode', method='text') if nodo is not None else ''
         if DEPURAR and not out:
             print(f'::notice::{sec} ejemplo de contenido: {bruto[:250]!r}')
-        cont = re.sub(r'<[^>]+>', ' ', html.unescape(bruto))
+        cont = re.sub(r'<[^>]+>', ' ', html.unescape(bruto)).replace('\xa0', ' ')
         cont = re.sub(r'\s+', ' ', cont)
         org = re.search(r'Organismo\s*:\s*([^;]+?)\s*(?:;|Administraci|PDF|$)', cont)
         bol = re.search(r'BOJA n[ºo°]\s*(\d+)\s*de\s*(\d{4})', cont)
@@ -79,6 +79,8 @@ def leer_feed(sec):
 
 def clasificar(x):
     n, o = norm(x['t']), norm(x['org'])
+    if 'universidad' in o or 'universidad' in n:
+        return None
     es_edu = bool(EDU_ORG.search(o)) or bool(EDU_TXT.search(n))
     if not es_edu:
         return None
