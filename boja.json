@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-10-10T20:20+00:00",
+ "actualizado": "2026-10-10T20:21+00:00",
  "items": [
   {
    "t": "Resolución de 29 de septiembre de 2026, de la Dirección General de Innovación y Formación del Profesorado, por la que eleva a definitivo y se hace público el fallo del jurado para la concesión de los IX Premios para el reconocimiento a centros con buenas prácticas docentes en bibliotecas escolares y en el fomento de la lectura, realizadas en el curso 2025-2026.",
@@ -22,8 +22,8 @@
    "fecha": "2026-10-09",
    "imp": true,
    "ruido": false,
-   "emoji": "🏫",
-   "tipo": "Centros"
+   "emoji": "👥",
+   "tipo": "Personal"
   },
   {
    "t": "Resolución de 5 de octubre de 2026, de la Secretaría General Técnica, por la que se acuerda la remisión del expediente administrativo a la Sección Tercera de la Sala de lo Contencioso-Administrativo de Sevilla del Tribunal Superior de Justicia de Andalucía, Ceuta y Melilla y se emplaza a los terceros interesados.",
@@ -58,8 +58,8 @@
    "fecha": "2026-10-09",
    "imp": false,
    "ruido": true,
-   "emoji": "📄",
-   "tipo": "Otros"
+   "emoji": "🏫",
+   "tipo": "Centros"
   },
   {
    "t": "Orden de 2 de octubre de 2026, por la que se acuerda la extinción de la autorización por cese de actividades al centro de educación infantil «Hermosines II» de Palma del Río (Córdoba).",
@@ -120,18 +120,6 @@
    "ruido": true,
    "emoji": "🏫",
    "tipo": "Centros"
-  },
-  {
-   "t": "Resolución de 5 de octubre de 2026, de la Universidad de Granada, por la que se convoca concurso público para la adjudicación de contratos de Profesorado Asociado, para el curso 2026/2027, en el Campus de Granada.",
-   "url": "https://www.juntadeandalucia.es/boja/2026/197/19.html",
-   "org": "Universidades",
-   "sec": "2.2 Oposiciones y concursos",
-   "bol": "197/2026",
-   "fecha": "2026-10-09",
-   "imp": false,
-   "ruido": true,
-   "emoji": "👥",
-   "tipo": "Personal"
   }
  ]
 }
