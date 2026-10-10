@@ -13,9 +13,16 @@ A = '{http://www.w3.org/2005/Atom}'
 def norm(t):
     return unicodedata.normalize('NFD', (t or '').lower()).encode('ascii', 'ignore').decode()
 
-def get(url):
-    with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=40) as r:
-        return r.read()
+def get(url, intentos=3):
+    import time
+    for i in range(intentos):
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60) as r:
+                return r.read()
+        except Exception as ex:
+            if i == intentos - 1:
+                raise
+            print(f'  reintento {i+1}: {ex}'); time.sleep(20)
 
 # ¿Es de educación? (Consejería o, en otras consejerías, temas escolares)
 EDU_ORG = re.compile(r'desarrollo educativo|educacion|agencia publica andaluza de educacion', re.I)
@@ -88,7 +95,7 @@ def main():
             items = leer_feed(sec)
             print(f'{sec}: {len(items)} disposiciones')
         except Exception as ex:
-            errores += 1; print(f'{sec}: ERROR {ex}', file=sys.stderr); continue
+            errores += 1; print(f'::warning::{sec}: no se ha podido leer ({ex})'); continue
         for x in items:
             c = clasificar(x)
             if c and c['url'] not in guardado:
@@ -96,14 +103,15 @@ def main():
                 print(f'  {"★" if c["imp"] else "·"} {c["t"][:110]}')
             if c: guardado[c['url']] = c
     if errores == len(SECCIONES):
-        print('No se ha podido leer el BOJA: no se cambia nada.'); return
+        print('::warning::No se ha podido leer el BOJA: no se cambia nada.'); return
     limite = (datetime.date.today() - datetime.timedelta(days=DIAS)).isoformat()
     items = [x for x in guardado.values() if x.get('fecha', '9999') >= limite]
     items.sort(key=lambda x: (x.get('fecha', ''), x['url']), reverse=True)
     with open('boja.json', 'w', encoding='utf-8') as f:
         json.dump({'actualizado': datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='minutes'),
                    'items': items}, f, ensure_ascii=False, indent=1)
-    print(f'boja.json: {len(nuevos)} nuevas, {len(items)} en total')
+    sin_org = sum(1 for x in items if not x.get('org'))
+    print(f'::notice::boja.json: {len(nuevos)} nuevas, {len(items)} en total, {sum(x["imp"] for x in items)} importantes, {sin_org} sin consejería')
 
 if __name__ == '__main__':
     main()
