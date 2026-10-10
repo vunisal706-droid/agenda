@@ -8,6 +8,7 @@ UA = {'User-Agent': 'Mozilla/5.0 (Agenda ED CEIP Capitulaciones; novedades BOJA)
 SECCIONES = {'s51': '1. Disposiciones generales', 's52': '2.1 Nombramientos y ceses', 's53': '2.2 Oposiciones y concursos',
              's54': '3. Otras disposiciones', 's55': '4. Administración de Justicia', 's56': '5. Anuncios'}
 DIAS = 120
+DEPURAR = True
 A = '{http://www.w3.org/2005/Atom}'
 
 def norm(t):
@@ -61,7 +62,13 @@ def leer_feed(sec):
     for e in raiz.iter(A + 'entry'):
         titulo = html.unescape((e.findtext(A + 'title') or '').strip())
         link = (e.find(A + 'link').get('href') if e.find(A + 'link') is not None else '').replace('http://', 'https://')
-        cont = re.sub(r'<[^>]+>', ' ', html.unescape(e.findtext(A + 'content') or ''))
+        bruto = e.findtext(A + 'content') or e.findtext(A + 'summary') or ''
+        if not bruto:   # contenido con etiquetas XHTML dentro
+            nodo = e.find(A + 'content') if e.find(A + 'content') is not None else e.find(A + 'summary')
+            bruto = ET.tostring(nodo, encoding='unicode', method='text') if nodo is not None else ''
+        if DEPURAR and not out:
+            print(f'::notice::{sec} ejemplo de contenido: {bruto[:250]!r}')
+        cont = re.sub(r'<[^>]+>', ' ', html.unescape(bruto))
         cont = re.sub(r'\s+', ' ', cont)
         org = re.search(r'Organismo\s*:\s*([^;]+?)\s*(?:;|Administraci|PDF|$)', cont)
         bol = re.search(r'BOJA n[ºo°]\s*(\d+)\s*de\s*(\d{4})', cont)
