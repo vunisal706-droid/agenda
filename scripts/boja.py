@@ -23,7 +23,7 @@ EDU_TXT = re.compile(r'centros? docentes?|educacion infantil|educacion primaria|
                      r'escolar|alumnado|profesorado|comedor|aula matinal|actividades extraescolares|'
                      r'necesidades especificas de apoyo educativo|consejos? escolar', re.I)
 # Lo que casi nunca le toca a un CEIP de Granada
-RUIDO = re.compile(r'centro docente privado|centro privado|escuela de arte|conservatorio|universidad|'
+RUIDO = re.compile(r'centro docente privado|centro privado|autorizacion administrativa|cese de actividad|cambio de titularidad|escuela de arte|conservatorio|universidad|'
                    r'formacion profesional para el empleo|ensenanzas deportivas|escuela oficial de idiomas|'
                    r'bachillerato|ciclos? formativos?|educacion secundaria obligatoria y bachillerato', re.I)
 PROV = re.compile(r'\b(almeria|cadiz|cordoba|huelva|jaen|malaga|sevilla)\b', re.I)
@@ -35,10 +35,11 @@ CLAVE = re.compile(r'instrucciones?|calendario|escolarizacion|admision|matricula
 
 TIPOS = [('📌', 'Instrucciones', r'instrucciones?|orden de .* por la que se (regula|establece|desarrolla)|decreto'),
          ('🗓️', 'Calendario', r'calendario|plazos?'),
-         ('👥', 'Personal', r'maestros|profesorado|cuerpo|plantilla|interinos|bolsa|adjudicacion|traslados|nombra|cese|direccion|director'),
+         ('🏫', 'Centros', r'autoriza|centro de educacion|centros? docentes?|cese de actividad|escolarizacion|admision'),
+         ('👥', 'Personal', r'maestros|profesorado|cuerpo|plantilla|interinos|bolsa|adjudicacion|traslados|nombra|\bcese\b|direccion|director'),
          ('💶', 'Ayudas', r'ayudas?|subvencion|becas?|gratuidad|bonificacion'),
          ('📝', 'Convocatoria', r'convocatoria|convoca|premios?|concurso'),
-         ('🏫', 'Centros', r'centros?|escolarizacion|admision|comedor|aula matinal|transporte')]
+         ('🏫', 'Centros', r'centros?|comedor|aula matinal|transporte')]
 
 def tipo(t):
     n = norm(t)
@@ -53,8 +54,9 @@ def leer_feed(sec):
     for e in raiz.iter(A + 'entry'):
         titulo = html.unescape((e.findtext(A + 'title') or '').strip())
         link = (e.find(A + 'link').get('href') if e.find(A + 'link') is not None else '').replace('http://', 'https://')
-        cont = html.unescape(e.findtext(A + 'content') or '')
-        org = re.search(r'Organismo:\s*([^;]+)', cont)
+        cont = re.sub(r'<[^>]+>', ' ', html.unescape(e.findtext(A + 'content') or ''))
+        cont = re.sub(r'\s+', ' ', cont)
+        org = re.search(r'Organismo\s*:\s*([^;]+?)\s*(?:;|Administraci|PDF|$)', cont)
         bol = re.search(r'BOJA n[ºo°]\s*(\d+)\s*de\s*(\d{4})', cont)
         fecha = (e.findtext(A + 'updated') or '')[:10]
         out.append({'t': titulo, 'url': link, 'org': org.group(1).strip() if org else '', 'sec': SECCIONES[sec],
@@ -76,7 +78,10 @@ def main():
         previo = json.load(open('boja.json', encoding='utf-8')).get('items', [])
     except Exception:
         previo = []
-    vistos = {x['url'] for x in previo}
+    guardado = {}
+    for x in previo:   # se vuelve a clasificar con las reglas actuales
+        c = clasificar(x)
+        if c: guardado[x['url']] = c
     nuevos, errores = [], 0
     for sec in SECCIONES:
         try:
@@ -86,13 +91,14 @@ def main():
             errores += 1; print(f'{sec}: ERROR {ex}', file=sys.stderr); continue
         for x in items:
             c = clasificar(x)
-            if c and c['url'] not in vistos:
-                nuevos.append(c); vistos.add(c['url'])
+            if c and c['url'] not in guardado:
+                nuevos.append(c)
                 print(f'  {"★" if c["imp"] else "·"} {c["t"][:110]}')
+            if c: guardado[c['url']] = c
     if errores == len(SECCIONES):
         print('No se ha podido leer el BOJA: no se cambia nada.'); return
     limite = (datetime.date.today() - datetime.timedelta(days=DIAS)).isoformat()
-    items = [x for x in nuevos + previo if x.get('fecha', '9999') >= limite]
+    items = [x for x in guardado.values() if x.get('fecha', '9999') >= limite]
     items.sort(key=lambda x: (x.get('fecha', ''), x['url']), reverse=True)
     with open('boja.json', 'w', encoding='utf-8') as f:
         json.dump({'actualizado': datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='minutes'),
