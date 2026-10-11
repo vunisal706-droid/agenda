@@ -1,23 +1,73 @@
 {
- "curso": "2026/27",
  "centro": "CEIP Capitulaciones · Santa Fe (Granada)",
- "inicio": "2026-09-10",
- "fin": "2027-06-22",
- "periodos": [
-  {"desde": "2026-12-23", "hasta": "2027-01-06", "nombre": "Vacaciones de Navidad", "emoji": "🎄"},
-  {"desde": "2027-03-22", "hasta": "2027-03-28", "nombre": "Semana Santa", "emoji": "🌸"}
- ],
- "dias": [
-  {"fecha": "2026-10-12", "nombre": "Fiesta Nacional de España", "emoji": "🇪🇸"},
-  {"fecha": "2026-11-02", "nombre": "Todos los Santos (trasladado)", "emoji": "🕯️"},
-  {"fecha": "2026-12-07", "nombre": "Día de la Constitución (trasladado)", "emoji": "📜"},
-  {"fecha": "2026-12-08", "nombre": "Inmaculada Concepción", "emoji": "🎉"},
-  {"fecha": "2027-02-26", "nombre": "Día de la Comunidad Educativa", "emoji": "🏫"},
-  {"fecha": "2027-03-01", "nombre": "Día de Andalucía (trasladado)", "emoji": "💚"},
-  {"fecha": "2027-04-19", "nombre": "Día sin cole elegido por el Consejo Escolar Municipal de Santa Fe", "emoji": "🏛️"},
-  {"fecha": "2027-05-03", "nombre": "Día sin cole elegido por el Consejo Escolar Municipal de Santa Fe", "emoji": "🏛️"},
-  {"fecha": "2027-05-28", "nombre": "Día no lectivo provincial", "emoji": "🎉"}
- ],
- "fuente": "Calendario escolar 2026/27 de la Delegación Territorial de Granada (27/05/2026) y Consejo Escolar Municipal de Santa Fe",
- "nota": "Para cambiar o añadir días, edita este archivo: cada app del centro lo lee de aquí."
+ "nota": "Un bloque por curso. Para el curso siguiente, copia el último bloque, cambia las fechas y déjalo añadido antes de septiembre. Si falta un curso, las apps usan los fines de semana y los festivos fijos, y la Agenda avisa desde junio.",
+ "cursos": [
+  {
+   "curso": "2026/27",
+   "inicio": "2026-09-10",
+   "fin": "2027-06-22",
+   "periodos": [
+    {
+     "desde": "2026-12-23",
+     "hasta": "2027-01-06",
+     "nombre": "Vacaciones de Navidad",
+     "emoji": "🎄"
+    },
+    {
+     "desde": "2027-03-22",
+     "hasta": "2027-03-28",
+     "nombre": "Semana Santa",
+     "emoji": "🌸"
+    }
+   ],
+   "dias": [
+    {
+     "fecha": "2026-10-12",
+     "nombre": "Fiesta Nacional de España",
+     "emoji": "🇪🇸"
+    },
+    {
+     "fecha": "2026-11-02",
+     "nombre": "Todos los Santos (trasladado)",
+     "emoji": "🕯️"
+    },
+    {
+     "fecha": "2026-12-07",
+     "nombre": "Día de la Constitución (trasladado)",
+     "emoji": "📜"
+    },
+    {
+     "fecha": "2026-12-08",
+     "nombre": "Inmaculada Concepción",
+     "emoji": "🎉"
+    },
+    {
+     "fecha": "2027-02-26",
+     "nombre": "Día de la Comunidad Educativa",
+     "emoji": "🏫"
+    },
+    {
+     "fecha": "2027-03-01",
+     "nombre": "Día de Andalucía (trasladado)",
+     "emoji": "💚"
+    },
+    {
+     "fecha": "2027-04-19",
+     "nombre": "Día sin cole elegido por el Consejo Escolar Municipal de Santa Fe",
+     "emoji": "🏛️"
+    },
+    {
+     "fecha": "2027-05-03",
+     "nombre": "Día sin cole elegido por el Consejo Escolar Municipal de Santa Fe",
+     "emoji": "🏛️"
+    },
+    {
+     "fecha": "2027-05-28",
+     "nombre": "Día no lectivo provincial",
+     "emoji": "🎉"
+    }
+   ],
+   "fuente": "Calendario escolar 2026/27 de la Delegación Territorial de Granada (27/05/2026) y Consejo Escolar Municipal de Santa Fe"
+  }
+ ]
 }
