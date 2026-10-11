@@ -1,0 +1,23 @@
+{
+ "nota": "Cuadrante de reuniones de los lunes. 'lunes' = 1.º, 2.º, 3.º o 4.º lunes LECTIVO del mes (solo cuentan los lunes con clase). 'organo' enlaza con el orden del día previsto en la app Teletrabajo.",
+ "tutorias": "16:00 - 17:00",
+ "cuadrante": {
+  "1": [
+   {"nombre": "Claustro", "hora": "17:00 - 18:00", "organo": "CLAUSTRO"},
+   {"nombre": "Equipo de Orientación", "hora": "18:00 - 18:30", "organo": "EQUIPO DE ORIENTACIÓN"},
+   {"nombre": "Ciclo de Infantil + Primer ciclo", "hora": "18:30 - 19:00", "organo": "EQUIPOS DE CICLO"}
+  ],
+  "2": [
+   {"nombre": "Ciclo Segundo", "hora": "17:00 - 17:30", "organo": "EQUIPOS DE CICLO"},
+   {"nombre": "Ciclo Tercero", "hora": "17:30 - 18:00", "organo": "EQUIPOS DE CICLO"},
+   {"nombre": "Equipos docentes", "organo": "EQUIPOS DOCENTES", "turnos": [["3 años", "18:00 - 18:15"], ["4 años", "18:15 - 18:30"], ["5 años", "18:30 - 18:45"], ["1.º", "18:45 - 19:00"]]}
+  ],
+  "3": [
+   {"nombre": "ETCP", "hora": "17:00 - 17:45", "organo": "ETCP"},
+   {"nombre": "Equipos docentes", "organo": "EQUIPOS DOCENTES", "turnos": [["2.º", "17:45 - 18:00"], ["3.º", "18:00 - 18:15"], ["4.º", "18:15 - 18:30"], ["5.º", "18:30 - 18:45"], ["6.º", "18:45 - 19:00"]]}
+  ],
+  "4": [
+   {"nombre": "Reunión de planes y programas", "hora": "17:00 - 18:00", "nota": "1 por trimestre"}
+  ]
+ }
+}
