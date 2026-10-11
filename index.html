@@ -173,6 +173,7 @@ tr.current td{background:rgba(227,231,251,.7)}
       <div class="kicker">CEIP Capitulaciones · Equipo Directivo</div>
       <h1>Agenda del curso</h1>
       <p class="today" id="today"></p>
+      <div data-calendario-cole="lista" style="max-width:560px"></div>
     </div>
     <button class="ghost install" id="install">📲 Instalar app</button>
     <div class="roles" id="roles" role="group" aria-label="Filtrar por cargo">
@@ -256,6 +257,7 @@ tr.current td{background:rgba(227,231,251,.7)}
     <button class="ghost" onclick="howto.close()">Cerrar</button>
   </dialog>
 </main>
+<script src="calendario.js" defer></script>
 <script>
 const W='https://webcretaria.iesgrancapitan.org/';
 const L={bon:'_bonificaciones_del_1_al_7_de_septiembre.html',cert:'certificacin_de_matrcula_y_publicacin_de_vacantes_tras_grabar_las_solicitudes_de_matriculacin.html',sscc:'servicios_complementarios_del_centro_del_1_al_10_de_junio.html',tipc:'procedimiento_tipo_c_participacin_sujeta_a_convocatoria_especfica.html',anx:'anexos.html',ev:'evaluacin.html',pres:'_control_de_presencia.html',prog:'planes_y_programas_educativos.html',neae:'becas_neae.html',ce:'_consejo_escolar.html',bprov:'bonificaciones_provisionales.html',bdef:'bonificaciones_definitivas.html',ape:'apertura_del_ejercicio_econmico.html',pglt:'_programa_de_gratuidad_de_libros_de_texto_pglt.html',man:'manuales_de_procedimientos_tutoriales_e_impresos.html',aeat:'ficheros_aeat.html',adsc:'adscripcin_al_ies_de_los_alumnos_que_terminan_6.html',prev:'previo_al_proceso_de_admisin_antes_del_1_de_marzo.html',adm:'_admisin_del_1_al_31_de_marzo.html',tras:'tras_grabar_las_solicitudes_de_admisin.html',pmat:'previo_al_proceso_de_matriculacin_antes_del_1_de_junio.html',mat:'_matriculacin_del_1_al_8_de_junio.html',proa:'proa_andaluca.html',aacc:'cuestionario_deteccin_altas_capacidades.html',ipasen:'ipasen.html',pc:'plan_de_centro.html',plant:'plantilla_de_funcionamiento_gestin_de_cupo.html',bil:'auxiliares_de_conversacin.html'};
