@@ -26,7 +26,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:f8f8fc5c87a6fdc5f99df806d98cc06c@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:🇪🇸 Sin cole: Fiesta Nacional de España
 DTSTART;VALUE=DATE:20261012
 DTEND;VALUE=DATE:20261013
@@ -34,7 +34,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:e2ae4d08561d891f71640f00b8d43d7e@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:🕯️ Sin cole: Todos los Santos (trasladado)
 DTSTART;VALUE=DATE:20261102
 DTEND;VALUE=DATE:20261103
@@ -42,7 +42,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:c8cce91226e279432fdd6bef42dde7f3@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:📜 Sin cole: Día de la Constitución (trasladado)
 DTSTART;VALUE=DATE:20261207
 DTEND;VALUE=DATE:20261208
@@ -50,7 +50,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:a6402c333f21262180bb72a5bd21db5c@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:🎉 Sin cole: Inmaculada Concepción
 DTSTART;VALUE=DATE:20261208
 DTEND;VALUE=DATE:20261209
@@ -58,7 +58,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:5dfda98b9bad48b063a85581f000f958@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:🏫 Sin cole: Día de la Comunidad Educativa
 DTSTART;VALUE=DATE:20270226
 DTEND;VALUE=DATE:20270227
@@ -66,7 +66,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:5fadb1b50ceb81f1d35c818f11db3b44@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:💚 Sin cole: Día de Andalucía (trasladado)
 DTSTART;VALUE=DATE:20270301
 DTEND;VALUE=DATE:20270302
@@ -74,7 +74,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:5d700ed720df686c6c49f52d78f60cf6@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:🏛️ Sin cole: Día sin cole elegido por el Consejo Escolar Mun
  icipal de Santa Fe
 DTSTART;VALUE=DATE:20270419
@@ -83,7 +83,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:239e1ada0fe93bf68893284474465f2f@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:🏛️ Sin cole: Día sin cole elegido por el Consejo Escolar Mun
  icipal de Santa Fe
 DTSTART;VALUE=DATE:20270503
@@ -92,7 +92,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:246a0912263c8dc45ce25734859bba78@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:🎉 Sin cole: Día no lectivo provincial
 DTSTART;VALUE=DATE:20270528
 DTEND;VALUE=DATE:20270529
@@ -100,7 +100,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:688871c3fb249bb5b56e98494254e748@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:🎄 Vacaciones de Navidad
 DTSTART;VALUE=DATE:20261223
 DTEND;VALUE=DATE:20270107
@@ -108,7 +108,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:cd3b782dec611a52f77464343c574172@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:🌸 Semana Santa
 DTSTART;VALUE=DATE:20270322
 DTEND;VALUE=DATE:20270329
@@ -116,7 +116,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:8e9cc890ef360963cd90eb0e8cf67e13@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:🎒 Primer día de clase
 DTSTART;VALUE=DATE:20260910
 DTEND;VALUE=DATE:20260911
@@ -124,7 +124,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:71a5fc4eae2fa75d52fc090aba66d34f@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:🎉 Último día de clase
 DTSTART;VALUE=DATE:20270622
 DTEND;VALUE=DATE:20270623
@@ -132,14 +132,14 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:9f01733ae7f53b05048e4c8b45221a66@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20260914T160000
 DTEND;TZID=Europe/Madrid:20260914T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:b55eda5b660d668445de626c7707e1b2@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Claustro
 DTSTART;TZID=Europe/Madrid:20260914T170000
 DTEND;TZID=Europe/Madrid:20260914T180000
@@ -152,7 +152,7 @@ DESCRIPTION:1.º lunes lectivo de septiembre.\n\nOrden del día previsto (
 END:VEVENT
 BEGIN:VEVENT
 UID:5e62af56a525db0bc2c0baebdacfe351@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo de Orientación
 DTSTART;TZID=Europe/Madrid:20260914T180000
 DTEND;TZID=Europe/Madrid:20260914T183000
@@ -167,7 +167,7 @@ DESCRIPTION:1.º lunes lectivo de septiembre.\n\nOrden del día previsto (
 END:VEVENT
 BEGIN:VEVENT
 UID:b17ae73c7e7c8ba347a047651393bed7@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo de Infantil + Primer ciclo
 DTSTART;TZID=Europe/Madrid:20260914T183000
 DTEND;TZID=Europe/Madrid:20260914T190000
@@ -183,14 +183,14 @@ DESCRIPTION:1.º lunes lectivo de septiembre.\n\nOrden del día previsto (
 END:VEVENT
 BEGIN:VEVENT
 UID:948a92a774c06f90a13ef17a0d7a5ca3@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20260921T160000
 DTEND;TZID=Europe/Madrid:20260921T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:609c541c7b1b5150282d9badaa978cf0@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo Segundo
 DTSTART;TZID=Europe/Madrid:20260921T170000
 DTEND;TZID=Europe/Madrid:20260921T173000
@@ -206,7 +206,7 @@ DESCRIPTION:2.º lunes lectivo de septiembre.\n\nOrden del día previsto (
 END:VEVENT
 BEGIN:VEVENT
 UID:511cb83806201a78d54832badf018285@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo Tercero
 DTSTART;TZID=Europe/Madrid:20260921T173000
 DTEND;TZID=Europe/Madrid:20260921T180000
@@ -222,7 +222,7 @@ DESCRIPTION:2.º lunes lectivo de septiembre.\n\nOrden del día previsto (
 END:VEVENT
 BEGIN:VEVENT
 UID:d911c4023a9742870aaed607d082da1c@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 3 años
 DTSTART;TZID=Europe/Madrid:20260921T180000
 DTEND;TZID=Europe/Madrid:20260921T181500
@@ -236,7 +236,7 @@ DESCRIPTION:2.º lunes lectivo de septiembre.\n\nOrden del día previsto (
 END:VEVENT
 BEGIN:VEVENT
 UID:9d0bbcb496215f9ac6a5fb49072812f4@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 4 años
 DTSTART;TZID=Europe/Madrid:20260921T181500
 DTEND;TZID=Europe/Madrid:20260921T183000
@@ -250,7 +250,7 @@ DESCRIPTION:2.º lunes lectivo de septiembre.\n\nOrden del día previsto (
 END:VEVENT
 BEGIN:VEVENT
 UID:413c262dc2e53f979a683ea65b422f8f@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 5 años
 DTSTART;TZID=Europe/Madrid:20260921T183000
 DTEND;TZID=Europe/Madrid:20260921T184500
@@ -264,7 +264,7 @@ DESCRIPTION:2.º lunes lectivo de septiembre.\n\nOrden del día previsto (
 END:VEVENT
 BEGIN:VEVENT
 UID:c112055245c90093298d4602af0931f6@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 1.º
 DTSTART;TZID=Europe/Madrid:20260921T184500
 DTEND;TZID=Europe/Madrid:20260921T190000
@@ -278,14 +278,14 @@ DESCRIPTION:2.º lunes lectivo de septiembre.\n\nOrden del día previsto (
 END:VEVENT
 BEGIN:VEVENT
 UID:176daf80612c3a89c8983add2111077f@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20260928T160000
 DTEND;TZID=Europe/Madrid:20260928T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:75662c5b3b73ff21ee35ed64a36df5a7@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:ETCP
 DTSTART;TZID=Europe/Madrid:20260928T170000
 DTEND;TZID=Europe/Madrid:20260928T174500
@@ -300,7 +300,7 @@ DESCRIPTION:3.º lunes lectivo de septiembre.\n\nOrden del día previsto (
 END:VEVENT
 BEGIN:VEVENT
 UID:0d7cb45d66a4b320c1132aad95bb3355@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 2.º
 DTSTART;TZID=Europe/Madrid:20260928T174500
 DTEND;TZID=Europe/Madrid:20260928T180000
@@ -314,7 +314,7 @@ DESCRIPTION:3.º lunes lectivo de septiembre.\n\nOrden del día previsto (
 END:VEVENT
 BEGIN:VEVENT
 UID:e6032b5be8ebb5ca379fba8fad0d1294@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 3.º
 DTSTART;TZID=Europe/Madrid:20260928T180000
 DTEND;TZID=Europe/Madrid:20260928T181500
@@ -328,7 +328,7 @@ DESCRIPTION:3.º lunes lectivo de septiembre.\n\nOrden del día previsto (
 END:VEVENT
 BEGIN:VEVENT
 UID:4eb10d9b011693210eed26894bb58895@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 4.º
 DTSTART;TZID=Europe/Madrid:20260928T181500
 DTEND;TZID=Europe/Madrid:20260928T183000
@@ -342,7 +342,7 @@ DESCRIPTION:3.º lunes lectivo de septiembre.\n\nOrden del día previsto (
 END:VEVENT
 BEGIN:VEVENT
 UID:4cb2a3fc3ad81a33d4ec6cd07c473786@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 5.º
 DTSTART;TZID=Europe/Madrid:20260928T183000
 DTEND;TZID=Europe/Madrid:20260928T184500
@@ -356,7 +356,7 @@ DESCRIPTION:3.º lunes lectivo de septiembre.\n\nOrden del día previsto (
 END:VEVENT
 BEGIN:VEVENT
 UID:663d40348f9949fcb140f204a2a1358d@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 6.º
 DTSTART;TZID=Europe/Madrid:20260928T184500
 DTEND;TZID=Europe/Madrid:20260928T190000
@@ -370,14 +370,14 @@ DESCRIPTION:3.º lunes lectivo de septiembre.\n\nOrden del día previsto (
 END:VEVENT
 BEGIN:VEVENT
 UID:6bfb623372284e99e8e83bdd54a4da43@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20261005T160000
 DTEND;TZID=Europe/Madrid:20261005T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:66bcf6c7b164c28097b1f35866ed4264@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Claustro
 DTSTART;TZID=Europe/Madrid:20261005T170000
 DTEND;TZID=Europe/Madrid:20261005T180000
@@ -390,7 +390,7 @@ DESCRIPTION:1.º lunes lectivo de octubre.\n\nOrden del día previsto (Cla
 END:VEVENT
 BEGIN:VEVENT
 UID:18bd5dd50fd3e86e8c194ba1bb5b1402@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo de Orientación
 DTSTART;TZID=Europe/Madrid:20261005T180000
 DTEND;TZID=Europe/Madrid:20261005T183000
@@ -408,7 +408,7 @@ DESCRIPTION:1.º lunes lectivo de octubre.\n\nOrden del día previsto (Equ
 END:VEVENT
 BEGIN:VEVENT
 UID:016e3118db6f10c18556613a1d3f6682@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo de Infantil + Primer ciclo
 DTSTART;TZID=Europe/Madrid:20261005T183000
 DTEND;TZID=Europe/Madrid:20261005T190000
@@ -423,14 +423,14 @@ DESCRIPTION:1.º lunes lectivo de octubre.\n\nOrden del día previsto (Equ
 END:VEVENT
 BEGIN:VEVENT
 UID:89346cc0f5722e1c6ad1b2b470d6b938@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20261019T160000
 DTEND;TZID=Europe/Madrid:20261019T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:dfd087b03e11f74c6df435385fb3a6ca@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo Segundo
 DTSTART;TZID=Europe/Madrid:20261019T170000
 DTEND;TZID=Europe/Madrid:20261019T173000
@@ -445,7 +445,7 @@ DESCRIPTION:2.º lunes lectivo de octubre.\n\nOrden del día previsto (Equ
 END:VEVENT
 BEGIN:VEVENT
 UID:f5c450d753756a8802e5fb0c054a4289@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo Tercero
 DTSTART;TZID=Europe/Madrid:20261019T173000
 DTEND;TZID=Europe/Madrid:20261019T180000
@@ -460,7 +460,7 @@ DESCRIPTION:2.º lunes lectivo de octubre.\n\nOrden del día previsto (Equ
 END:VEVENT
 BEGIN:VEVENT
 UID:c78639534b9ccb51505dd0cdce891375@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 3 años
 DTSTART;TZID=Europe/Madrid:20261019T180000
 DTEND;TZID=Europe/Madrid:20261019T181500
@@ -468,14 +468,12 @@ DESCRIPTION:2.º lunes lectivo de octubre.\n\nOrden del día previsto (Equ
  ipos docentes):\n1. Lectura y aprobación del acta anterior\n2. Detecció
  n de dificultades de aprendizaje\n3. Propuesta de alumnado para refuerzo 
  educativo\n4. Análisis del clima inicial de convivencia\n5. Seguimiento 
- del alumnado y medidas propuestas\n6. Acta competencial de la evaluación
-  inicial: grado de desarrollo por competencia específica\n7. Ajustes que
-  cada docente introduce en su programación tras la evaluación inicial\n
- 8. Ruegos y preguntas
+ del alumnado y medidas propuestas\n6. Ajustes que cada docente introduce 
+ en su programación tras la evaluación inicial\n7. Ruegos y preguntas
 END:VEVENT
 BEGIN:VEVENT
 UID:a572f106c5039726c5509212dc4bc238@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 4 años
 DTSTART;TZID=Europe/Madrid:20261019T181500
 DTEND;TZID=Europe/Madrid:20261019T183000
@@ -483,14 +481,12 @@ DESCRIPTION:2.º lunes lectivo de octubre.\n\nOrden del día previsto (Equ
  ipos docentes):\n1. Lectura y aprobación del acta anterior\n2. Detecció
  n de dificultades de aprendizaje\n3. Propuesta de alumnado para refuerzo 
  educativo\n4. Análisis del clima inicial de convivencia\n5. Seguimiento 
- del alumnado y medidas propuestas\n6. Acta competencial de la evaluación
-  inicial: grado de desarrollo por competencia específica\n7. Ajustes que
-  cada docente introduce en su programación tras la evaluación inicial\n
- 8. Ruegos y preguntas
+ del alumnado y medidas propuestas\n6. Ajustes que cada docente introduce 
+ en su programación tras la evaluación inicial\n7. Ruegos y preguntas
 END:VEVENT
 BEGIN:VEVENT
 UID:255456c6c8b74850349dffca025b3145@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 5 años
 DTSTART;TZID=Europe/Madrid:20261019T183000
 DTEND;TZID=Europe/Madrid:20261019T184500
@@ -498,14 +494,12 @@ DESCRIPTION:2.º lunes lectivo de octubre.\n\nOrden del día previsto (Equ
  ipos docentes):\n1. Lectura y aprobación del acta anterior\n2. Detecció
  n de dificultades de aprendizaje\n3. Propuesta de alumnado para refuerzo 
  educativo\n4. Análisis del clima inicial de convivencia\n5. Seguimiento 
- del alumnado y medidas propuestas\n6. Acta competencial de la evaluación
-  inicial: grado de desarrollo por competencia específica\n7. Ajustes que
-  cada docente introduce en su programación tras la evaluación inicial\n
- 8. Ruegos y preguntas
+ del alumnado y medidas propuestas\n6. Ajustes que cada docente introduce 
+ en su programación tras la evaluación inicial\n7. Ruegos y preguntas
 END:VEVENT
 BEGIN:VEVENT
 UID:7817d2042d430397308b27b811218f64@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 1.º
 DTSTART;TZID=Europe/Madrid:20261019T184500
 DTEND;TZID=Europe/Madrid:20261019T190000
@@ -513,21 +507,19 @@ DESCRIPTION:2.º lunes lectivo de octubre.\n\nOrden del día previsto (Equ
  ipos docentes):\n1. Lectura y aprobación del acta anterior\n2. Detecció
  n de dificultades de aprendizaje\n3. Propuesta de alumnado para refuerzo 
  educativo\n4. Análisis del clima inicial de convivencia\n5. Seguimiento 
- del alumnado y medidas propuestas\n6. Acta competencial de la evaluación
-  inicial: grado de desarrollo por competencia específica\n7. Ajustes que
-  cada docente introduce en su programación tras la evaluación inicial\n
- 8. Ruegos y preguntas
+ del alumnado y medidas propuestas\n6. Ajustes que cada docente introduce 
+ en su programación tras la evaluación inicial\n7. Ruegos y preguntas
 END:VEVENT
 BEGIN:VEVENT
 UID:8b926c082316eec7ce16679ded54f733@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20261026T160000
 DTEND;TZID=Europe/Madrid:20261026T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:e9473a2c250c50dae7dfe00410352f9b@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:ETCP
 DTSTART;TZID=Europe/Madrid:20261026T170000
 DTEND;TZID=Europe/Madrid:20261026T174500
@@ -542,7 +534,7 @@ DESCRIPTION:3.º lunes lectivo de octubre.\n\nOrden del día previsto (ETC
 END:VEVENT
 BEGIN:VEVENT
 UID:496136dde6cbc40feafdeecbeb14c5d3@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 2.º
 DTSTART;TZID=Europe/Madrid:20261026T174500
 DTEND;TZID=Europe/Madrid:20261026T180000
@@ -550,14 +542,12 @@ DESCRIPTION:3.º lunes lectivo de octubre.\n\nOrden del día previsto (Equ
  ipos docentes):\n1. Lectura y aprobación del acta anterior\n2. Detecció
  n de dificultades de aprendizaje\n3. Propuesta de alumnado para refuerzo 
  educativo\n4. Análisis del clima inicial de convivencia\n5. Seguimiento 
- del alumnado y medidas propuestas\n6. Acta competencial de la evaluación
-  inicial: grado de desarrollo por competencia específica\n7. Ajustes que
-  cada docente introduce en su programación tras la evaluación inicial\n
- 8. Ruegos y preguntas
+ del alumnado y medidas propuestas\n6. Ajustes que cada docente introduce 
+ en su programación tras la evaluación inicial\n7. Ruegos y preguntas
 END:VEVENT
 BEGIN:VEVENT
 UID:67509caea01505a302223b987f48ba36@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 3.º
 DTSTART;TZID=Europe/Madrid:20261026T180000
 DTEND;TZID=Europe/Madrid:20261026T181500
@@ -565,14 +555,12 @@ DESCRIPTION:3.º lunes lectivo de octubre.\n\nOrden del día previsto (Equ
  ipos docentes):\n1. Lectura y aprobación del acta anterior\n2. Detecció
  n de dificultades de aprendizaje\n3. Propuesta de alumnado para refuerzo 
  educativo\n4. Análisis del clima inicial de convivencia\n5. Seguimiento 
- del alumnado y medidas propuestas\n6. Acta competencial de la evaluación
-  inicial: grado de desarrollo por competencia específica\n7. Ajustes que
-  cada docente introduce en su programación tras la evaluación inicial\n
- 8. Ruegos y preguntas
+ del alumnado y medidas propuestas\n6. Ajustes que cada docente introduce 
+ en su programación tras la evaluación inicial\n7. Ruegos y preguntas
 END:VEVENT
 BEGIN:VEVENT
 UID:e5b44d1ab17b0fe3c90e90e781b5f3bd@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 4.º
 DTSTART;TZID=Europe/Madrid:20261026T181500
 DTEND;TZID=Europe/Madrid:20261026T183000
@@ -580,14 +568,12 @@ DESCRIPTION:3.º lunes lectivo de octubre.\n\nOrden del día previsto (Equ
  ipos docentes):\n1. Lectura y aprobación del acta anterior\n2. Detecció
  n de dificultades de aprendizaje\n3. Propuesta de alumnado para refuerzo 
  educativo\n4. Análisis del clima inicial de convivencia\n5. Seguimiento 
- del alumnado y medidas propuestas\n6. Acta competencial de la evaluación
-  inicial: grado de desarrollo por competencia específica\n7. Ajustes que
-  cada docente introduce en su programación tras la evaluación inicial\n
- 8. Ruegos y preguntas
+ del alumnado y medidas propuestas\n6. Ajustes que cada docente introduce 
+ en su programación tras la evaluación inicial\n7. Ruegos y preguntas
 END:VEVENT
 BEGIN:VEVENT
 UID:01a96ff01c298cc25fdc3ae6aab18173@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 5.º
 DTSTART;TZID=Europe/Madrid:20261026T183000
 DTEND;TZID=Europe/Madrid:20261026T184500
@@ -595,14 +581,12 @@ DESCRIPTION:3.º lunes lectivo de octubre.\n\nOrden del día previsto (Equ
  ipos docentes):\n1. Lectura y aprobación del acta anterior\n2. Detecció
  n de dificultades de aprendizaje\n3. Propuesta de alumnado para refuerzo 
  educativo\n4. Análisis del clima inicial de convivencia\n5. Seguimiento 
- del alumnado y medidas propuestas\n6. Acta competencial de la evaluación
-  inicial: grado de desarrollo por competencia específica\n7. Ajustes que
-  cada docente introduce en su programación tras la evaluación inicial\n
- 8. Ruegos y preguntas
+ del alumnado y medidas propuestas\n6. Ajustes que cada docente introduce 
+ en su programación tras la evaluación inicial\n7. Ruegos y preguntas
 END:VEVENT
 BEGIN:VEVENT
 UID:211eaf7f365bdb8560008f3047c1267e@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 6.º
 DTSTART;TZID=Europe/Madrid:20261026T184500
 DTEND;TZID=Europe/Madrid:20261026T190000
@@ -610,21 +594,19 @@ DESCRIPTION:3.º lunes lectivo de octubre.\n\nOrden del día previsto (Equ
  ipos docentes):\n1. Lectura y aprobación del acta anterior\n2. Detecció
  n de dificultades de aprendizaje\n3. Propuesta de alumnado para refuerzo 
  educativo\n4. Análisis del clima inicial de convivencia\n5. Seguimiento 
- del alumnado y medidas propuestas\n6. Acta competencial de la evaluación
-  inicial: grado de desarrollo por competencia específica\n7. Ajustes que
-  cada docente introduce en su programación tras la evaluación inicial\n
- 8. Ruegos y preguntas
+ del alumnado y medidas propuestas\n6. Ajustes que cada docente introduce 
+ en su programación tras la evaluación inicial\n7. Ruegos y preguntas
 END:VEVENT
 BEGIN:VEVENT
 UID:236d6bc424678251a86d9ff377736453@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20261109T160000
 DTEND;TZID=Europe/Madrid:20261109T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:d786d2d7d323d799f9950bdbbf68fdd0@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Claustro
 DTSTART;TZID=Europe/Madrid:20261109T170000
 DTEND;TZID=Europe/Madrid:20261109T180000
@@ -636,7 +618,7 @@ DESCRIPTION:1.º lunes lectivo de noviembre.\n\nOrden del día previsto (C
 END:VEVENT
 BEGIN:VEVENT
 UID:db0b11d06dbcac2e83b0aafc19c9c103@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo de Orientación
 DTSTART;TZID=Europe/Madrid:20261109T180000
 DTEND;TZID=Europe/Madrid:20261109T183000
@@ -651,7 +633,7 @@ DESCRIPTION:1.º lunes lectivo de noviembre.\n\nOrden del día previsto (E
 END:VEVENT
 BEGIN:VEVENT
 UID:ea02dda36e3abee6436edbd2e63362db@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo de Infantil + Primer ciclo
 DTSTART;TZID=Europe/Madrid:20261109T183000
 DTEND;TZID=Europe/Madrid:20261109T190000
@@ -664,14 +646,14 @@ DESCRIPTION:1.º lunes lectivo de noviembre.\n\nOrden del día previsto (E
 END:VEVENT
 BEGIN:VEVENT
 UID:43554b5ee649c23e5a91b6b6d061d6d3@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20261116T160000
 DTEND;TZID=Europe/Madrid:20261116T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:c51bd0ab9bd0f8d0d10645326504f671@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo Segundo
 DTSTART;TZID=Europe/Madrid:20261116T170000
 DTEND;TZID=Europe/Madrid:20261116T173000
@@ -684,7 +666,7 @@ DESCRIPTION:2.º lunes lectivo de noviembre.\n\nOrden del día previsto (E
 END:VEVENT
 BEGIN:VEVENT
 UID:f81d384c0979aedc2a7f8a105399b47a@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo Tercero
 DTSTART;TZID=Europe/Madrid:20261116T173000
 DTEND;TZID=Europe/Madrid:20261116T180000
@@ -697,7 +679,7 @@ DESCRIPTION:2.º lunes lectivo de noviembre.\n\nOrden del día previsto (E
 END:VEVENT
 BEGIN:VEVENT
 UID:241368e75c4231402594373082174bdf@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 3 años
 DTSTART;TZID=Europe/Madrid:20261116T180000
 DTEND;TZID=Europe/Madrid:20261116T181500
@@ -711,7 +693,7 @@ DESCRIPTION:2.º lunes lectivo de noviembre.\n\nOrden del día previsto (E
 END:VEVENT
 BEGIN:VEVENT
 UID:fadaff04f88eff37092409c9ee730a4e@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 4 años
 DTSTART;TZID=Europe/Madrid:20261116T181500
 DTEND;TZID=Europe/Madrid:20261116T183000
@@ -725,7 +707,7 @@ DESCRIPTION:2.º lunes lectivo de noviembre.\n\nOrden del día previsto (E
 END:VEVENT
 BEGIN:VEVENT
 UID:d944ce88b4a922f292906976a6a6711e@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 5 años
 DTSTART;TZID=Europe/Madrid:20261116T183000
 DTEND;TZID=Europe/Madrid:20261116T184500
@@ -739,7 +721,7 @@ DESCRIPTION:2.º lunes lectivo de noviembre.\n\nOrden del día previsto (E
 END:VEVENT
 BEGIN:VEVENT
 UID:4f3c78fad9ee37a48c91a2b72216810f@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 1.º
 DTSTART;TZID=Europe/Madrid:20261116T184500
 DTEND;TZID=Europe/Madrid:20261116T190000
@@ -753,14 +735,14 @@ DESCRIPTION:2.º lunes lectivo de noviembre.\n\nOrden del día previsto (E
 END:VEVENT
 BEGIN:VEVENT
 UID:6cb2e2429c2ee38952a5d48684ea47c0@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20261123T160000
 DTEND;TZID=Europe/Madrid:20261123T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:26edba3adf30ef8fdf7058c86041f1db@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:ETCP
 DTSTART;TZID=Europe/Madrid:20261123T170000
 DTEND;TZID=Europe/Madrid:20261123T174500
@@ -774,7 +756,7 @@ DESCRIPTION:3.º lunes lectivo de noviembre.\n\nOrden del día previsto (E
 END:VEVENT
 BEGIN:VEVENT
 UID:b1866eee94c78f8af6e1e9218302a329@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 2.º
 DTSTART;TZID=Europe/Madrid:20261123T174500
 DTEND;TZID=Europe/Madrid:20261123T180000
@@ -788,7 +770,7 @@ DESCRIPTION:3.º lunes lectivo de noviembre.\n\nOrden del día previsto (E
 END:VEVENT
 BEGIN:VEVENT
 UID:0cb9ff950b4beebcee1bf309d8b50258@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 3.º
 DTSTART;TZID=Europe/Madrid:20261123T180000
 DTEND;TZID=Europe/Madrid:20261123T181500
@@ -802,7 +784,7 @@ DESCRIPTION:3.º lunes lectivo de noviembre.\n\nOrden del día previsto (E
 END:VEVENT
 BEGIN:VEVENT
 UID:b041642eec0a73e581e7f55babcd3ce1@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 4.º
 DTSTART;TZID=Europe/Madrid:20261123T181500
 DTEND;TZID=Europe/Madrid:20261123T183000
@@ -816,7 +798,7 @@ DESCRIPTION:3.º lunes lectivo de noviembre.\n\nOrden del día previsto (E
 END:VEVENT
 BEGIN:VEVENT
 UID:7adc47c419750c7b28805d779f203709@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 5.º
 DTSTART;TZID=Europe/Madrid:20261123T183000
 DTEND;TZID=Europe/Madrid:20261123T184500
@@ -830,7 +812,7 @@ DESCRIPTION:3.º lunes lectivo de noviembre.\n\nOrden del día previsto (E
 END:VEVENT
 BEGIN:VEVENT
 UID:7515f5411ed0f24bdcc669a2ef63f581@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 6.º
 DTSTART;TZID=Europe/Madrid:20261123T184500
 DTEND;TZID=Europe/Madrid:20261123T190000
@@ -844,14 +826,14 @@ DESCRIPTION:3.º lunes lectivo de noviembre.\n\nOrden del día previsto (E
 END:VEVENT
 BEGIN:VEVENT
 UID:dae660b2b27e6768f4e497b3f8ff5aa3@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20261130T160000
 DTEND;TZID=Europe/Madrid:20261130T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:43fa64c23db7ecd637c1224e06cdc96e@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Reunión de planes y programas
 DTSTART;TZID=Europe/Madrid:20261130T170000
 DTEND;TZID=Europe/Madrid:20261130T180000
@@ -859,14 +841,14 @@ DESCRIPTION:4.º lunes lectivo de noviembre. 1 por trimestre.
 END:VEVENT
 BEGIN:VEVENT
 UID:9f17882dca1fc0a24fe56a653a19748b@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20261214T160000
 DTEND;TZID=Europe/Madrid:20261214T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:872d1f391a4c2f212b977d00948c6fe3@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Claustro
 DTSTART;TZID=Europe/Madrid:20261214T170000
 DTEND;TZID=Europe/Madrid:20261214T180000
@@ -878,7 +860,7 @@ DESCRIPTION:1.º lunes lectivo de diciembre.\n\nOrden del día previsto (C
 END:VEVENT
 BEGIN:VEVENT
 UID:582ffe1d85868d2acb2a5c194d0cba87@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo de Orientación
 DTSTART;TZID=Europe/Madrid:20261214T180000
 DTEND;TZID=Europe/Madrid:20261214T183000
@@ -892,7 +874,7 @@ DESCRIPTION:1.º lunes lectivo de diciembre.\n\nOrden del día previsto (E
 END:VEVENT
 BEGIN:VEVENT
 UID:7ea059c53510f1cf20ce0dc90bd9c5d5@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo de Infantil + Primer ciclo
 DTSTART;TZID=Europe/Madrid:20261214T183000
 DTEND;TZID=Europe/Madrid:20261214T190000
@@ -905,14 +887,14 @@ DESCRIPTION:1.º lunes lectivo de diciembre.\n\nOrden del día previsto (E
 END:VEVENT
 BEGIN:VEVENT
 UID:5f774bdb9f81d15b63544f32b9990a36@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20261221T160000
 DTEND;TZID=Europe/Madrid:20261221T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:9bcc3bc82087b860de830edfdddcf887@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo Segundo
 DTSTART;TZID=Europe/Madrid:20261221T170000
 DTEND;TZID=Europe/Madrid:20261221T173000
@@ -925,7 +907,7 @@ DESCRIPTION:2.º lunes lectivo de diciembre.\n\nOrden del día previsto (E
 END:VEVENT
 BEGIN:VEVENT
 UID:17fb0b2cfbf09ce7cf7b61c8ec7c4833@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo Tercero
 DTSTART;TZID=Europe/Madrid:20261221T173000
 DTEND;TZID=Europe/Madrid:20261221T180000
@@ -938,7 +920,7 @@ DESCRIPTION:2.º lunes lectivo de diciembre.\n\nOrden del día previsto (E
 END:VEVENT
 BEGIN:VEVENT
 UID:93dbc3f749027806949f92da710aba69@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 3 años
 DTSTART;TZID=Europe/Madrid:20261221T180000
 DTEND;TZID=Europe/Madrid:20261221T181500
@@ -952,7 +934,7 @@ DESCRIPTION:2.º lunes lectivo de diciembre.\n\nOrden del día previsto (E
 END:VEVENT
 BEGIN:VEVENT
 UID:ecfd69ca6f310c56e26ef7e6fce11a8c@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 4 años
 DTSTART;TZID=Europe/Madrid:20261221T181500
 DTEND;TZID=Europe/Madrid:20261221T183000
@@ -966,7 +948,7 @@ DESCRIPTION:2.º lunes lectivo de diciembre.\n\nOrden del día previsto (E
 END:VEVENT
 BEGIN:VEVENT
 UID:d959e125186421a1ee5ccb6a94ca5883@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 5 años
 DTSTART;TZID=Europe/Madrid:20261221T183000
 DTEND;TZID=Europe/Madrid:20261221T184500
@@ -980,7 +962,7 @@ DESCRIPTION:2.º lunes lectivo de diciembre.\n\nOrden del día previsto (E
 END:VEVENT
 BEGIN:VEVENT
 UID:1e14377229073ae77c5ff061d39ccf73@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 1.º
 DTSTART;TZID=Europe/Madrid:20261221T184500
 DTEND;TZID=Europe/Madrid:20261221T190000
@@ -994,14 +976,14 @@ DESCRIPTION:2.º lunes lectivo de diciembre.\n\nOrden del día previsto (E
 END:VEVENT
 BEGIN:VEVENT
 UID:fa69f75c596dc0139d512122f35f6351@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20270111T160000
 DTEND;TZID=Europe/Madrid:20270111T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:b36c11bc87bec8e7556b8dea52b25094@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Claustro
 DTSTART;TZID=Europe/Madrid:20270111T170000
 DTEND;TZID=Europe/Madrid:20270111T180000
@@ -1012,7 +994,7 @@ DESCRIPTION:1.º lunes lectivo de enero.\n\nOrden del día previsto (Claus
 END:VEVENT
 BEGIN:VEVENT
 UID:97cf6be0551b38d8a05d6ee008a083d3@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo de Orientación
 DTSTART;TZID=Europe/Madrid:20270111T180000
 DTEND;TZID=Europe/Madrid:20270111T183000
@@ -1026,7 +1008,7 @@ DESCRIPTION:1.º lunes lectivo de enero.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:8b9ed963a62397de74a40e3a0e75e22a@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo de Infantil + Primer ciclo
 DTSTART;TZID=Europe/Madrid:20270111T183000
 DTEND;TZID=Europe/Madrid:20270111T190000
@@ -1038,14 +1020,14 @@ DESCRIPTION:1.º lunes lectivo de enero.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:39f058dc133c6ecd4e103d77673241d5@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20270118T160000
 DTEND;TZID=Europe/Madrid:20270118T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:eba1c973b61a430fd048243d558762de@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo Segundo
 DTSTART;TZID=Europe/Madrid:20270118T170000
 DTEND;TZID=Europe/Madrid:20270118T173000
@@ -1057,7 +1039,7 @@ DESCRIPTION:2.º lunes lectivo de enero.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:3e06c794e7ac589c375fa3edd3865f65@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo Tercero
 DTSTART;TZID=Europe/Madrid:20270118T173000
 DTEND;TZID=Europe/Madrid:20270118T180000
@@ -1069,7 +1051,7 @@ DESCRIPTION:2.º lunes lectivo de enero.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:1e38337abd25cd699c5f23951a01db2e@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 3 años
 DTSTART;TZID=Europe/Madrid:20270118T180000
 DTEND;TZID=Europe/Madrid:20270118T181500
@@ -1081,7 +1063,7 @@ DESCRIPTION:2.º lunes lectivo de enero.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:cfec7d157345af77b1d7c53edf4be708@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 4 años
 DTSTART;TZID=Europe/Madrid:20270118T181500
 DTEND;TZID=Europe/Madrid:20270118T183000
@@ -1093,7 +1075,7 @@ DESCRIPTION:2.º lunes lectivo de enero.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:d75ffb8858b9785a13e2af3fe6f9d5cc@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 5 años
 DTSTART;TZID=Europe/Madrid:20270118T183000
 DTEND;TZID=Europe/Madrid:20270118T184500
@@ -1105,7 +1087,7 @@ DESCRIPTION:2.º lunes lectivo de enero.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:1bce3362474d5001ddef921d0702a5db@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 1.º
 DTSTART;TZID=Europe/Madrid:20270118T184500
 DTEND;TZID=Europe/Madrid:20270118T190000
@@ -1117,14 +1099,14 @@ DESCRIPTION:2.º lunes lectivo de enero.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:360720c60ee80c4dbe5ce2e69c185094@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20270125T160000
 DTEND;TZID=Europe/Madrid:20270125T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:241d377918843b8afd092b6a4cbc16fd@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:ETCP
 DTSTART;TZID=Europe/Madrid:20270125T170000
 DTEND;TZID=Europe/Madrid:20270125T174500
@@ -1138,7 +1120,7 @@ DESCRIPTION:3.º lunes lectivo de enero.\n\nOrden del día previsto (ETCP)
 END:VEVENT
 BEGIN:VEVENT
 UID:cc2f9c02f2e8a9e4e5d10d85289431de@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 2.º
 DTSTART;TZID=Europe/Madrid:20270125T174500
 DTEND;TZID=Europe/Madrid:20270125T180000
@@ -1150,7 +1132,7 @@ DESCRIPTION:3.º lunes lectivo de enero.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:edac478e50e85570551749a014b6c1d7@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 3.º
 DTSTART;TZID=Europe/Madrid:20270125T180000
 DTEND;TZID=Europe/Madrid:20270125T181500
@@ -1162,7 +1144,7 @@ DESCRIPTION:3.º lunes lectivo de enero.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:5ab5acc8dfd681eb09bae1a5bcef20c2@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 4.º
 DTSTART;TZID=Europe/Madrid:20270125T181500
 DTEND;TZID=Europe/Madrid:20270125T183000
@@ -1174,7 +1156,7 @@ DESCRIPTION:3.º lunes lectivo de enero.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:8f6374afe107135159526d55ac639bd6@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 5.º
 DTSTART;TZID=Europe/Madrid:20270125T183000
 DTEND;TZID=Europe/Madrid:20270125T184500
@@ -1186,7 +1168,7 @@ DESCRIPTION:3.º lunes lectivo de enero.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:1b6f2a8b04b6c99ea5f6041fb4b3cb6b@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 6.º
 DTSTART;TZID=Europe/Madrid:20270125T184500
 DTEND;TZID=Europe/Madrid:20270125T190000
@@ -1198,14 +1180,14 @@ DESCRIPTION:3.º lunes lectivo de enero.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:ba1e80ada11d674d6463f452718c19fa@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20270201T160000
 DTEND;TZID=Europe/Madrid:20270201T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:5fee0090ea7b1aca10cbf740af6b8e3a@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Claustro
 DTSTART;TZID=Europe/Madrid:20270201T170000
 DTEND;TZID=Europe/Madrid:20270201T180000
@@ -1213,7 +1195,7 @@ DESCRIPTION:1.º lunes lectivo de febrero.
 END:VEVENT
 BEGIN:VEVENT
 UID:44980b96561a0d912155c0782235e1c7@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo de Orientación
 DTSTART;TZID=Europe/Madrid:20270201T180000
 DTEND;TZID=Europe/Madrid:20270201T183000
@@ -1228,7 +1210,7 @@ DESCRIPTION:1.º lunes lectivo de febrero.\n\nOrden del día previsto (Equ
 END:VEVENT
 BEGIN:VEVENT
 UID:be2cfe234452aa6a4aa8ba3d43d1c6a0@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo de Infantil + Primer ciclo
 DTSTART;TZID=Europe/Madrid:20270201T183000
 DTEND;TZID=Europe/Madrid:20270201T190000
@@ -1240,14 +1222,14 @@ DESCRIPTION:1.º lunes lectivo de febrero.\n\nOrden del día previsto (Equ
 END:VEVENT
 BEGIN:VEVENT
 UID:0d308e854d445576b65ecd0f36cf23f5@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20270208T160000
 DTEND;TZID=Europe/Madrid:20270208T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:70ff1aa948854fc4292ed1f5d0458ebf@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo Segundo
 DTSTART;TZID=Europe/Madrid:20270208T170000
 DTEND;TZID=Europe/Madrid:20270208T173000
@@ -1259,7 +1241,7 @@ DESCRIPTION:2.º lunes lectivo de febrero.\n\nOrden del día previsto (Equ
 END:VEVENT
 BEGIN:VEVENT
 UID:318017e5cdf10117d86e291121ee8e52@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo Tercero
 DTSTART;TZID=Europe/Madrid:20270208T173000
 DTEND;TZID=Europe/Madrid:20270208T180000
@@ -1271,7 +1253,7 @@ DESCRIPTION:2.º lunes lectivo de febrero.\n\nOrden del día previsto (Equ
 END:VEVENT
 BEGIN:VEVENT
 UID:a34de40c62918b437a5015e209c77661@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 3 años
 DTSTART;TZID=Europe/Madrid:20270208T180000
 DTEND;TZID=Europe/Madrid:20270208T181500
@@ -1283,7 +1265,7 @@ DESCRIPTION:2.º lunes lectivo de febrero.\n\nOrden del día previsto (Equ
 END:VEVENT
 BEGIN:VEVENT
 UID:4a1bdd920e6bf4cdb2eaa4347eac3a04@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 4 años
 DTSTART;TZID=Europe/Madrid:20270208T181500
 DTEND;TZID=Europe/Madrid:20270208T183000
@@ -1295,7 +1277,7 @@ DESCRIPTION:2.º lunes lectivo de febrero.\n\nOrden del día previsto (Equ
 END:VEVENT
 BEGIN:VEVENT
 UID:825746a548517c736f4689f00bb17c5d@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 5 años
 DTSTART;TZID=Europe/Madrid:20270208T183000
 DTEND;TZID=Europe/Madrid:20270208T184500
@@ -1307,7 +1289,7 @@ DESCRIPTION:2.º lunes lectivo de febrero.\n\nOrden del día previsto (Equ
 END:VEVENT
 BEGIN:VEVENT
 UID:56331bf85193263216d9d979aeaad998@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 1.º
 DTSTART;TZID=Europe/Madrid:20270208T184500
 DTEND;TZID=Europe/Madrid:20270208T190000
@@ -1319,14 +1301,14 @@ DESCRIPTION:2.º lunes lectivo de febrero.\n\nOrden del día previsto (Equ
 END:VEVENT
 BEGIN:VEVENT
 UID:f781f95ca96bd49b95c43655226bcaeb@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20270215T160000
 DTEND;TZID=Europe/Madrid:20270215T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:5e3f8bcd9658de33c31d27c5cb8864b8@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:ETCP
 DTSTART;TZID=Europe/Madrid:20270215T170000
 DTEND;TZID=Europe/Madrid:20270215T174500
@@ -1338,7 +1320,7 @@ DESCRIPTION:3.º lunes lectivo de febrero.\n\nOrden del día previsto (ETC
 END:VEVENT
 BEGIN:VEVENT
 UID:9baea2c20b208b3cef5c4858454766fb@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 2.º
 DTSTART;TZID=Europe/Madrid:20270215T174500
 DTEND;TZID=Europe/Madrid:20270215T180000
@@ -1350,7 +1332,7 @@ DESCRIPTION:3.º lunes lectivo de febrero.\n\nOrden del día previsto (Equ
 END:VEVENT
 BEGIN:VEVENT
 UID:2591bafa19d7ed4d97e08100a421d7c3@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 3.º
 DTSTART;TZID=Europe/Madrid:20270215T180000
 DTEND;TZID=Europe/Madrid:20270215T181500
@@ -1362,7 +1344,7 @@ DESCRIPTION:3.º lunes lectivo de febrero.\n\nOrden del día previsto (Equ
 END:VEVENT
 BEGIN:VEVENT
 UID:97ff1f2140675565aa33c3d60a5bc614@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 4.º
 DTSTART;TZID=Europe/Madrid:20270215T181500
 DTEND;TZID=Europe/Madrid:20270215T183000
@@ -1374,7 +1356,7 @@ DESCRIPTION:3.º lunes lectivo de febrero.\n\nOrden del día previsto (Equ
 END:VEVENT
 BEGIN:VEVENT
 UID:ae119ecacf842a7545264d0b0b42bf77@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 5.º
 DTSTART;TZID=Europe/Madrid:20270215T183000
 DTEND;TZID=Europe/Madrid:20270215T184500
@@ -1386,7 +1368,7 @@ DESCRIPTION:3.º lunes lectivo de febrero.\n\nOrden del día previsto (Equ
 END:VEVENT
 BEGIN:VEVENT
 UID:39d18ef3608b4b0d4b9890781858f1a8@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 6.º
 DTSTART;TZID=Europe/Madrid:20270215T184500
 DTEND;TZID=Europe/Madrid:20270215T190000
@@ -1398,14 +1380,14 @@ DESCRIPTION:3.º lunes lectivo de febrero.\n\nOrden del día previsto (Equ
 END:VEVENT
 BEGIN:VEVENT
 UID:ad76d9b88b37a28033b2db47c72b3abc@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20270222T160000
 DTEND;TZID=Europe/Madrid:20270222T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:dcabf4f5f825dc75214ad5eb35620e97@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Reunión de planes y programas
 DTSTART;TZID=Europe/Madrid:20270222T170000
 DTEND;TZID=Europe/Madrid:20270222T180000
@@ -1413,14 +1395,14 @@ DESCRIPTION:4.º lunes lectivo de febrero. 1 por trimestre.
 END:VEVENT
 BEGIN:VEVENT
 UID:8131f939d4256de54795e3b9ce32a58e@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20270308T160000
 DTEND;TZID=Europe/Madrid:20270308T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:361a738a199efe86e468ffc383dfd2bd@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Claustro
 DTSTART;TZID=Europe/Madrid:20270308T170000
 DTEND;TZID=Europe/Madrid:20270308T180000
@@ -1431,7 +1413,7 @@ DESCRIPTION:1.º lunes lectivo de marzo.\n\nOrden del día previsto (Claus
 END:VEVENT
 BEGIN:VEVENT
 UID:7dbdc066e10717be40adeaa5f8d98e2e@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo de Orientación
 DTSTART;TZID=Europe/Madrid:20270308T180000
 DTEND;TZID=Europe/Madrid:20270308T183000
@@ -1444,7 +1426,7 @@ DESCRIPTION:1.º lunes lectivo de marzo.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:9b5a84ae06fb250815dc7ffeb28f3251@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo de Infantil + Primer ciclo
 DTSTART;TZID=Europe/Madrid:20270308T183000
 DTEND;TZID=Europe/Madrid:20270308T190000
@@ -1456,14 +1438,14 @@ DESCRIPTION:1.º lunes lectivo de marzo.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:d65a9e11f1bbbe612d909b75e9209d91@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20270315T160000
 DTEND;TZID=Europe/Madrid:20270315T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:157e4cc960cbbf0fa897cbc81c7eb562@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo Segundo
 DTSTART;TZID=Europe/Madrid:20270315T170000
 DTEND;TZID=Europe/Madrid:20270315T173000
@@ -1475,7 +1457,7 @@ DESCRIPTION:2.º lunes lectivo de marzo.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:62563cb5a75c3ba0d6a3d6a413cbe173@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo Tercero
 DTSTART;TZID=Europe/Madrid:20270315T173000
 DTEND;TZID=Europe/Madrid:20270315T180000
@@ -1487,7 +1469,7 @@ DESCRIPTION:2.º lunes lectivo de marzo.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:21bcd3b66053885a84a47e2feeb835ef@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 3 años
 DTSTART;TZID=Europe/Madrid:20270315T180000
 DTEND;TZID=Europe/Madrid:20270315T181500
@@ -1500,7 +1482,7 @@ DESCRIPTION:2.º lunes lectivo de marzo.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:5e6c5efb980835c1f76eafd734f52cc9@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 4 años
 DTSTART;TZID=Europe/Madrid:20270315T181500
 DTEND;TZID=Europe/Madrid:20270315T183000
@@ -1513,7 +1495,7 @@ DESCRIPTION:2.º lunes lectivo de marzo.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:9be2127920f306c2dd8559a8253d3855@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 5 años
 DTSTART;TZID=Europe/Madrid:20270315T183000
 DTEND;TZID=Europe/Madrid:20270315T184500
@@ -1526,7 +1508,7 @@ DESCRIPTION:2.º lunes lectivo de marzo.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:187de863dc4c3a50444322313295313a@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 1.º
 DTSTART;TZID=Europe/Madrid:20270315T184500
 DTEND;TZID=Europe/Madrid:20270315T190000
@@ -1539,14 +1521,14 @@ DESCRIPTION:2.º lunes lectivo de marzo.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:e95cb23d101af9a31b67dc1ae8681920@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20270329T160000
 DTEND;TZID=Europe/Madrid:20270329T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:04f1839e4e4b2fb9bd3780a337fbdbda@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:ETCP
 DTSTART;TZID=Europe/Madrid:20270329T170000
 DTEND;TZID=Europe/Madrid:20270329T174500
@@ -1558,7 +1540,7 @@ DESCRIPTION:3.º lunes lectivo de marzo.\n\nOrden del día previsto (ETCP)
 END:VEVENT
 BEGIN:VEVENT
 UID:5a78360f8dda1ee7fd5bf987dfd77210@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 2.º
 DTSTART;TZID=Europe/Madrid:20270329T174500
 DTEND;TZID=Europe/Madrid:20270329T180000
@@ -1571,7 +1553,7 @@ DESCRIPTION:3.º lunes lectivo de marzo.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:90710096a275a30067c344095a168c30@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 3.º
 DTSTART;TZID=Europe/Madrid:20270329T180000
 DTEND;TZID=Europe/Madrid:20270329T181500
@@ -1584,7 +1566,7 @@ DESCRIPTION:3.º lunes lectivo de marzo.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:418470d71431bfbe4fac99850bba6686@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 4.º
 DTSTART;TZID=Europe/Madrid:20270329T181500
 DTEND;TZID=Europe/Madrid:20270329T183000
@@ -1597,7 +1579,7 @@ DESCRIPTION:3.º lunes lectivo de marzo.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:5ef91c3a7755f0f6107b6264b7418e4c@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 5.º
 DTSTART;TZID=Europe/Madrid:20270329T183000
 DTEND;TZID=Europe/Madrid:20270329T184500
@@ -1610,7 +1592,7 @@ DESCRIPTION:3.º lunes lectivo de marzo.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:333079aa7e7daac6bee19d4edcf1d6a6@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 6.º
 DTSTART;TZID=Europe/Madrid:20270329T184500
 DTEND;TZID=Europe/Madrid:20270329T190000
@@ -1623,14 +1605,14 @@ DESCRIPTION:3.º lunes lectivo de marzo.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:b27585530100708361b6c7945d647e49@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20270405T160000
 DTEND;TZID=Europe/Madrid:20270405T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:f1016a9e92e8df938e9512f06fb45019@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Claustro
 DTSTART;TZID=Europe/Madrid:20270405T170000
 DTEND;TZID=Europe/Madrid:20270405T180000
@@ -1638,7 +1620,7 @@ DESCRIPTION:1.º lunes lectivo de abril.
 END:VEVENT
 BEGIN:VEVENT
 UID:ffef48d05de3242055c4994179fcd86a@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo de Orientación
 DTSTART;TZID=Europe/Madrid:20270405T180000
 DTEND;TZID=Europe/Madrid:20270405T183000
@@ -1652,7 +1634,7 @@ DESCRIPTION:1.º lunes lectivo de abril.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:80dc5151755fa1b9204731d95c134cec@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo de Infantil + Primer ciclo
 DTSTART;TZID=Europe/Madrid:20270405T183000
 DTEND;TZID=Europe/Madrid:20270405T190000
@@ -1664,14 +1646,14 @@ DESCRIPTION:1.º lunes lectivo de abril.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:a232a27b5ac1cf03a8286da882f3cd02@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20270412T160000
 DTEND;TZID=Europe/Madrid:20270412T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:31735a186ee6d4b7d66f95abdb351773@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo Segundo
 DTSTART;TZID=Europe/Madrid:20270412T170000
 DTEND;TZID=Europe/Madrid:20270412T173000
@@ -1683,7 +1665,7 @@ DESCRIPTION:2.º lunes lectivo de abril.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:39ba5c09c753da603f7c1118e9f7a33c@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo Tercero
 DTSTART;TZID=Europe/Madrid:20270412T173000
 DTEND;TZID=Europe/Madrid:20270412T180000
@@ -1695,7 +1677,7 @@ DESCRIPTION:2.º lunes lectivo de abril.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:1747fa60f11f761d9280fc509f8971f5@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 3 años
 DTSTART;TZID=Europe/Madrid:20270412T180000
 DTEND;TZID=Europe/Madrid:20270412T181500
@@ -1708,7 +1690,7 @@ DESCRIPTION:2.º lunes lectivo de abril.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:ced7c486a25367fc75ff07b171b8438f@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 4 años
 DTSTART;TZID=Europe/Madrid:20270412T181500
 DTEND;TZID=Europe/Madrid:20270412T183000
@@ -1721,7 +1703,7 @@ DESCRIPTION:2.º lunes lectivo de abril.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:87608c309d32874f0871496c42935299@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 5 años
 DTSTART;TZID=Europe/Madrid:20270412T183000
 DTEND;TZID=Europe/Madrid:20270412T184500
@@ -1734,7 +1716,7 @@ DESCRIPTION:2.º lunes lectivo de abril.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:9e41362b86f9dcd9d1235854a30e8e1b@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 1.º
 DTSTART;TZID=Europe/Madrid:20270412T184500
 DTEND;TZID=Europe/Madrid:20270412T190000
@@ -1747,14 +1729,14 @@ DESCRIPTION:2.º lunes lectivo de abril.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:fc7a258edd720d022a5c2dc9599107ba@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20270426T160000
 DTEND;TZID=Europe/Madrid:20270426T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:84dd56e0c78c0e0bc9c1484cc1c1f45d@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:ETCP
 DTSTART;TZID=Europe/Madrid:20270426T170000
 DTEND;TZID=Europe/Madrid:20270426T174500
@@ -1767,7 +1749,7 @@ DESCRIPTION:3.º lunes lectivo de abril.\n\nOrden del día previsto (ETCP)
 END:VEVENT
 BEGIN:VEVENT
 UID:4c7a556ac8726e3dbaed4887ab771544@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 2.º
 DTSTART;TZID=Europe/Madrid:20270426T174500
 DTEND;TZID=Europe/Madrid:20270426T180000
@@ -1780,7 +1762,7 @@ DESCRIPTION:3.º lunes lectivo de abril.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:34c7e59a2921624aa3203e637b5d274a@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 3.º
 DTSTART;TZID=Europe/Madrid:20270426T180000
 DTEND;TZID=Europe/Madrid:20270426T181500
@@ -1793,7 +1775,7 @@ DESCRIPTION:3.º lunes lectivo de abril.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:3fde05e437a43aa47a2d5ef9ce4cef61@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 4.º
 DTSTART;TZID=Europe/Madrid:20270426T181500
 DTEND;TZID=Europe/Madrid:20270426T183000
@@ -1806,7 +1788,7 @@ DESCRIPTION:3.º lunes lectivo de abril.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:2405195a58d703679fc7be74ed3e811b@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 5.º
 DTSTART;TZID=Europe/Madrid:20270426T183000
 DTEND;TZID=Europe/Madrid:20270426T184500
@@ -1819,7 +1801,7 @@ DESCRIPTION:3.º lunes lectivo de abril.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:0d91e3848254c43908257f50bb4c44d2@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 6.º
 DTSTART;TZID=Europe/Madrid:20270426T184500
 DTEND;TZID=Europe/Madrid:20270426T190000
@@ -1832,14 +1814,14 @@ DESCRIPTION:3.º lunes lectivo de abril.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:4ddfa04a00305b570d9724eef45df4cc@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20270510T160000
 DTEND;TZID=Europe/Madrid:20270510T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:6553ccfb1dce4b88df395449d4cdf6b8@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Claustro
 DTSTART;TZID=Europe/Madrid:20270510T170000
 DTEND;TZID=Europe/Madrid:20270510T180000
@@ -1851,7 +1833,7 @@ DESCRIPTION:1.º lunes lectivo de mayo.\n\nOrden del día previsto (Claust
 END:VEVENT
 BEGIN:VEVENT
 UID:60499669e3c1594270d896f7101c44ca@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo de Orientación
 DTSTART;TZID=Europe/Madrid:20270510T180000
 DTEND;TZID=Europe/Madrid:20270510T183000
@@ -1866,7 +1848,7 @@ DESCRIPTION:1.º lunes lectivo de mayo.\n\nOrden del día previsto (Equipo
 END:VEVENT
 BEGIN:VEVENT
 UID:add59a86517fa922eb3a1d745407c03a@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo de Infantil + Primer ciclo
 DTSTART;TZID=Europe/Madrid:20270510T183000
 DTEND;TZID=Europe/Madrid:20270510T190000
@@ -1877,14 +1859,14 @@ DESCRIPTION:1.º lunes lectivo de mayo.\n\nOrden del día previsto (Equipo
 END:VEVENT
 BEGIN:VEVENT
 UID:c7dc221f94d81de9760f7d7d2f5d2b1e@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20270517T160000
 DTEND;TZID=Europe/Madrid:20270517T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:1d3d84cb88eb68333065603b93d9acec@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo Segundo
 DTSTART;TZID=Europe/Madrid:20270517T170000
 DTEND;TZID=Europe/Madrid:20270517T173000
@@ -1895,7 +1877,7 @@ DESCRIPTION:2.º lunes lectivo de mayo.\n\nOrden del día previsto (Equipo
 END:VEVENT
 BEGIN:VEVENT
 UID:748781ad782466008e88ba9f48f054b7@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo Tercero
 DTSTART;TZID=Europe/Madrid:20270517T173000
 DTEND;TZID=Europe/Madrid:20270517T180000
@@ -1906,7 +1888,7 @@ DESCRIPTION:2.º lunes lectivo de mayo.\n\nOrden del día previsto (Equipo
 END:VEVENT
 BEGIN:VEVENT
 UID:0de5d6cbc50a22370b87419b681896b3@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 3 años
 DTSTART;TZID=Europe/Madrid:20270517T180000
 DTEND;TZID=Europe/Madrid:20270517T181500
@@ -1918,7 +1900,7 @@ DESCRIPTION:2.º lunes lectivo de mayo.\n\nOrden del día previsto (Equipo
 END:VEVENT
 BEGIN:VEVENT
 UID:f11185aafe5a7582b9d04a42f191720e@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 4 años
 DTSTART;TZID=Europe/Madrid:20270517T181500
 DTEND;TZID=Europe/Madrid:20270517T183000
@@ -1930,7 +1912,7 @@ DESCRIPTION:2.º lunes lectivo de mayo.\n\nOrden del día previsto (Equipo
 END:VEVENT
 BEGIN:VEVENT
 UID:5a4268e41fea34bb2461c1354602eb81@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 5 años
 DTSTART;TZID=Europe/Madrid:20270517T183000
 DTEND;TZID=Europe/Madrid:20270517T184500
@@ -1942,7 +1924,7 @@ DESCRIPTION:2.º lunes lectivo de mayo.\n\nOrden del día previsto (Equipo
 END:VEVENT
 BEGIN:VEVENT
 UID:596715990c577c70037f75b072e77dc6@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 1.º
 DTSTART;TZID=Europe/Madrid:20270517T184500
 DTEND;TZID=Europe/Madrid:20270517T190000
@@ -1954,14 +1936,14 @@ DESCRIPTION:2.º lunes lectivo de mayo.\n\nOrden del día previsto (Equipo
 END:VEVENT
 BEGIN:VEVENT
 UID:3f3c26a3a8ece4c298f00d9b1ed86f30@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20270524T160000
 DTEND;TZID=Europe/Madrid:20270524T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:f519ef505bcfce70e632bd992ff95177@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:ETCP
 DTSTART;TZID=Europe/Madrid:20270524T170000
 DTEND;TZID=Europe/Madrid:20270524T174500
@@ -1973,7 +1955,7 @@ DESCRIPTION:3.º lunes lectivo de mayo.\n\nOrden del día previsto (ETCP):
 END:VEVENT
 BEGIN:VEVENT
 UID:6b2391efb50c5acd9d86f419ff65a2fe@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 2.º
 DTSTART;TZID=Europe/Madrid:20270524T174500
 DTEND;TZID=Europe/Madrid:20270524T180000
@@ -1985,7 +1967,7 @@ DESCRIPTION:3.º lunes lectivo de mayo.\n\nOrden del día previsto (Equipo
 END:VEVENT
 BEGIN:VEVENT
 UID:4ca86ec5a3a394de121ae7645a7f4a06@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 3.º
 DTSTART;TZID=Europe/Madrid:20270524T180000
 DTEND;TZID=Europe/Madrid:20270524T181500
@@ -1997,7 +1979,7 @@ DESCRIPTION:3.º lunes lectivo de mayo.\n\nOrden del día previsto (Equipo
 END:VEVENT
 BEGIN:VEVENT
 UID:5e845d701099beb6c3ae4d4df6f4dc47@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 4.º
 DTSTART;TZID=Europe/Madrid:20270524T181500
 DTEND;TZID=Europe/Madrid:20270524T183000
@@ -2009,7 +1991,7 @@ DESCRIPTION:3.º lunes lectivo de mayo.\n\nOrden del día previsto (Equipo
 END:VEVENT
 BEGIN:VEVENT
 UID:d14a847246ba1baed08eb05c47d2d440@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 5.º
 DTSTART;TZID=Europe/Madrid:20270524T183000
 DTEND;TZID=Europe/Madrid:20270524T184500
@@ -2021,7 +2003,7 @@ DESCRIPTION:3.º lunes lectivo de mayo.\n\nOrden del día previsto (Equipo
 END:VEVENT
 BEGIN:VEVENT
 UID:4b16c1bbcde37e4d7a64bb0dd7e93e23@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 6.º
 DTSTART;TZID=Europe/Madrid:20270524T184500
 DTEND;TZID=Europe/Madrid:20270524T190000
@@ -2033,14 +2015,14 @@ DESCRIPTION:3.º lunes lectivo de mayo.\n\nOrden del día previsto (Equipo
 END:VEVENT
 BEGIN:VEVENT
 UID:9f9f074512659bcff0cb73bd02ec6825@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20270531T160000
 DTEND;TZID=Europe/Madrid:20270531T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:5cb24dd7e8cae57422306f564f763e59@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Reunión de planes y programas
 DTSTART;TZID=Europe/Madrid:20270531T170000
 DTEND;TZID=Europe/Madrid:20270531T180000
@@ -2048,14 +2030,14 @@ DESCRIPTION:4.º lunes lectivo de mayo. 1 por trimestre.
 END:VEVENT
 BEGIN:VEVENT
 UID:7b734b85eb6bffaa94ca89cbf5b7f42f@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20270607T160000
 DTEND;TZID=Europe/Madrid:20270607T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:4e594d3ecbf663862ac15e00e372ae1c@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Claustro
 DTSTART;TZID=Europe/Madrid:20270607T170000
 DTEND;TZID=Europe/Madrid:20270607T180000
@@ -2066,7 +2048,7 @@ DESCRIPTION:1.º lunes lectivo de junio.\n\nOrden del día previsto (Claus
 END:VEVENT
 BEGIN:VEVENT
 UID:b23ebb60331afe2cd4dbe16468d1266d@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo de Orientación
 DTSTART;TZID=Europe/Madrid:20270607T180000
 DTEND;TZID=Europe/Madrid:20270607T183000
@@ -2081,7 +2063,7 @@ DESCRIPTION:1.º lunes lectivo de junio.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:faa078352073863fe2cdb2fe5543e349@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo de Infantil + Primer ciclo
 DTSTART;TZID=Europe/Madrid:20270607T183000
 DTEND;TZID=Europe/Madrid:20270607T190000
@@ -2094,14 +2076,14 @@ DESCRIPTION:1.º lunes lectivo de junio.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:80d1332dd50714cde9aaf33675a55d23@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20270614T160000
 DTEND;TZID=Europe/Madrid:20270614T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:b99261594baad9ae6265a0832fdb6e33@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo Segundo
 DTSTART;TZID=Europe/Madrid:20270614T170000
 DTEND;TZID=Europe/Madrid:20270614T173000
@@ -2114,7 +2096,7 @@ DESCRIPTION:2.º lunes lectivo de junio.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:c65049361555efae4410f3d3bf6ec581@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Ciclo Tercero
 DTSTART;TZID=Europe/Madrid:20270614T173000
 DTEND;TZID=Europe/Madrid:20270614T180000
@@ -2127,7 +2109,7 @@ DESCRIPTION:2.º lunes lectivo de junio.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:e152914bb88ddb697e13b3d591465dcd@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 3 años
 DTSTART;TZID=Europe/Madrid:20270614T180000
 DTEND;TZID=Europe/Madrid:20270614T181500
@@ -2142,7 +2124,7 @@ DESCRIPTION:2.º lunes lectivo de junio.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:fd49d00c5778b0f8ec58cfc96f55ebfb@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 4 años
 DTSTART;TZID=Europe/Madrid:20270614T181500
 DTEND;TZID=Europe/Madrid:20270614T183000
@@ -2157,7 +2139,7 @@ DESCRIPTION:2.º lunes lectivo de junio.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:bc5d911d5b64b8d0219e5f2baa008e32@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 5 años
 DTSTART;TZID=Europe/Madrid:20270614T183000
 DTEND;TZID=Europe/Madrid:20270614T184500
@@ -2172,7 +2154,7 @@ DESCRIPTION:2.º lunes lectivo de junio.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:f2d81d1e8cadc3e7cfb26bb56b289bc3@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 1.º
 DTSTART;TZID=Europe/Madrid:20270614T184500
 DTEND;TZID=Europe/Madrid:20270614T190000
@@ -2187,14 +2169,14 @@ DESCRIPTION:2.º lunes lectivo de junio.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:66875c18d42f3c557685f4c91d6ca4d7@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Tutorías con familias
 DTSTART;TZID=Europe/Madrid:20270621T160000
 DTEND;TZID=Europe/Madrid:20270621T170000
 END:VEVENT
 BEGIN:VEVENT
 UID:e66e755f8b7ff1b4a158c2d42207c776@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:ETCP
 DTSTART;TZID=Europe/Madrid:20270621T170000
 DTEND;TZID=Europe/Madrid:20270621T174500
@@ -2207,7 +2189,7 @@ DESCRIPTION:3.º lunes lectivo de junio.\n\nOrden del día previsto (ETCP)
 END:VEVENT
 BEGIN:VEVENT
 UID:d18804877e4c4f3198b8ddb9637a6b7b@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 2.º
 DTSTART;TZID=Europe/Madrid:20270621T174500
 DTEND;TZID=Europe/Madrid:20270621T180000
@@ -2222,7 +2204,7 @@ DESCRIPTION:3.º lunes lectivo de junio.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:5a5e45d1e95d8b60cce8195578857c2f@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 3.º
 DTSTART;TZID=Europe/Madrid:20270621T180000
 DTEND;TZID=Europe/Madrid:20270621T181500
@@ -2237,7 +2219,7 @@ DESCRIPTION:3.º lunes lectivo de junio.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:3acbe7c9a4d399430bb2ecce65909eb4@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 4.º
 DTSTART;TZID=Europe/Madrid:20270621T181500
 DTEND;TZID=Europe/Madrid:20270621T183000
@@ -2252,7 +2234,7 @@ DESCRIPTION:3.º lunes lectivo de junio.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:e28a47c3e860c2be4e0e71787d056ba5@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 5.º
 DTSTART;TZID=Europe/Madrid:20270621T183000
 DTEND;TZID=Europe/Madrid:20270621T184500
@@ -2267,7 +2249,7 @@ DESCRIPTION:3.º lunes lectivo de junio.\n\nOrden del día previsto (Equip
 END:VEVENT
 BEGIN:VEVENT
 UID:bf899c64687428438d36c377a8033576@capitulaciones
-DTSTAMP:20261011T085145Z
+DTSTAMP:20261016T085216Z
 SUMMARY:Equipo docente 6.º
 DTSTART;TZID=Europe/Madrid:20270621T184500
 DTEND;TZID=Europe/Madrid:20270621T190000
