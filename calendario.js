@@ -14,6 +14,8 @@
   const mas = (ds,n) => { const d=new Date(ds+'T12:00'); d.setDate(d.getDate()+n); return iso(d); };
   const hoy = () => iso(new Date());
   let datos = null;
+  /* El aviso técnico solo se ve dentro de la Agenda ED; en la web y las apps sale un texto para familias */
+  const INTERNO = /\/agenda(\/|$)/.test(location.pathname);
   try { datos = JSON.parse(localStorage.getItem(KEY)); } catch(e) {}
 
   // Curso al que pertenece una fecha (de septiembre a agosto)
@@ -95,7 +97,7 @@
         `<div style="margin-top:${i?4:0}px">${i===0?`<span style="font-size:.78em;font-weight:800;text-transform:uppercase;letter-spacing:.04em;opacity:.75">Próximo día sin cole · ${cuando(x.fecha)}</span><br>`:''}${texto(x)}</div>`).join('');
       const falta = lista ? faltaSiguiente() : null;
       const pend = lista ? cursos().filter(c => c.pendiente && c.fin >= hoy()).map(c => `${c.curso}: ${c.pendiente}`) : [];
-      const aviso = pend.length && !falta ? `<div style="margin-top:6px;padding:6px 10px;border-radius:10px;background:#fef3c7;color:#78350f;font-weight:700;font-size:.9em">⚠️ ${esc(pend.join(' · '))}</div>` : falta ? `<div style="margin-top:6px;padding:6px 10px;border-radius:10px;background:#fef3c7;color:#78350f;font-weight:700;font-size:.9em">⚠️ Falta el calendario del curso ${falta}. Añádelo en <code>agenda/calendario.json</code> (o pídeselo a Claude) para que las apps sepan los festivos.</div>` : '';
+      const aviso = pend.length && !falta ? `<div style="margin-top:6px;padding:6px 10px;border-radius:10px;background:#fef3c7;color:#78350f;font-weight:700;font-size:.9em">⚠️ ${esc(pend.join(' · '))}</div>` : falta ? `<div style="margin-top:6px;padding:6px 10px;border-radius:10px;background:#fef3c7;color:#78350f;font-weight:700;font-size:.9em">${INTERNO ? `⚠️ Falta el calendario del curso ${falta}. Añádelo en <code>agenda/calendario.json</code> para que las apps sepan los festivos.` : `📅 El calendario del curso ${falta} se publicará próximamente.`}</div>` : '';
       el.innerHTML = `<div style="background:rgba(255,255,255,.9);border:1.5px solid #c7d2fe;border-left:6px solid #4f46e5;border-radius:14px;padding:10px 14px;margin:10px 0;color:#1f2a37;font-size:.95rem;line-height:1.4;text-align:left">${cab}${filas}${aviso}</div>`;
     });
   }
