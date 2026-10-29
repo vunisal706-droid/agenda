@@ -256,6 +256,12 @@ tr.current td{background:rgba(227,231,251,.7)}
     <p class="note">Una vez instalada funciona sin conexión.</p>
     <button class="ghost" onclick="howto.close()">Cerrar</button>
   </dialog>
+  <dialog id="novZts">
+    <h3 style="margin-top:0">🆕 Novedades</h3>
+    <p>Se han añadido las fechas del <b>Programa ZTS 2026/27</b>: horario del personal ZTS, participantes, cesiones de datos, actas de Claustro y Consejo Escolar, cartelería, Plan de Actuación (hasta el 21/12), dotación económica, Memoria ZTS y Anexo XI.</p>
+    <p class="note">Aparecen en el calendario con la etiqueta «Programa ZTS».</p>
+    <button class="ghost" onclick="novZts.close()">Entendido</button>
+  </dialog>
 </main>
 <script src="calendario.js" defer></script>
 <script>
@@ -443,6 +449,20 @@ const TA=[
 [8,0,0,'Periodo estival','DJ','ORG','Plan de trabajo y reuniones de la semana previa a la llegada del alumnado','','',''],
 [8,0,0,'Periodo estival','JS','VAR','Comunicar a familias NEAE la convocatoria de becas y ayudas','','','neae']
 ];
+// Programa ZTS (Resolución 12/06/2026 e Indicaciones del curso 26/27)
+const ZR='Centro → Planes y Programas Educativos → Convocatoria Específica → Programa de Atención Socioeducativa ZTS → ';
+const ZD='Modelo en Documentos → Centro → Planes y Proyectos Educativos → Programa de Atención Socioeducativa ZTS → Curso 2026-2027.';
+const ZTS=[
+[9,1,30,'Inicio de curso','J','PROG','ZTS: grabar el horario del personal ZTS','Por tramo horario: actividades y alumnado atendido. Incluir también el horario no lectivo.','Personal → Personal del centro → Horario regular',''],
+[9,1,15,'Antes del 15','SD','GE','ZTS: Anexo XI específico del curso anterior','Justificación del 1/09 al 31/08. Firmar digitalmente.','Gestión económica → Generación de anexos → Anexo XI específico','anx'],
+[9,1,30,'Hasta el 30','D','PROG','ZTS: generar y firmar la Memoria ZTS del curso anterior','Se genera sola a partir de los indicadores homologados del centro.',ZR+'Datos asociados → Memoria ZTS',''],
+[11,1,30,'Antes del 30','D','PROG','ZTS: grabar coordinación y profesorado participante','Coordinación preferiblemente de un miembro del equipo directivo.',ZR+'Participantes',''],
+[11,1,30,'Antes del 30','D','PROG','ZTS: subir las cesiones de datos firmadas (personal ZTS y equipo directivo)','Cada persona la cumplimenta y firma la suya. '+ZD,ZR+'Datos asociados → Documentos que pide la UE',''],
+[11,1,30,'Antes del 30','D','CE','ZTS: informar al Claustro y al Consejo Escolar de la participación y recogerlo en acta','Este curso no hay que volver a solicitar el programa.','',''],
+[11,1,30,'Antes del 30','D','PROG','ZTS: colocar la cartelería nueva (Prioridad 3 y Prioridad 7)','En color y A3, en la entrada y en los espacios del programa. Sustituye a los carteles anteriores. Disponible en Documentos → … → Programa ZTS → ZTS 2026-2027.','',''],
+[12,1,21,'Antes del 21','D','PROG','ZTS: subir el Plan de Actuación firmado digitalmente','Formato PDF, nombre sin espacios ni caracteres especiales.',ZR+'Datos asociados → Informe de Actuación/Plan de Actuación',''],
+[6,1,30,'Antes del 30','SD','GE','ZTS: subir la documentación de la dotación económica','3 presupuestos por actividad, memoria justificativa del contrato, contrato y una factura por empresa (mejor subirlos según llegan). DACI y declaración responsable de la empresa antes de firmar el contrato. Contrato máx. 1 año; inventariable ≤ 10 %; sin obras ni material informático o tecnológico. '+ZD,ZR+'Datos asociados → Presupuestos / Contratos / Memoria Justificativa Contrato / Facturas','']
+];
 // tareas que se repiten
 const REP=[];
 [10,11,12,1,2,3,4,5,6].forEach(m=>{
@@ -504,7 +524,7 @@ const dim=m=>new Date(yOf(m),m,0).getDate();
 const cap=s=>s[0].toUpperCase()+s.slice(1);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
-const BASE=[...TW.map(a=>[...a,'Webcretaría']),...TA.map(a=>[...a,'Agenda ED']),...REP.map(a=>[...a,'Agenda ED'])]
+const BASE=[...TW.map(a=>[...a,'Webcretaría']),...TA.map(a=>[...a,'Agenda ED']),...REP.map(a=>[...a,'Agenda ED']),...ZTS.map(a=>[...a,'Programa ZTS'])]
  .map(a=>{const e=a[2]?Math.min(a[2],dim(a[0])):0;const id=(a[0]+'|'+a[6]).replace(/\s+/g,'');
   return {id,m:a[0],em:a[0],s:a[1],e,f:a[3],who:a[4],c:a[5],t:a[6],d:a[7],r:a[8],u:a[9]?W+L[a[9]]:'',src:a[10]}});
 const CEL=CEP.map(p=>({id:'CE26|'+p[0],paso:p[0],m:p[1][0],s:p[1][1],em:p[2][0],e:p[2][1],f:p[3],who:'DS',c:'CE',t:'Elecciones CE · '+p[4],tt:p[4],d:p[5],r:p[6],u:W+L.ce,src:p[7]==='CCEE'?'CCEE · Séneca':'Calendario del centro'}));
@@ -827,4 +847,6 @@ if(instalada) btn.style.display='none';
 addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e});
 btn.onclick=async()=>{ if(deferred){deferred.prompt();const r=await deferred.userChoice;deferred=null;if(r.outcome==='accepted')btn.style.display='none';} else document.getElementById('howto').showModal(); };
 addEventListener('appinstalled',()=>btn.style.display='none');
+// Aviso de novedades: una sola vez por dispositivo
+if(!LS('nov-zts-2627')){LS('nov-zts-2627',1);setTimeout(()=>{try{document.getElementById('novZts').showModal()}catch(e){}},600);}
 </script></body></html>
