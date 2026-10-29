@@ -259,8 +259,8 @@ tr.current td{background:rgba(227,231,251,.7)}
   </dialog>
   <dialog id="novZts">
     <h2 class="dh">🆕 Novedades</h2>
-    <p>Se han añadido las fechas del <b>Programa ZTS 2026/27</b>: horario del personal ZTS, participantes, cesiones de datos, actas de Claustro y Consejo Escolar, cartelería, Plan de Actuación (hasta el 21/12), dotación económica, Memoria ZTS y Anexo XI. También los plazos del <b>Programa Más Equidad</b> (desarrollo del 27/10/2026 al 23/06/2027).</p>
-    <p class="note">Aparecen en el calendario con las etiquetas «Programa ZTS» y «Más Equidad». Además, los botones naranjas tienen más contraste y los títulos usan una nueva tipografía.</p>
+    <p>Se han añadido las fechas del <b>Programa ZTS 2026/27</b>: horario del personal ZTS, participantes, cesiones de datos, actas de Claustro y Consejo Escolar, cartelería, Plan de Actuación (hasta el 21/12), dotación económica, Memoria ZTS y Anexo XI. También los plazos del <b>Programa Más Equidad</b> (desarrollo del 27/10/2026 al 23/06/2027) y del <b>PROA+ Transfórmate</b> (documentos de Séneca, comisiones de seguimiento, memorias y rendición de cuentas).</p>
+    <p class="note">Aparecen en el calendario con las etiquetas «Programa ZTS», «Más Equidad» y «PROA+ Transfórmate». Además, los botones naranjas tienen más contraste y los títulos usan una nueva tipografía.</p>
     <button class="ghost" onclick="novZts.close()">Entendido</button>
   </dialog>
 </main>
@@ -475,6 +475,21 @@ const MEQ=[
 [10,27,31,'Antes de contratar','DS','GE','Más Equidad: si se contrata empresa, 3 presupuestos, memoria justificativa y contrato','Antes de empezar, la empresa entrega declaración responsable del certificado negativo de delitos sexuales y titulaciones de su personal. Facturas con precio total y por alumno/a; pagar por transferencia.','',''],
 [6,1,23,'Hasta el 23','DS','GE','Más Equidad: fin del programa; todos los gastos realizados y pagados','Justificación económica en Séneca (perfil responsable de gestión económica). Guardar la documentación 5 años. La empresa entrega su memoria final.','','']
 ];
+// PROA+ Transfórmate (convocatoria 21/10/2024 y Gestión Séneca del programa)
+const PR='Centro → Planes y Programas Educativos → Convocatoria Específica → PROA+ «Transfórmate» → Datos asociados';
+const PD='Modelos en Utilidades → Documentos → Centro → Planes y Programas → PROA+ Transfórmate 2024-2028.';
+const PROAP=[
+[11,1,30,'Antes del 30','D','PROG','PROA+: subir DACI (nº 01) y cesión de datos (nº 03) del personal del centro','Firman dirección, coordinación, secretaría, PT/AL y personal implicado. '+PD,PR+' → Documentos que pide la UE',''],
+[11,1,30,'Antes del 30','D','PROG','PROA+: subir la declaración responsable de cumplimiento de compromisos (nº 11)',PD,PR,''],
+[11,1,30,'','D','PROG','PROA+: integrar el PEM (nº 10) y las 10 actividades palanca prescriptivas en la PGA','El PEM no se sube a Séneca.','',''],
+[12,1,22,'1er trimestre','DJ','PROG','PROA+: 1ª comisión de seguimiento y acta (nº 12)','Equipo directivo, coordinación y tutores del alumnado. Mínimo 2 al año.',PR,''],
+[1,15,31,'','DJ','PROG','PROA+: revisión semestral del PEM (ED, ETCP, Claustro y CE)','','',''],
+[5,1,31,'3er trimestre','DJ','PROG','PROA+: 2ª comisión de seguimiento y acta (nº 12)','',PR,''],
+[6,1,30,'Antes del 30','DS','PROG','PROA+: memoria justificativa, memoria económica y justificación de gastos','Actividades, participación, permanencia y promoción; gastos por bloques de actividades palanca; sin remanente.','Séneca',''],
+[6,1,30,'Fin de curso','D','PROG','PROA+: rendición de cuentas RdC1 + PAP (Excel del Ministerio)','Obligatoria; RdC2 y RdC3 voluntarias. Fecha según instrucciones de fin de curso.','',''],
+[6,1,30,'Antes de fin de curso','DJ','PROG','PROA+: revisión semestral y evaluación del PEM; acordar actividades palanca del curso siguiente','Conclusiones a la Memoria de Autoevaluación.','',''],
+[11,0,0,'Si se contrata empresa','DS','GE','PROA+: expediente de contratación (3 presupuestos, memoria nº 07, requerimiento nº 05, pliego nº 08, contrato nº 09; DACI nº 02 y cesión nº 04 de la empresa)','Contrato máx. 1 año sin prórroga; facturas desglosadas con IVA. '+PD,PR+' → Contrato / Documentos que pide la UE','']
+];
 // tareas que se repiten
 const REP=[];
 [10,11,12,1,2,3,4,5,6].forEach(m=>{
@@ -536,7 +551,7 @@ const dim=m=>new Date(yOf(m),m,0).getDate();
 const cap=s=>s[0].toUpperCase()+s.slice(1);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
-const BASE=[...TW.map(a=>[...a,'Webcretaría']),...TA.map(a=>[...a,'Agenda ED']),...REP.map(a=>[...a,'Agenda ED']),...ZTS.map(a=>[...a,'Programa ZTS']),...MEQ.map(a=>[...a,'Más Equidad'])]
+const BASE=[...TW.map(a=>[...a,'Webcretaría']),...TA.map(a=>[...a,'Agenda ED']),...REP.map(a=>[...a,'Agenda ED']),...ZTS.map(a=>[...a,'Programa ZTS']),...MEQ.map(a=>[...a,'Más Equidad']),...PROAP.map(a=>[...a,'PROA+ Transfórmate'])]
  .map(a=>{const e=a[2]?Math.min(a[2],dim(a[0])):0;const id=(a[0]+'|'+a[6]).replace(/\s+/g,'');
   return {id,m:a[0],em:a[0],s:a[1],e,f:a[3],who:a[4],c:a[5],t:a[6],d:a[7],r:a[8],u:a[9]?W+L[a[9]]:'',src:a[10]}});
 const CEL=CEP.map(p=>({id:'CE26|'+p[0],paso:p[0],m:p[1][0],s:p[1][1],em:p[2][0],e:p[2][1],f:p[3],who:'DS',c:'CE',t:'Elecciones CE · '+p[4],tt:p[4],d:p[5],r:p[6],u:W+L.ce,src:p[7]==='CCEE'?'CCEE · Séneca':'Calendario del centro'}));
@@ -860,5 +875,5 @@ addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e});
 btn.onclick=async()=>{ if(deferred){deferred.prompt();const r=await deferred.userChoice;deferred=null;if(r.outcome==='accepted')btn.style.display='none';} else document.getElementById('howto').showModal(); };
 addEventListener('appinstalled',()=>btn.style.display='none');
 // Aviso de novedades: una sola vez por dispositivo
-if(!LS('nov-zts-meq-2627')){LS('nov-zts-meq-2627',1);setTimeout(()=>{try{document.getElementById('novZts').showModal()}catch(e){}},600);}
+if(!LS('nov-zts-meq-proa-2627')){LS('nov-zts-meq-proa-2627',1);setTimeout(()=>{try{document.getElementById('novZts').showModal()}catch(e){}},600);}
 </script></body></html>
