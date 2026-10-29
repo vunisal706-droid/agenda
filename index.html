@@ -259,8 +259,8 @@ tr.current td{background:rgba(227,231,251,.7)}
   </dialog>
   <dialog id="novZts">
     <h2 class="dh">🆕 Novedades</h2>
-    <p>Se han añadido las fechas del <b>Programa ZTS 2026/27</b>: horario del personal ZTS, participantes, cesiones de datos, actas de Claustro y Consejo Escolar, cartelería, Plan de Actuación (hasta el 21/12), dotación económica, Memoria ZTS y Anexo XI.</p>
-    <p class="note">Aparecen en el calendario con la etiqueta «Programa ZTS». Además, los botones naranjas tienen más contraste y los títulos usan una nueva tipografía.</p>
+    <p>Se han añadido las fechas del <b>Programa ZTS 2026/27</b>: horario del personal ZTS, participantes, cesiones de datos, actas de Claustro y Consejo Escolar, cartelería, Plan de Actuación (hasta el 21/12), dotación económica, Memoria ZTS y Anexo XI. También los plazos del <b>Programa Más Equidad</b> (desarrollo del 27/10/2026 al 23/06/2027).</p>
+    <p class="note">Aparecen en el calendario con las etiquetas «Programa ZTS» y «Más Equidad». Además, los botones naranjas tienen más contraste y los títulos usan una nueva tipografía.</p>
     <button class="ghost" onclick="novZts.close()">Entendido</button>
   </dialog>
 </main>
@@ -464,6 +464,17 @@ const ZTS=[
 [12,1,21,'Antes del 21','D','PROG','ZTS: subir el Plan de Actuación firmado digitalmente','Formato PDF, nombre sin espacios ni caracteres especiales.',ZR+'Datos asociados → Informe de Actuación/Plan de Actuación',''],
 [6,1,30,'Antes del 30','SD','GE','ZTS: subir la documentación de la dotación económica','3 presupuestos por actividad, memoria justificativa del contrato, contrato y una factura por empresa (mejor subirlos según llegan). DACI y declaración responsable de la empresa antes de firmar el contrato. Contrato máx. 1 año; inventariable ≤ 10 %; sin obras ni material informático o tecnológico. '+ZD,ZR+'Datos asociados → Presupuestos / Contratos / Memoria Justificativa Contrato / Facturas','']
 ];
+// Programa Más Equidad (Resolución de 1/09/2026)
+const MR='Centro → Planes y Programas Educativos → Convocatoria Específica → Más Equidad';
+const MEQ=[
+[9,1,30,'Hasta el 30','D','PROG','Más Equidad: solicitud y proyecto (Innovación, Inclusión o Igualdad) y grabar la coordinación','Formulario en Séneca.',MR,''],
+[10,9,9,'','D','PROG','Más Equidad: resolución provisional de centros seleccionados y cuantías','Web de la Consejería.','',''],
+[10,13,19,'','D','PROG','Más Equidad: plazo de alegaciones y renuncias','En Séneca.',MR,''],
+[10,26,26,'','D','PROG','Más Equidad: resolución definitiva de centros seleccionados y cuantías','Web de la Consejería. Pago único a la cuenta del centro.','',''],
+[10,27,31,'Desde el 27','D','PROG','Más Equidad: empieza el programa (hasta el 23/06/2027)','Grabar en Séneca alumnado, profesorado y personal externo (Anexo I) y llevar el registro de asistencia del profesorado y ausencias del alumnado (Anexos II.a y II.b). Recoger el programa en el Plan de Centro.',MR,''],
+[10,27,31,'Antes de contratar','DS','GE','Más Equidad: si se contrata empresa, 3 presupuestos, memoria justificativa y contrato','Antes de empezar, la empresa entrega declaración responsable del certificado negativo de delitos sexuales y titulaciones de su personal. Facturas con precio total y por alumno/a; pagar por transferencia.','',''],
+[6,1,23,'Hasta el 23','DS','GE','Más Equidad: fin del programa; todos los gastos realizados y pagados','Justificación económica en Séneca (perfil responsable de gestión económica). Guardar la documentación 5 años. La empresa entrega su memoria final.','','']
+];
 // tareas que se repiten
 const REP=[];
 [10,11,12,1,2,3,4,5,6].forEach(m=>{
@@ -525,7 +536,7 @@ const dim=m=>new Date(yOf(m),m,0).getDate();
 const cap=s=>s[0].toUpperCase()+s.slice(1);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
-const BASE=[...TW.map(a=>[...a,'Webcretaría']),...TA.map(a=>[...a,'Agenda ED']),...REP.map(a=>[...a,'Agenda ED']),...ZTS.map(a=>[...a,'Programa ZTS'])]
+const BASE=[...TW.map(a=>[...a,'Webcretaría']),...TA.map(a=>[...a,'Agenda ED']),...REP.map(a=>[...a,'Agenda ED']),...ZTS.map(a=>[...a,'Programa ZTS']),...MEQ.map(a=>[...a,'Más Equidad'])]
  .map(a=>{const e=a[2]?Math.min(a[2],dim(a[0])):0;const id=(a[0]+'|'+a[6]).replace(/\s+/g,'');
   return {id,m:a[0],em:a[0],s:a[1],e,f:a[3],who:a[4],c:a[5],t:a[6],d:a[7],r:a[8],u:a[9]?W+L[a[9]]:'',src:a[10]}});
 const CEL=CEP.map(p=>({id:'CE26|'+p[0],paso:p[0],m:p[1][0],s:p[1][1],em:p[2][0],e:p[2][1],f:p[3],who:'DS',c:'CE',t:'Elecciones CE · '+p[4],tt:p[4],d:p[5],r:p[6],u:W+L.ce,src:p[7]==='CCEE'?'CCEE · Séneca':'Calendario del centro'}));
@@ -849,5 +860,5 @@ addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e});
 btn.onclick=async()=>{ if(deferred){deferred.prompt();const r=await deferred.userChoice;deferred=null;if(r.outcome==='accepted')btn.style.display='none';} else document.getElementById('howto').showModal(); };
 addEventListener('appinstalled',()=>btn.style.display='none');
 // Aviso de novedades: una sola vez por dispositivo
-if(!LS('nov-zts-2627b')){LS('nov-zts-2627b',1);setTimeout(()=>{try{document.getElementById('novZts').showModal()}catch(e){}},600);}
+if(!LS('nov-zts-meq-2627')){LS('nov-zts-meq-2627',1);setTimeout(()=>{try{document.getElementById('novZts').showModal()}catch(e){}},600);}
 </script></body></html>
