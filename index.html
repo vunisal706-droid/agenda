@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@600;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{color-scheme:light;--bg:#f7f4ec;--paper:rgba(255,255,255,.88);--ink:#1f2a37;--muted:#5b6675;--line:#e6dfcf;--accent:#283593;--accent-soft:#e3e7fb;--warn:#b4531a;--done:#8a94a3;
 --rD:#b91c1c;--rJ:#1d4ed8;--rS:#0f766e;
@@ -21,7 +21,7 @@ body{margin:0;color:var(--ink);font-family:"Atkinson Hyperlegible",system-ui,san
 header{padding:22px 20px 0;max-width:1180px;margin:0 auto}
 .top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:14px}
 .kicker{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
-h1{font-family:Fraunces,Georgia,serif;font-weight:800;font-size:clamp(1.6rem,4vw,2.5rem);margin:4px 0 4px;line-height:1.05}
+h1{font-family:Bitter,Georgia,serif;font-weight:800;font-size:clamp(1.6rem,4vw,2.5rem);margin:4px 0 4px;line-height:1.05}
 .today{color:var(--muted);margin:0}
 .roles{display:flex;background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:4px;gap:4px;flex-wrap:wrap}
 .roles button{font:inherit;font-weight:700;border:0;background:none;border-radius:10px;padding:9px 14px;cursor:pointer;min-height:44px;color:var(--muted)}
@@ -42,7 +42,7 @@ label.chk{display:flex;gap:6px;align-items:center;color:var(--muted);cursor:poin
 .search{position:relative;flex:1;min-width:220px}
 .search input{width:100%;padding-left:40px}
 .search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:18px;height:18px;stroke:var(--muted)}
-.wrap{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:14px}
+.wrap{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:8px}
 table{border-collapse:collapse;width:100%;min-width:680px}
 th{text-align:left;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:10px 12px;border-bottom:1px solid var(--line);background:#fbf8f1}
 td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
@@ -60,11 +60,12 @@ a{color:var(--accent)}
 tr.done .t,tr.done .d{text-decoration:line-through;color:var(--done)}
 tr.hide{display:none}
 input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent);cursor:pointer}
-.monthrow td{background:#e3e7fb;color:#283593;font-family:Fraunces,Georgia,serif;font-weight:800;font-size:1.05rem}
+.monthrow td{background:#e3e7fb;color:#283593;font-family:Bitter,Georgia,serif;font-weight:800;font-size:1.05rem}
 .weekhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin:4px 0 14px}
-.weekhead h2{font-family:Fraunces,Georgia,serif;font-size:1.6rem;margin:0}
+.weekhead h2{font-family:Bitter,Georgia,serif;font-size:1.6rem;margin:0}
 .pill{background:var(--accent-soft);color:var(--accent);font-weight:700;border-radius:999px;padding:3px 10px;font-size:.85rem}
-h3{font-family:Fraunces,Georgia,serif;font-size:1.15rem;margin:24px 0 10px}
+h3{font-family:Bitter,Georgia,serif;font-size:1.15rem;margin:24px 0 10px}
+.dh{font-family:Bitter,Georgia,serif;font-size:1.15rem;margin:0 0 10px}
 .urgent td.date{color:var(--warn)}
 .empty{padding:26px;text-align:center;color:var(--muted)}
 .count{color:var(--muted);font-size:.9rem}
@@ -81,7 +82,7 @@ button.ghost{font:inherit;border:1.5px solid var(--line);background:var(--paper)
 .docs{background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:12px 16px;margin:0 0 16px}
 .doclist{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
 .doclist a{background:var(--accent-soft);border-radius:999px;padding:7px 13px;text-decoration:none;font-weight:700;font-size:.88rem}
-.add{font:inherit;font-weight:700;border:0;border-radius:12px;padding:10px 16px;min-height:44px;cursor:pointer;color:#fff;background:linear-gradient(135deg,#f59e0b,#ea580c);box-shadow:0 4px 14px rgba(234,88,12,.35)}
+.add{font:inherit;font-weight:700;border:0;border-radius:12px;padding:10px 16px;min-height:44px;cursor:pointer;color:#fff;background:linear-gradient(135deg,#c2410c,#9a3412);box-shadow:0 4px 14px rgba(154,52,18,.35)}
 .add:hover{filter:brightness(1.08)}
 .linkbtn{font:inherit;font-size:.78rem;border:0;background:none;color:var(--rD);cursor:pointer;padding:0 4px;text-decoration:underline}
 .fld{display:block;margin-bottom:10px;font-weight:700;font-size:.9rem}
@@ -155,7 +156,7 @@ nav.tabs,.roles{-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 .nextcard{background:var(--paper);border:1.5px solid #c5cae9;border-left:6px solid var(--accent);border-radius:14px;padding:12px 16px;margin:12px 0 16px}
 tr.current td{background:rgba(227,231,251,.7)}
 .nb{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 6px;border-radius:99px;background:#b91c1c;color:#fff;font-size:.72rem;margin-left:4px}
-.bday{font-family:Fraunces,Georgia,serif;font-weight:800;font-size:1.05rem;margin:18px 0 8px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.bday{font-family:Bitter,Georgia,serif;font-weight:800;font-size:1.05rem;margin:18px 0 8px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
 .bday small{font-family:inherit;font-weight:400;color:var(--muted);font-size:.85rem}
 .bitem{background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:12px;padding:10px 14px;margin-bottom:8px}
 .bitem.imp{border-left-color:#b4531a}
@@ -233,7 +234,7 @@ tr.current td{background:rgba(227,231,251,.7)}
     <p class="note">Se revisa el BOJA cada mañana de lunes a viernes y se guardan los últimos 4 meses. «Lo importante» deja fuera autorizaciones de centros privados, FP, Bachillerato y asuntos de otras provincias.</p>
   </section>
   <dialog id="nueva">
-    <h3 style="margin-top:0">➕ Nueva tarea</h3>
+    <h2 class="dh">➕ Nueva tarea</h2>
     <p class="note" style="margin-top:0">Se añade al ámbito «Varios» y se guarda en este dispositivo.</p>
     <label class="fld">Descripción<input id="fTit" placeholder="Ej.: Llamar a la DT por el comedor" maxlength="140"></label>
     <label class="fld">Detalle (opcional)<textarea id="fDet" rows="2" maxlength="300"></textarea></label>
@@ -249,7 +250,7 @@ tr.current td{background:rgba(227,231,251,.7)}
     <div style="display:flex;gap:8px;justify-content:flex-end"><button class="ghost" id="cancelBtn">Cancelar</button><button class="add" id="saveBtn">Guardar tarea</button></div>
   </dialog>
   <dialog id="howto">
-    <h3 style="margin-top:0">Instalar la app en este dispositivo</h3>
+    <h2 class="dh">Instalar la app en este dispositivo</h2>
     <p><b>Android / Chrome:</b> menú ⋮ → «Instalar aplicación» o «Añadir a pantalla de inicio».</p>
     <p><b>iPhone / iPad (Safari):</b> botón Compartir ⬆️ → «Añadir a pantalla de inicio».</p>
     <p><b>Ordenador (Chrome o Edge):</b> icono ⊕ o 🖥️ de la barra de direcciones → «Instalar».</p>
@@ -257,9 +258,9 @@ tr.current td{background:rgba(227,231,251,.7)}
     <button class="ghost" onclick="howto.close()">Cerrar</button>
   </dialog>
   <dialog id="novZts">
-    <h3 style="margin-top:0">🆕 Novedades</h3>
+    <h2 class="dh">🆕 Novedades</h2>
     <p>Se han añadido las fechas del <b>Programa ZTS 2026/27</b>: horario del personal ZTS, participantes, cesiones de datos, actas de Claustro y Consejo Escolar, cartelería, Plan de Actuación (hasta el 21/12), dotación económica, Memoria ZTS y Anexo XI.</p>
-    <p class="note">Aparecen en el calendario con la etiqueta «Programa ZTS».</p>
+    <p class="note">Aparecen en el calendario con la etiqueta «Programa ZTS». Además, los botones naranjas tienen más contraste y los títulos usan una nueva tipografía.</p>
     <button class="ghost" onclick="novZts.close()">Entendido</button>
   </dialog>
 </main>
@@ -848,5 +849,5 @@ addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e});
 btn.onclick=async()=>{ if(deferred){deferred.prompt();const r=await deferred.userChoice;deferred=null;if(r.outcome==='accepted')btn.style.display='none';} else document.getElementById('howto').showModal(); };
 addEventListener('appinstalled',()=>btn.style.display='none');
 // Aviso de novedades: una sola vez por dispositivo
-if(!LS('nov-zts-2627')){LS('nov-zts-2627',1);setTimeout(()=>{try{document.getElementById('novZts').showModal()}catch(e){}},600);}
+if(!LS('nov-zts-2627b')){LS('nov-zts-2627b',1);setTimeout(()=>{try{document.getElementById('novZts').showModal()}catch(e){}},600);}
 </script></body></html>
