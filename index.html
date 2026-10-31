@@ -257,6 +257,12 @@ tr.current td{background:rgba(227,231,251,.7)}
     <p class="note">Una vez instalada funciona sin conexión.</p>
     <button class="ghost" onclick="howto.close()">Cerrar</button>
   </dialog>
+  <dialog id="novProa">
+    <h2 class="dh">🆕 Novedades</h2>
+    <p>Añadidas las <b>4 píldoras formativas PROA+</b> del Ministerio (3, 5, 10 y 12 de noviembre, 16:30–18:00), con el botón <b>«Entrar en Teams»</b> en cada una.</p>
+    <p class="note">También salen en el calendario del profesorado y en el asistente de Capitoolappciones.</p>
+    <button class="ghost" onclick="novProa.close()">Entendido</button>
+  </dialog>
   <dialog id="novZts">
     <h2 class="dh">🆕 Novedades</h2>
     <p>Se han añadido las fechas del <b>Programa ZTS 2026/27</b>: horario del personal ZTS, participantes, cesiones de datos, actas de Claustro y Consejo Escolar, cartelería, Plan de Actuación (hasta el 21/12), dotación económica, Memoria ZTS y Anexo XI. También los plazos del <b>Programa Más Equidad</b> (desarrollo del 27/10/2026 al 23/06/2027) y del <b>PROA+ Transfórmate</b> (documentos de Séneca, comisiones de seguimiento, memorias y rendición de cuentas).</p>
@@ -488,6 +494,10 @@ const PROAP=[
 [6,1,30,'Antes del 30','DS','PROG','PROA+: memoria justificativa, memoria económica y justificación de gastos','Actividades, participación, permanencia y promoción; gastos por bloques de actividades palanca; sin remanente.','Séneca',''],
 [6,1,30,'Fin de curso','D','PROG','PROA+: rendición de cuentas RdC1 + PAP (Excel del Ministerio)','Obligatoria; RdC2 y RdC3 voluntarias. Fecha según instrucciones de fin de curso.','',''],
 [6,1,30,'Antes de fin de curso','DJ','PROG','PROA+: revisión semestral y evaluación del PEM; acordar actividades palanca del curso siguiente','Conclusiones a la Memoria de Autoevaluación.','',''],
+[11,3,3,'Mar 3 nov · 16:30','D','PROG','PROA+ · Píldora formativa 1: ¿Qué es PROA+? (Teams, 16:30–18:00)','Ministerio de Educación. Origen y finalidad del PROA+; arquitectura del programa: líneas estratégicas, actividades palanca, PEM, PAP, rendición de cuentas e indicadores.','','https://teams.microsoft.com/meet/3627487613516886?p=zL0isGkJOl7dKhSdDa'],
+[11,5,5,'Jue 5 nov · 16:30','D','PROG','PROA+ · Píldora formativa 2: De la vulnerabilidad a la vanguardia (Teams, 16:30–18:00)','Implementar y seleccionar las actividades palanca: del diagnóstico a la práctica.','','https://teams.microsoft.com/meet/3543169405313016?p=UG1N6L68sYqqWNteVT'],
+[11,10,10,'Mar 10 nov · 16:30','D','PROG','PROA+ · Píldora formativa 3: De la planificación a la aplicación (Teams, 16:30–18:00)','La formación en las líneas pedagógicas de centro; liderazgo compartido y acompañamiento.','','https://teams.microsoft.com/meet/3498855771309149?p=foDYT9an6DWyORIGOp'],
+[11,12,12,'Jue 12 nov · 16:30','D','PROG','PROA+ · Píldora formativa 4: Gestión documental (Teams, 16:30–18:00)','El proceso continuo de mejora; el PAP y la rendición de cuentas (RdC1, RdC2 y RdC3).','','https://teams.microsoft.com/meet/3344346731683171?p=KH957YHeGsiKmZbxyS'],
 [11,0,0,'Si se contrata empresa','DS','GE','PROA+: expediente de contratación (3 presupuestos, memoria nº 07, requerimiento nº 05, pliego nº 08, contrato nº 09; DACI nº 02 y cesión nº 04 de la empresa)','Contrato máx. 1 año sin prórroga; facturas desglosadas con IVA. '+PD,PR+' → Contrato / Documentos que pide la UE','']
 ];
 // tareas que se repiten
@@ -553,7 +563,7 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',
 const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 const BASE=[...TW.map(a=>[...a,'Webcretaría']),...TA.map(a=>[...a,'Agenda ED']),...REP.map(a=>[...a,'Agenda ED']),...ZTS.map(a=>[...a,'Programa ZTS']),...MEQ.map(a=>[...a,'Más Equidad']),...PROAP.map(a=>[...a,'PROA+ Transfórmate'])]
  .map(a=>{const e=a[2]?Math.min(a[2],dim(a[0])):0;const id=(a[0]+'|'+a[6]).replace(/\s+/g,'');
-  return {id,m:a[0],em:a[0],s:a[1],e,f:a[3],who:a[4],c:a[5],t:a[6],d:a[7],r:a[8],u:a[9]?W+L[a[9]]:'',src:a[10]}});
+  return {id,m:a[0],em:a[0],s:a[1],e,f:a[3],who:a[4],c:a[5],t:a[6],d:a[7],r:a[8],u:a[9]?(/^https?:/.test(a[9])?a[9]:W+L[a[9]]):'',src:a[10]}});
 const CEL=CEP.map(p=>({id:'CE26|'+p[0],paso:p[0],m:p[1][0],s:p[1][1],em:p[2][0],e:p[2][1],f:p[3],who:'DS',c:'CE',t:'Elecciones CE · '+p[4],tt:p[4],d:p[5],r:p[6],u:W+L.ce,src:p[7]==='CCEE'?'CCEE · Séneca':'Calendario del centro'}));
 BASE.push(...CEL);
 let extras=LS0('capi-agendaED-extra')||[];
@@ -573,7 +583,7 @@ const whoHtml=w=>['D','J','S'].filter(r=>w.includes(r)).map(r=>`<span class="rb 
 function row(x,urg){
   return `<tr data-id="${esc(x.id)}" class="${done[x.id]?'done':''} ${urg?'urgent':''}"><td><input type="checkbox" data-id="${esc(x.id)}" ${done[x.id]?'checked':''} aria-label="Marcar como hecha"></td>
   <td class="date">${dateTxt(x)}</td><td class="who">${whoHtml(x.who)}</td><td><span class="tag" style="background:var(--c-${x.c})">${CAT[x.c]}</span></td>
-  <td><div class="t">${esc(x.t)}</div>${x.d?`<div class="d">${esc(x.d)}</div>`:''}${x.r?`<div class="r">${esc(x.r)}</div>`:''}<div class="d">${x.u?`<a href="${x.u}" target="_blank" rel="noopener">Ver en Webcretaría ↗</a>`:''}<span class="src">${x.src}</span>${x.propia?` <button class="linkbtn" data-del="${esc(x.id)}">🗑️ Borrar</button>`:''}</div></td></tr>`;
+  <td><div class="t">${esc(x.t)}</div>${x.d?`<div class="d">${esc(x.d)}</div>`:''}${x.r?`<div class="r">${esc(x.r)}</div>`:''}<div class="d">${x.u?`<a href="${x.u}" target="_blank" rel="noopener">${/teams\.microsoft/.test(x.u)?'🔗 Entrar en Teams':(x.u.indexOf(W)===0?'Ver en Webcretaría':'Abrir enlace')} ↗</a>`:''}<span class="src">${x.src}</span>${x.propia?` <button class="linkbtn" data-del="${esc(x.id)}">🗑️ Borrar</button>`:''}</div></td></tr>`;
 }
 document.addEventListener('change',e=>{
   const id=e.target.dataset&&e.target.dataset.id; if(!id)return;
@@ -875,5 +885,6 @@ addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e});
 btn.onclick=async()=>{ if(deferred){deferred.prompt();const r=await deferred.userChoice;deferred=null;if(r.outcome==='accepted')btn.style.display='none';} else document.getElementById('howto').showModal(); };
 addEventListener('appinstalled',()=>btn.style.display='none');
 // Aviso de novedades: una sola vez por dispositivo
-if(!LS('nov-zts-meq-proa-2627')){LS('nov-zts-meq-proa-2627',1);setTimeout(()=>{try{document.getElementById('novZts').showModal()}catch(e){}},600);}
+if(LS('nov-zts-meq-proa-2627')&&!LS('nov-pildoras-proa-2611')){LS('nov-pildoras-proa-2611',1);setTimeout(()=>{try{document.getElementById('novProa').showModal()}catch(e){}},600);}
+if(!LS('nov-zts-meq-proa-2627')){LS('nov-pildoras-proa-2611',1);LS('nov-zts-meq-proa-2627',1);setTimeout(()=>{try{document.getElementById('novProa').showModal()}catch(e){}},600);}
 </script></body></html>

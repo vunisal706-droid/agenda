@@ -61,7 +61,7 @@ RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
 END:STANDARD
 END:VTIMEZONE"""
 SELLO = datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ')
-def evento(titulo, inicio, fin=None, hora=None, desc='', clave=''):
+def evento(titulo, inicio, fin=None, hora=None, desc='', clave='', url=''):
     uid = hashlib.md5(f'{clave or titulo}|{inicio}|{hora}'.encode()).hexdigest() + '@capitulaciones'
     L = ['BEGIN:VEVENT', f'UID:{uid}', f'DTSTAMP:{SELLO}', f'SUMMARY:{esc(titulo)}']
     if hora:
@@ -70,6 +70,7 @@ def evento(titulo, inicio, fin=None, hora=None, desc='', clave=''):
     else:
         L += [f'DTSTART;VALUE=DATE:{inicio:%Y%m%d}', f'DTEND;VALUE=DATE:{(fin or inicio) + datetime.timedelta(days=1):%Y%m%d}', 'TRANSP:TRANSPARENT']
     if desc: L.append(f'DESCRIPTION:{esc(desc)}')
+    if url: L.append(f'URL:{url}')
     L.append('END:VEVENT'); return L
 def guardar(nombre, titulo, eventos):
     L = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//CEIP Capitulaciones//Agenda//ES', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH',
@@ -123,5 +124,14 @@ for c in CURSOS:
 for t in TRA.get('puntuales', []):
     tra.append(evento(f"{t['emoji']} {t['nombre']}", D.fromisoformat(t['fecha']), D.fromisoformat(t.get('fechaFin', t['fecha'])), desc=t.get('detalle', ''), clave='trp' + t['nombre']))
 
-guardar('calendario-profesorado.ics', 'CEIP Capitulaciones · Profesorado', sin + reu)
+# ---------- Citas puntuales con enlace (eventos.json) ----------
+cit = []
+try:
+    for e in json.load(open('eventos.json', encoding='utf-8')).get('eventos', []):
+        desc = e.get('detalle', '') + (f"\n\nEnlace: {e['enlace']}" if e.get('enlace') else '')
+        cit.append(evento(e['titulo'], D.fromisoformat(e['fecha']), hora=e.get('hora'), desc=desc, clave='ev' + e['titulo'], url=e.get('enlace', '')))
+except FileNotFoundError:
+    pass
+
+guardar('calendario-profesorado.ics', 'CEIP Capitulaciones · Profesorado', sin + reu + cit)
 guardar('calendario-familias.ics', 'CEIP Capitulaciones · Familias', sin + tra)
