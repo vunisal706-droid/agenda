@@ -260,7 +260,8 @@ tr.current td{background:rgba(227,231,251,.7)}
   <dialog id="novProaAnd">
     <h2 class="dh">🆕 Novedades</h2>
     <p>Añadidos los plazos del <b>PROA Andalucía 2026/27</b> (Acompañamiento Escolar): grabación en Séneca, plataforma informativa de noviembre, cartel FSE+, reuniones quincenales con tutores, asistencia mensual, informes trimestrales y fin del programa el 31 de mayo.</p>
-    <p class="note">Salen con la etiqueta «PROA Andalucía».</p>
+    <p>También están las <b>actividades complementarias</b> del 15 y 20 de enero y del 13 de abril (Infantil, 1.º–2.º y 3.º–6.º).</p>
+    <p class="note">Salen con las etiquetas «PROA Andalucía» y «Actividades complementarias».</p>
     <button class="ghost" onclick="novProaAnd.close()">Entendido</button>
   </dialog>
   <dialog id="novProa">
@@ -487,6 +488,12 @@ const MEQ=[
 [10,27,31,'Antes de contratar','DS','GE','Más Equidad: si se contrata empresa, 3 presupuestos, memoria justificativa y contrato','Antes de empezar, la empresa entrega declaración responsable del certificado negativo de delitos sexuales y titulaciones de su personal. Facturas con precio total y por alumno/a; pagar por transferencia.','',''],
 [6,1,23,'Hasta el 23','DS','GE','Más Equidad: fin del programa; todos los gastos realizados y pagados','Justificación económica en Séneca (perfil responsable de gestión económica). Guardar la documentación 5 años. La empresa entrega su memoria final.','','']
 ];
+// Actividades complementarias con fecha
+const ACT=[
+[1,15,15,'Vie 15 ene · 10:00–11:30','DJ','ORG','Actividad «El dragón arcoíris» · 1.º y 2.º EP','2 grupos · 30 alumnos/as. Revisar autorizaciones, pagos y acompañantes.','',''],
+[1,20,20,'Mié 20 ene · 10:00–11:30','DJ','ORG','Actividad «El hada Merme y el molinero» · Infantil 3, 4 y 5 años','3 grupos · 35 alumnos/as. Revisar autorizaciones, pagos y acompañantes.','',''],
+[4,13,13,'Mar 13 abr · 9:30–13:30','DJ','ORG','Actividad «Los cachorros» · 3.º, 4.º, 5.º y 6.º EP','4 grupos · 74 alumnos/as. Revisar autorizaciones, pagos y acompañantes.','','']
+];
 // PROA Andalucía · Acompañamiento Escolar (Instrucciones de 1/09/2026)
 const PRAND=[
 [10,31,31,'Antes del 31','D','PROG','PROA Andalucía: tener grabado en Séneca grupos, alumnado, acta de selección, horario, programación, coordinación y profesorado/mentores','Responsabilidad de la coordinación del programa (Instrucción 12.ª.10.a).','','proa'],
@@ -589,7 +596,7 @@ const dim=m=>new Date(yOf(m),m,0).getDate();
 const cap=s=>s[0].toUpperCase()+s.slice(1);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
-const BASE=[...TW.map(a=>[...a,'Webcretaría']),...TA.map(a=>[...a,'Agenda ED']),...REP.map(a=>[...a,'Agenda ED']),...ZTS.map(a=>[...a,'Programa ZTS']),...MEQ.map(a=>[...a,'Más Equidad']),...PROAP.map(a=>[...a,'PROA+ Transfórmate']),...PRAND.map(a=>[...a,'PROA Andalucía'])]
+const BASE=[...TW.map(a=>[...a,'Webcretaría']),...TA.map(a=>[...a,'Agenda ED']),...REP.map(a=>[...a,'Agenda ED']),...ZTS.map(a=>[...a,'Programa ZTS']),...MEQ.map(a=>[...a,'Más Equidad']),...PROAP.map(a=>[...a,'PROA+ Transfórmate']),...PRAND.map(a=>[...a,'PROA Andalucía']),...ACT.map(a=>[...a,'Actividades complementarias'])]
  .map(a=>{const e=a[2]?Math.min(a[2],dim(a[0])):0;const id=(a[0]+'|'+a[6]).replace(/\s+/g,'');
   return {id,m:a[0],em:a[0],s:a[1],e,f:a[3],who:a[4],c:a[5],t:a[6],d:a[7],r:a[8],u:a[9]?(/^https?:/.test(a[9])?a[9]:W+L[a[9]]):'',src:a[10]}});
 const CEL=CEP.map(p=>({id:'CE26|'+p[0],paso:p[0],m:p[1][0],s:p[1][1],em:p[2][0],e:p[2][1],f:p[3],who:'DS',c:'CE',t:'Elecciones CE · '+p[4],tt:p[4],d:p[5],r:p[6],u:W+L.ce,src:p[7]==='CCEE'?'CCEE · Séneca':'Calendario del centro'}));
@@ -913,7 +920,7 @@ addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e});
 btn.onclick=async()=>{ if(deferred){deferred.prompt();const r=await deferred.userChoice;deferred=null;if(r.outcome==='accepted')btn.style.display='none';} else document.getElementById('howto').showModal(); };
 addEventListener('appinstalled',()=>btn.style.display='none');
 // Aviso de novedades: una sola vez por dispositivo
-if(!LS('nov-proa-and-2611')){LS('nov-proa-and-2611',1);LS('nov-pildoras-proa-2611',1);LS('nov-zts-meq-proa-2627',1);setTimeout(()=>{try{document.getElementById('novProaAnd').showModal()}catch(e){}},600);}
+if(!LS('nov-proa-act-2611')){LS('nov-proa-act-2611',1);LS('nov-proa-and-2611',1);LS('nov-pildoras-proa-2611',1);LS('nov-zts-meq-proa-2627',1);setTimeout(()=>{try{document.getElementById('novProaAnd').showModal()}catch(e){}},600);}
 if(LS('nov-zts-meq-proa-2627')&&!LS('nov-pildoras-proa-2611')){LS('nov-pildoras-proa-2611',1);setTimeout(()=>{try{document.getElementById('novProa').showModal()}catch(e){}},600);}
 if(!LS('nov-zts-meq-proa-2627')){LS('nov-pildoras-proa-2611',1);LS('nov-zts-meq-proa-2627',1);setTimeout(()=>{try{document.getElementById('novProa').showModal()}catch(e){}},600);}
 </script></body></html>

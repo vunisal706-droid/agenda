@@ -1,17 +1,51 @@
 {
  "nota": "Citas puntuales con fecha y enlace (formaciones, jornadas…). Salen en el calendario del profesorado (.ics), en la Agenda y en el asistente de Capitoolappciones.",
  "eventos": [
-  {"fecha": "2026-11-03", "hora": "16:30 - 18:00", "titulo": "PROA+ · Píldora formativa · Sesión 1: ¿Qué es PROA+?",
+  {
+   "fecha": "2026-11-03",
+   "hora": "16:30 - 18:00",
+   "titulo": "PROA+ · Píldora formativa · Sesión 1: ¿Qué es PROA+?",
    "detalle": "Ministerio de Educación · Online por Teams.\nPíldora 1: «El PROA+: origen, finalidad y modelo de intervención» (Verónica Cano Riera, ATD PROA+ Illes Balears).\nPíldora 2: «Arquitectura del PROA+: estructura y funcionamiento» (María José Rodrigo Lara, CEIP San Isidro, Tomelloso): líneas estratégicas, actividades palanca, PEM, PAP, rendición de cuentas e indicadores.",
-   "enlace": "https://teams.microsoft.com/meet/3627487613516886?p=zL0isGkJOl7dKhSdDa"},
-  {"fecha": "2026-11-05", "hora": "16:30 - 18:00", "titulo": "PROA+ · Píldora formativa · Sesión 2: De la vulnerabilidad a la vanguardia",
+   "enlace": "https://teams.microsoft.com/meet/3627487613516886?p=zL0isGkJOl7dKhSdDa"
+  },
+  {
+   "fecha": "2026-11-05",
+   "hora": "16:30 - 18:00",
+   "titulo": "PROA+ · Píldora formativa · Sesión 2: De la vulnerabilidad a la vanguardia",
    "detalle": "Ministerio de Educación · Online por Teams.\nPíldora 3: «Implementar las Actividades Palanca: de la planificación a la práctica» (Bruno Moratón Cano, Cantabria).\nPíldora 4: «Seleccionar las Actividades Palanca adecuadas: del diagnóstico a la toma de decisiones» (Beatriz Herrero García, Castilla y León).",
-   "enlace": "https://teams.microsoft.com/meet/3543169405313016?p=UG1N6L68sYqqWNteVT"},
-  {"fecha": "2026-11-10", "hora": "16:30 - 18:00", "titulo": "PROA+ · Píldora formativa · Sesión 3: De la planificación a la aplicación",
+   "enlace": "https://teams.microsoft.com/meet/3543169405313016?p=UG1N6L68sYqqWNteVT"
+  },
+  {
+   "fecha": "2026-11-10",
+   "hora": "16:30 - 18:00",
+   "titulo": "PROA+ · Píldora formativa · Sesión 3: De la planificación a la aplicación",
    "detalle": "Ministerio de Educación · Online por Teams.\nPíldora 5: «La formación en las líneas pedagógicas de centro» (Dagmar Gavarrell Artes, Comunitat Valenciana).\nPíldora 6: «Liderazgo compartido y acompañamiento a los centros educativos» (Adela Álvarez Rodríguez, Castilla-La Mancha).",
-   "enlace": "https://teams.microsoft.com/meet/3498855771309149?p=foDYT9an6DWyORIGOp"},
-  {"fecha": "2026-11-12", "hora": "16:30 - 18:00", "titulo": "PROA+ · Píldora formativa · Sesión 4: Gestión documental",
+   "enlace": "https://teams.microsoft.com/meet/3498855771309149?p=foDYT9an6DWyORIGOp"
+  },
+  {
+   "fecha": "2026-11-12",
+   "hora": "16:30 - 18:00",
+   "titulo": "PROA+ · Píldora formativa · Sesión 4: Gestión documental",
    "detalle": "Ministerio de Educación · Online por Teams.\nPíldora 7: «El proceso continuo de mejora» (María José Rodríguez Torres, Islas Canarias).\nPíldora 8: «Planificación, seguimiento y evaluación: el PAP y la Rendición de Cuentas (RdC1, RdC2 y RdC3)» (Vicente Bou Pons, SGCTIE).",
-   "enlace": "https://teams.microsoft.com/meet/3344346731683171?p=KH957YHeGsiKmZbxyS"}
+   "enlace": "https://teams.microsoft.com/meet/3344346731683171?p=KH957YHeGsiKmZbxyS"
+  },
+  {
+   "fecha": "2027-01-15",
+   "hora": "10:00 - 11:30",
+   "titulo": "🎭 Actividad: «El dragón arcoíris» · 1.º y 2.º EP",
+   "detalle": "1.º y 2.º de Primaria (2 grupos) · 30 alumnos/as."
+  },
+  {
+   "fecha": "2027-01-20",
+   "hora": "10:00 - 11:30",
+   "titulo": "🎭 Actividad: «El hada Merme y el molinero» · Infantil",
+   "detalle": "Infantil 3, 4 y 5 años (3 grupos) · 35 alumnos/as."
+  },
+  {
+   "fecha": "2027-04-13",
+   "hora": "09:30 - 13:30",
+   "titulo": "🎭 Actividad: «Los cachorros» · 3.º a 6.º EP",
+   "detalle": "3.º, 4.º, 5.º y 6.º de Primaria (4 grupos) · 74 alumnos/as."
+  }
  ]
 }
