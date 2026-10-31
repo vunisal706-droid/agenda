@@ -257,6 +257,12 @@ tr.current td{background:rgba(227,231,251,.7)}
     <p class="note">Una vez instalada funciona sin conexión.</p>
     <button class="ghost" onclick="howto.close()">Cerrar</button>
   </dialog>
+  <dialog id="novProaAnd">
+    <h2 class="dh">🆕 Novedades</h2>
+    <p>Añadidos los plazos del <b>PROA Andalucía 2026/27</b> (Acompañamiento Escolar): grabación en Séneca, plataforma informativa de noviembre, cartel FSE+, reuniones quincenales con tutores, asistencia mensual, informes trimestrales y fin del programa el 31 de mayo.</p>
+    <p class="note">Salen con la etiqueta «PROA Andalucía».</p>
+    <button class="ghost" onclick="novProaAnd.close()">Entendido</button>
+  </dialog>
   <dialog id="novProa">
     <h2 class="dh">🆕 Novedades</h2>
     <p>Añadidas las <b>4 píldoras formativas PROA+</b> del Ministerio (3, 5, 10 y 12 de noviembre, 16:30–18:00), con el botón <b>«Entrar en Teams»</b> en cada una.</p>
@@ -481,6 +487,28 @@ const MEQ=[
 [10,27,31,'Antes de contratar','DS','GE','Más Equidad: si se contrata empresa, 3 presupuestos, memoria justificativa y contrato','Antes de empezar, la empresa entrega declaración responsable del certificado negativo de delitos sexuales y titulaciones de su personal. Facturas con precio total y por alumno/a; pagar por transferencia.','',''],
 [6,1,23,'Hasta el 23','DS','GE','Más Equidad: fin del programa; todos los gastos realizados y pagados','Justificación económica en Séneca (perfil responsable de gestión económica). Guardar la documentación 5 años. La empresa entrega su memoria final.','','']
 ];
+// PROA Andalucía · Acompañamiento Escolar (Instrucciones de 1/09/2026)
+const PRAND=[
+[10,31,31,'Antes del 31','D','PROG','PROA Andalucía: tener grabado en Séneca grupos, alumnado, acta de selección, horario, programación, coordinación y profesorado/mentores','Responsabilidad de la coordinación del programa (Instrucción 12.ª.10.a).','','proa'],
+[10,0,0,'Si hay mentores','D','PROG','PROA Andalucía: pedir a la empresa la declaración responsable del certificado negativo de delitos sexuales de todos los mentores','Contrato menor (Anexo XIV, máx. 15.000 €); 23 €/hora efectiva.','',''],
+[11,1,30,'Durante noviembre','D','PROG','PROA Andalucía: la coordinación visualiza la plataforma online informativa (obligatorio)','La facilita la Consejería; queda disponible para consulta todo el curso.','',''],
+[11,1,30,'Cuando llegue','D','PROG','PROA Andalucía: imprimir el cartel FSE+ en color y A3 y colocarlo en la entrada y en las puertas de las aulas del programa','Lo envía la Consejería en PDF. Toda acta, documento o web que mencione el programa debe llevar los logos de la Consejería y del FSE+ y citar la cofinanciación FSE+.','',''],
+[11,1,15,'Primera quincena','D','PROG','PROA Andalucía: organizar las reuniones telemáticas quincenales acompañante – tutor/a','Las coordina la coordinación del programa; llevar registro y guardarlo con la documentación del PROA. Registrar también las reuniones y citas con las familias.','',''],
+[11,1,30,'','D','PROG','PROA Andalucía: recoger en el Plan de Centro quién coordina el programa','La organización es competencia de la dirección, que puede delegarla en un docente, preferentemente del equipo directivo (Instrucción 10.ª.1).','','pc'],
+[10,24,31,'Fin de mes','D','PROG','PROA Andalucía: grabar la asistencia del mes y subir los registros de firmas (Anexo X/XI)','Asistencia del alumnado y del profesorado/mentores. Cada responsable de grupo entrega semanalmente a la coordinación la asistencia y los justificantes de ausencia. Si una sesión no se imparte, no se graba asistencia (si falta el docente o mentor, registrar su ausencia en Séneca y en el registro de firmas). No se recuperan sesiones ni se cobran.','','proa'],
+[11,24,31,'Fin de mes','D','PROG','PROA Andalucía: grabar la asistencia del mes y subir los registros de firmas (Anexo X/XI)','Asistencia del alumnado y del profesorado/mentores. Cada responsable de grupo entrega semanalmente a la coordinación la asistencia y los justificantes de ausencia. Si una sesión no se imparte, no se graba asistencia (si falta el docente o mentor, registrar su ausencia en Séneca y en el registro de firmas). No se recuperan sesiones ni se cobran.','','proa'],
+[12,24,31,'Fin de mes','D','PROG','PROA Andalucía: grabar la asistencia del mes y subir los registros de firmas (Anexo X/XI)','Asistencia del alumnado y del profesorado/mentores. Cada responsable de grupo entrega semanalmente a la coordinación la asistencia y los justificantes de ausencia. Si una sesión no se imparte, no se graba asistencia (si falta el docente o mentor, registrar su ausencia en Séneca y en el registro de firmas). No se recuperan sesiones ni se cobran.','','proa'],
+[1,24,31,'Fin de mes','D','PROG','PROA Andalucía: grabar la asistencia del mes y subir los registros de firmas (Anexo X/XI)','Asistencia del alumnado y del profesorado/mentores. Cada responsable de grupo entrega semanalmente a la coordinación la asistencia y los justificantes de ausencia. Si una sesión no se imparte, no se graba asistencia (si falta el docente o mentor, registrar su ausencia en Séneca y en el registro de firmas). No se recuperan sesiones ni se cobran.','','proa'],
+[2,24,31,'Fin de mes','D','PROG','PROA Andalucía: grabar la asistencia del mes y subir los registros de firmas (Anexo X/XI)','Asistencia del alumnado y del profesorado/mentores. Cada responsable de grupo entrega semanalmente a la coordinación la asistencia y los justificantes de ausencia. Si una sesión no se imparte, no se graba asistencia (si falta el docente o mentor, registrar su ausencia en Séneca y en el registro de firmas). No se recuperan sesiones ni se cobran.','','proa'],
+[3,24,31,'Fin de mes','D','PROG','PROA Andalucía: grabar la asistencia del mes y subir los registros de firmas (Anexo X/XI)','Asistencia del alumnado y del profesorado/mentores. Cada responsable de grupo entrega semanalmente a la coordinación la asistencia y los justificantes de ausencia. Si una sesión no se imparte, no se graba asistencia (si falta el docente o mentor, registrar su ausencia en Séneca y en el registro de firmas). No se recuperan sesiones ni se cobran.','','proa'],
+[4,24,31,'Fin de mes','D','PROG','PROA Andalucía: grabar la asistencia del mes y subir los registros de firmas (Anexo X/XI)','Asistencia del alumnado y del profesorado/mentores. Cada responsable de grupo entrega semanalmente a la coordinación la asistencia y los justificantes de ausencia. Si una sesión no se imparte, no se graba asistencia (si falta el docente o mentor, registrar su ausencia en Séneca y en el registro de firmas). No se recuperan sesiones ni se cobran.','','proa'],
+[5,24,31,'Fin de mes','D','PROG','PROA Andalucía: grabar la asistencia del mes y subir los registros de firmas (Anexo X/XI)','Asistencia del alumnado y del profesorado/mentores. Cada responsable de grupo entrega semanalmente a la coordinación la asistencia y los justificantes de ausencia. Si una sesión no se imparte, no se graba asistencia (si falta el docente o mentor, registrar su ausencia en Séneca y en el registro de firmas). No se recuperan sesiones ni se cobran.','','proa'],
+[12,14,22,'Fin del 1er trimestre','D','PROG','PROA Andalucía: informe individualizado trimestral de evolución del alumnado (1er trimestre)','Grabarlo en Séneca y pasar la valoración de cada alumno/a al equipo docente antes de la sesión de evaluación.','','proa'],
+[3,8,19,'Fin del 2º trimestre','D','PROG','PROA Andalucía: informe individualizado trimestral de evolución del alumnado (2º trimestre)','Grabarlo en Séneca y pasar la valoración de cada alumno/a al equipo docente antes de la sesión de evaluación.','','proa'],
+[6,1,22,'Fin de curso','D','PROG','PROA Andalucía: informe individualizado trimestral de evolución del alumnado (3er trimestre)','Grabarlo en Séneca y pasar la valoración de cada alumno/a al equipo docente antes de la sesión de evaluación.','','proa'],
+[5,31,31,'31 may','D','PROG','PROA Andalucía: termina el Acompañamiento Escolar','No se abona ninguna sesión grabada fuera de fechas. Certificación de horas del 1 al 30 de junio (firma secretaría y dirección).','',''],
+[9,1,15,'Antes del 15','DS','PROG','PROA Andalucía: corregir incidencias de pago del curso anterior y volver a certificar','En Séneca.','','proa']
+];
 // PROA+ Transfórmate (convocatoria 21/10/2024 y Gestión Séneca del programa)
 const PR='Centro → Planes y Programas Educativos → Convocatoria Específica → PROA+ «Transfórmate» → Datos asociados';
 const PD='Modelos en Utilidades → Documentos → Centro → Planes y Programas → PROA+ Transfórmate 2024-2028.';
@@ -561,7 +589,7 @@ const dim=m=>new Date(yOf(m),m,0).getDate();
 const cap=s=>s[0].toUpperCase()+s.slice(1);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
-const BASE=[...TW.map(a=>[...a,'Webcretaría']),...TA.map(a=>[...a,'Agenda ED']),...REP.map(a=>[...a,'Agenda ED']),...ZTS.map(a=>[...a,'Programa ZTS']),...MEQ.map(a=>[...a,'Más Equidad']),...PROAP.map(a=>[...a,'PROA+ Transfórmate'])]
+const BASE=[...TW.map(a=>[...a,'Webcretaría']),...TA.map(a=>[...a,'Agenda ED']),...REP.map(a=>[...a,'Agenda ED']),...ZTS.map(a=>[...a,'Programa ZTS']),...MEQ.map(a=>[...a,'Más Equidad']),...PROAP.map(a=>[...a,'PROA+ Transfórmate']),...PRAND.map(a=>[...a,'PROA Andalucía'])]
  .map(a=>{const e=a[2]?Math.min(a[2],dim(a[0])):0;const id=(a[0]+'|'+a[6]).replace(/\s+/g,'');
   return {id,m:a[0],em:a[0],s:a[1],e,f:a[3],who:a[4],c:a[5],t:a[6],d:a[7],r:a[8],u:a[9]?(/^https?:/.test(a[9])?a[9]:W+L[a[9]]):'',src:a[10]}});
 const CEL=CEP.map(p=>({id:'CE26|'+p[0],paso:p[0],m:p[1][0],s:p[1][1],em:p[2][0],e:p[2][1],f:p[3],who:'DS',c:'CE',t:'Elecciones CE · '+p[4],tt:p[4],d:p[5],r:p[6],u:W+L.ce,src:p[7]==='CCEE'?'CCEE · Séneca':'Calendario del centro'}));
@@ -885,6 +913,7 @@ addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e});
 btn.onclick=async()=>{ if(deferred){deferred.prompt();const r=await deferred.userChoice;deferred=null;if(r.outcome==='accepted')btn.style.display='none';} else document.getElementById('howto').showModal(); };
 addEventListener('appinstalled',()=>btn.style.display='none');
 // Aviso de novedades: una sola vez por dispositivo
+if(!LS('nov-proa-and-2611')){LS('nov-proa-and-2611',1);LS('nov-pildoras-proa-2611',1);LS('nov-zts-meq-proa-2627',1);setTimeout(()=>{try{document.getElementById('novProaAnd').showModal()}catch(e){}},600);}
 if(LS('nov-zts-meq-proa-2627')&&!LS('nov-pildoras-proa-2611')){LS('nov-pildoras-proa-2611',1);setTimeout(()=>{try{document.getElementById('novProa').showModal()}catch(e){}},600);}
 if(!LS('nov-zts-meq-proa-2627')){LS('nov-pildoras-proa-2611',1);LS('nov-zts-meq-proa-2627',1);setTimeout(()=>{try{document.getElementById('novProa').showModal()}catch(e){}},600);}
 </script></body></html>
