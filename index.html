@@ -260,6 +260,7 @@ tr.current td{background:rgba(227,231,251,.7)}
   <dialog id="novProaAnd">
     <h2 class="dh">🆕 Novedades</h2>
     <p>Añadidos los plazos del <b>PROA Andalucía 2026/27</b> (Acompañamiento Escolar): grabación en Séneca, plataforma informativa de noviembre, cartel FSE+, reuniones quincenales con tutores, asistencia mensual, informes trimestrales y fin del programa el 31 de mayo.</p>
+    <p>PROA+ Transfórmate: <b>registro de participantes hasta el 13/11</b> y <b>firma de la Adenda al contrato-programa hasta el 30/11</b> (con los 4 pasos).</p>
     <p>También están las <b>actividades complementarias</b> del 15 y 20 de enero y del 13 de abril (Infantil, 1.º–2.º y 3.º–6.º).</p>
     <p class="note">Salen con las etiquetas «PROA Andalucía» y «Actividades complementarias».</p>
     <button class="ghost" onclick="novProaAnd.close()">Entendido</button>
@@ -520,6 +521,9 @@ const PRAND=[
 const PR='Centro → Planes y Programas Educativos → Convocatoria Específica → PROA+ «Transfórmate» → Datos asociados';
 const PD='Modelos en Utilidades → Documentos → Centro → Planes y Programas → PROA+ Transfórmate 2024-2028.';
 const PROAP=[
+[11,1,13,'Hasta el 13','D','PROG','PROA+: registrar en Séneca a todos los participantes (coordinación, equipo impulsor y profesorado)','Si ya está hecho, nada más. Séneca queda habilitado hasta el 13/11.',PR+' → Participantes',''],
+[11,1,30,'Hasta el 30','D','PROG','PROA+: firmar en Séneca la Adenda al contrato-programa','1) Revisar las 10 actividades palanca (las obligatorias vienen marcadas; elegir 3 de cada opción de libre elección). 2) Subir el acta del Claustro y del Consejo Escolar. 3) Aceptar y generar el PDF (arriba a la derecha). 4) Enviarlo a la bandeja de firma de la dirección; firmado, pasa a la Dirección General. Hay vídeo explicativo en el correo del programa. Dudas: proaplust.ced@juntadeandalucia.es',PR,''],
+[11,1,30,'','D','PROG','PROA+: revisar la web renovada del programa y la nueva herramienta interactiva','Vídeos de apoyo en el correo: inicio de curso, herramienta (centros con PT/AL y centros con recursos económicos), actividades palanca y RdC1 paso a paso.','',''],
 [11,1,30,'Antes del 30','D','PROG','PROA+: subir DACI (nº 01) y cesión de datos (nº 03) del personal del centro','Firman dirección, coordinación, secretaría, PT/AL y personal implicado. '+PD,PR+' → Documentos que pide la UE',''],
 [11,1,30,'Antes del 30','D','PROG','PROA+: subir la declaración responsable de cumplimiento de compromisos (nº 11)',PD,PR,''],
 [11,1,30,'','D','PROG','PROA+: integrar el PEM (nº 10) y las 10 actividades palanca prescriptivas en la PGA','El PEM no se sube a Séneca.','',''],
@@ -920,7 +924,7 @@ addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e});
 btn.onclick=async()=>{ if(deferred){deferred.prompt();const r=await deferred.userChoice;deferred=null;if(r.outcome==='accepted')btn.style.display='none';} else document.getElementById('howto').showModal(); };
 addEventListener('appinstalled',()=>btn.style.display='none');
 // Aviso de novedades: una sola vez por dispositivo
-if(!LS('nov-proa-act-2611')){LS('nov-proa-act-2611',1);LS('nov-proa-and-2611',1);LS('nov-pildoras-proa-2611',1);LS('nov-zts-meq-proa-2627',1);setTimeout(()=>{try{document.getElementById('novProaAnd').showModal()}catch(e){}},600);}
+if(!LS('nov-proa-adenda-2611')){LS('nov-proa-adenda-2611',1);LS('nov-proa-act-2611',1);LS('nov-proa-and-2611',1);LS('nov-pildoras-proa-2611',1);LS('nov-zts-meq-proa-2627',1);setTimeout(()=>{try{document.getElementById('novProaAnd').showModal()}catch(e){}},600);}
 if(LS('nov-zts-meq-proa-2627')&&!LS('nov-pildoras-proa-2611')){LS('nov-pildoras-proa-2611',1);setTimeout(()=>{try{document.getElementById('novProa').showModal()}catch(e){}},600);}
 if(!LS('nov-zts-meq-proa-2627')){LS('nov-pildoras-proa-2611',1);LS('nov-zts-meq-proa-2627',1);setTimeout(()=>{try{document.getElementById('novProa').showModal()}catch(e){}},600);}
 </script></body></html>
