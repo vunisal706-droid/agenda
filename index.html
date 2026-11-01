@@ -257,6 +257,11 @@ tr.current td{background:rgba(227,231,251,.7)}
     <p class="note">Una vez instalada funciona sin conexión.</p>
     <button class="ghost" onclick="howto.close()">Cerrar</button>
   </dialog>
+  <dialog id="novCitas">
+    <h2 class="dh">🆕 Novedades</h2>
+    <p>📅 Ya salen en la agenda las <b>reuniones de Programas del cole</b>: las <b>quincenales del PROA Andalucía</b> (acompañante – tutor/a) y las demás reuniones que se publiquen desde esa app.</p>
+    <button class="ghost" onclick="novCitas.close()">Entendido</button>
+  </dialog>
   <dialog id="novProaAnd">
     <h2 class="dh">🆕 Novedades</h2>
     <p>Añadidos los plazos del <b>PROA Andalucía 2026/27</b> (Acompañamiento Escolar): grabación en Séneca, plataforma informativa de noviembre, cartel FSE+, reuniones quincenales con tutores, asistencia mensual, informes trimestrales y fin del programa el 31 de mayo.</p>
@@ -617,6 +622,13 @@ document.getElementById('today').textContent='Hoy es '+now.toLocaleDateString('e
 const KEY='capi-agendaED-'+startY;
 let done=LS(KEY)||{}, role=LS('capi-agendaED-rol')||'';
 rebuild();
+// Reuniones de Programas del cole (quincenales PROA, comisiones PROA+, coordinación ZTS)
+fetch('https://gestorpt-7946b-default-rtdb.europe-west1.firebasedatabase.app/programas_publico/citas.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{
+  if(!j)return; const DS=['dom','lun','mar','mié','jue','vie','sáb'];
+  Object.entries(j).forEach(([k,c])=>{ if(!c||!c.fecha)return; const d=new Date(c.fecha+'T12:00'),m=d.getMonth()+1; if(d.getFullYear()!==yOf(m))return;
+    BASE.push({id:'CITA|'+k,m,em:m,s:d.getDate(),e:d.getDate(),f:cap(DS[d.getDay()])+' '+d.getDate()+' '+MES[m].slice(0,3)+(c.hora?' · '+c.hora:''),who:'DJ',c:'PROG',t:c.titulo,d:c.detalle||'',r:'',u:'',src:'Programas del cole'}); });
+  rebuild(); renderAll();
+}).catch(()=>{});
 const fits=x=>!role||x.who.includes(role);
 const dateTxt=x=>x.f||(x.s?(x.s===x.e&&x.m===x.em?x.s+' '+MES[x.m].slice(0,3):x.s+'–'+x.e+' '+MES[x.em].slice(0,3)):'Durante el mes');
 const whoHtml=w=>['D','J','S'].filter(r=>w.includes(r)).map(r=>`<span class="rb ${r}" title="${RN[r]}">${r}</span>`).join('');
@@ -925,6 +937,7 @@ addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e});
 btn.onclick=async()=>{ if(deferred){deferred.prompt();const r=await deferred.userChoice;deferred=null;if(r.outcome==='accepted')btn.style.display='none';} else document.getElementById('howto').showModal(); };
 addEventListener('appinstalled',()=>btn.style.display='none');
 // Aviso de novedades: una sola vez por dispositivo
+if(LS('nov-proa-plazo-1011')&&!LS('nov-citas-prog-2611')){LS('nov-citas-prog-2611',1);setTimeout(()=>{try{document.getElementById('novCitas').showModal()}catch(e){}},700);}
 if(!LS('nov-proa-plazo-1011')){LS('nov-proa-plazo-1011',1);LS('nov-proa-adenda-2611',1);LS('nov-proa-act-2611',1);LS('nov-proa-and-2611',1);LS('nov-pildoras-proa-2611',1);LS('nov-zts-meq-proa-2627',1);setTimeout(()=>{try{document.getElementById('novProaAnd').showModal()}catch(e){}},600);}
 if(LS('nov-zts-meq-proa-2627')&&!LS('nov-pildoras-proa-2611')){LS('nov-pildoras-proa-2611',1);setTimeout(()=>{try{document.getElementById('novProa').showModal()}catch(e){}},600);}
 if(!LS('nov-zts-meq-proa-2627')){LS('nov-pildoras-proa-2611',1);LS('nov-zts-meq-proa-2627',1);setTimeout(()=>{try{document.getElementById('novProa').showModal()}catch(e){}},600);}
