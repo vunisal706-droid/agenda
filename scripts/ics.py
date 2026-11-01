@@ -132,6 +132,20 @@ try:
         cit.append(evento(e['titulo'], D.fromisoformat(e['fecha']), hora=e.get('hora'), desc=desc, clave='ev' + e['titulo'], url=e.get('enlace', '')))
 except FileNotFoundError:
     pass
+# Reuniones publicadas desde Programas del cole (solo fecha, hora y tipo)
+try:
+    import urllib.request
+    with urllib.request.urlopen('https://gestorpt-7946b-default-rtdb.europe-west1.firebasedatabase.app/programas_publico/citas.json', timeout=20) as r:
+        pc = json.loads(r.read().decode('utf-8')) or {}
+    for k, e in pc.items():
+        if e and e.get('fecha') and e.get('titulo'):
+            h = (e.get('hora') or '').strip()
+            if h and '-' not in h:
+                hh, mm = int(h[:2]), h[3:5]
+                h = f'{h[:5]} - {min(hh + 1, 23):02d}:{mm}'
+            cit.append(evento(e['titulo'], D.fromisoformat(e['fecha']), hora=h or None, desc=e.get('detalle', ''), clave='pc' + k))
+except Exception as ex:
+    print('Sin citas de Programas:', ex)
 
 guardar('calendario-profesorado.ics', 'CEIP Capitulaciones · Profesorado', sin + reu + cit)
 guardar('calendario-familias.ics', 'CEIP Capitulaciones · Familias', sin + tra)
