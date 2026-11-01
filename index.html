@@ -260,6 +260,7 @@ tr.current td{background:rgba(227,231,251,.7)}
   <dialog id="novProaAnd">
     <h2 class="dh">🆕 Novedades</h2>
     <p>Añadidos los plazos del <b>PROA Andalucía 2026/27</b> (Acompañamiento Escolar): grabación en Séneca, plataforma informativa de noviembre, cartel FSE+, reuniones quincenales con tutores, asistencia mensual, informes trimestrales y fin del programa el 31 de mayo.</p>
+    <p>⏰ PROA Andalucía: el plazo para grabar en Séneca grupos, alumnado, programación y acta de selección se <b>amplía al 10 de noviembre</b> (problemas técnicos de Séneca).</p>
     <p>PROA+ Transfórmate: <b>registro de participantes hasta el 13/11</b> y <b>firma de la Adenda al contrato-programa hasta el 30/11</b> (con los 4 pasos).</p>
     <p>También están las <b>actividades complementarias</b> del 15 y 20 de enero y del 13 de abril (Infantil, 1.º–2.º y 3.º–6.º).</p>
     <p class="note">Salen con las etiquetas «PROA Andalucía» y «Actividades complementarias».</p>
@@ -497,7 +498,7 @@ const ACT=[
 ];
 // PROA Andalucía · Acompañamiento Escolar (Instrucciones de 1/09/2026)
 const PRAND=[
-[10,31,31,'Antes del 31','D','PROG','PROA Andalucía: tener grabado en Séneca grupos, alumnado, acta de selección, horario, programación, coordinación y profesorado/mentores','Responsabilidad de la coordinación del programa (Instrucción 12.ª.10.a).','','proa'],
+[11,1,10,'Hasta el 10 (ampliado)','D','PROG','PROA Andalucía: tener grabado en Séneca grupos, alumnado, acta de selección, horario, programación, coordinación y profesorado/mentores','Plazo ampliado al 10 de noviembre por los problemas técnicos de Séneca en toda Andalucía (antes, 31 de octubre). Responsabilidad de la coordinación del programa (Instrucción 12.ª.10.a).','','proa'],
 [10,0,0,'Si hay mentores','D','PROG','PROA Andalucía: pedir a la empresa la declaración responsable del certificado negativo de delitos sexuales de todos los mentores','Contrato menor (Anexo XIV, máx. 15.000 €); 23 €/hora efectiva.','',''],
 [11,1,30,'Durante noviembre','D','PROG','PROA Andalucía: la coordinación visualiza la plataforma online informativa (obligatorio)','La facilita la Consejería; queda disponible para consulta todo el curso.','',''],
 [11,1,30,'Cuando llegue','D','PROG','PROA Andalucía: imprimir el cartel FSE+ en color y A3 y colocarlo en la entrada y en las puertas de las aulas del programa','Lo envía la Consejería en PDF. Toda acta, documento o web que mencione el programa debe llevar los logos de la Consejería y del FSE+ y citar la cofinanciación FSE+.','',''],
@@ -924,7 +925,7 @@ addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e});
 btn.onclick=async()=>{ if(deferred){deferred.prompt();const r=await deferred.userChoice;deferred=null;if(r.outcome==='accepted')btn.style.display='none';} else document.getElementById('howto').showModal(); };
 addEventListener('appinstalled',()=>btn.style.display='none');
 // Aviso de novedades: una sola vez por dispositivo
-if(!LS('nov-proa-adenda-2611')){LS('nov-proa-adenda-2611',1);LS('nov-proa-act-2611',1);LS('nov-proa-and-2611',1);LS('nov-pildoras-proa-2611',1);LS('nov-zts-meq-proa-2627',1);setTimeout(()=>{try{document.getElementById('novProaAnd').showModal()}catch(e){}},600);}
+if(!LS('nov-proa-plazo-1011')){LS('nov-proa-plazo-1011',1);LS('nov-proa-adenda-2611',1);LS('nov-proa-act-2611',1);LS('nov-proa-and-2611',1);LS('nov-pildoras-proa-2611',1);LS('nov-zts-meq-proa-2627',1);setTimeout(()=>{try{document.getElementById('novProaAnd').showModal()}catch(e){}},600);}
 if(LS('nov-zts-meq-proa-2627')&&!LS('nov-pildoras-proa-2611')){LS('nov-pildoras-proa-2611',1);setTimeout(()=>{try{document.getElementById('novProa').showModal()}catch(e){}},600);}
 if(!LS('nov-zts-meq-proa-2627')){LS('nov-pildoras-proa-2611',1);LS('nov-zts-meq-proa-2627',1);setTimeout(()=>{try{document.getElementById('novProa').showModal()}catch(e){}},600);}
 </script></body></html>
