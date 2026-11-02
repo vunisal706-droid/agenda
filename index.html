@@ -259,7 +259,7 @@ tr.current td{background:rgba(227,231,251,.7)}
   </dialog>
   <dialog id="novCitas">
     <h2 class="dh">🆕 Novedades</h2>
-    <p>📅 Ya salen en la agenda las <b>reuniones de Programas del cole</b>: las <b>quincenales del PROA Andalucía</b> (acompañante – tutor/a) y las demás reuniones que se publiquen desde esa app.</p>
+    <p>📅 Ya salen en la agenda las <b>reuniones de Programas del cole</b> (quincenales del PROA, comisiones del PROA+ y coordinación ZTS). Las <b>quincenales</b> traen el enlace <b>«Entrar y rellenar la reunión»</b> para la monitora y la tutora.</p>
     <button class="ghost" onclick="novCitas.close()">Entendido</button>
   </dialog>
   <dialog id="novProaAnd">
@@ -626,7 +626,7 @@ rebuild();
 fetch('https://gestorpt-7946b-default-rtdb.europe-west1.firebasedatabase.app/programas_publico/citas.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{
   if(!j)return; const DS=['dom','lun','mar','mié','jue','vie','sáb'];
   Object.entries(j).forEach(([k,c])=>{ if(!c||!c.fecha)return; const d=new Date(c.fecha+'T12:00'),m=d.getMonth()+1; if(d.getFullYear()!==yOf(m))return;
-    BASE.push({id:'CITA|'+k,m,em:m,s:d.getDate(),e:d.getDate(),f:cap(DS[d.getDay()])+' '+d.getDate()+' '+MES[m].slice(0,3)+(c.hora?' · '+c.hora:''),who:'DJ',c:'PROG',t:c.titulo,d:c.detalle||'',r:'',u:'',src:'Programas del cole'}); });
+    BASE.push({id:'CITA|'+k,m,em:m,s:d.getDate(),e:d.getDate(),f:cap(DS[d.getDay()])+' '+d.getDate()+' '+MES[m].slice(0,3)+(c.hora?' · '+c.hora:''),who:'DJ',c:'PROG',t:c.titulo,d:c.detalle||'',r:'',u:c.enlace?[['🎥 Entrar y rellenar la reunión',c.enlace]]:'',src:'Programas del cole'}); });
   rebuild(); renderAll();
 }).catch(()=>{});
 const fits=x=>!role||x.who.includes(role);
@@ -937,7 +937,7 @@ addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e});
 btn.onclick=async()=>{ if(deferred){deferred.prompt();const r=await deferred.userChoice;deferred=null;if(r.outcome==='accepted')btn.style.display='none';} else document.getElementById('howto').showModal(); };
 addEventListener('appinstalled',()=>btn.style.display='none');
 // Aviso de novedades: una sola vez por dispositivo
-if(LS('nov-proa-plazo-1011')&&!LS('nov-citas-prog-2611')){LS('nov-citas-prog-2611',1);setTimeout(()=>{try{document.getElementById('novCitas').showModal()}catch(e){}},700);}
+if(LS('nov-proa-plazo-1011')&&!LS('nov-citas-prog-2611b')){LS('nov-citas-prog-2611b',1);setTimeout(()=>{try{document.getElementById('novCitas').showModal()}catch(e){}},700);}
 if(!LS('nov-proa-plazo-1011')){LS('nov-proa-plazo-1011',1);LS('nov-proa-adenda-2611',1);LS('nov-proa-act-2611',1);LS('nov-proa-and-2611',1);LS('nov-pildoras-proa-2611',1);LS('nov-zts-meq-proa-2627',1);setTimeout(()=>{try{document.getElementById('novProaAnd').showModal()}catch(e){}},600);}
 if(LS('nov-zts-meq-proa-2627')&&!LS('nov-pildoras-proa-2611')){LS('nov-pildoras-proa-2611',1);setTimeout(()=>{try{document.getElementById('novProa').showModal()}catch(e){}},600);}
 if(!LS('nov-zts-meq-proa-2627')){LS('nov-pildoras-proa-2611',1);LS('nov-zts-meq-proa-2627',1);setTimeout(()=>{try{document.getElementById('novProa').showModal()}catch(e){}},600);}
