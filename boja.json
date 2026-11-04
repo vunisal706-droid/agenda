@@ -1,6 +1,30 @@
 {
- "actualizado": "2026-11-03T14:29+00:00",
+ "actualizado": "2026-11-04T14:44+00:00",
  "items": [
+  {
+   "t": "Orden de 28 de octubre de 2026, por la que se amplía y actualiza la autorización de determinadas enseñanzas en centros docentes públicos.",
+   "url": "https://www.juntadeandalucia.es/boja/2026/213/44.html",
+   "org": "Consejería de Educación",
+   "sec": "3. Otras disposiciones",
+   "bol": "213/2026",
+   "fecha": "2026-11-04",
+   "imp": false,
+   "ruido": false,
+   "emoji": "🏫",
+   "tipo": "Centros"
+  },
+  {
+   "t": "Orden de 27 de octubre de 2026, por la que se acuerda la extinción de la autorización por cese de actividades al centro de educación infantil «Pinocho y su Amigo» de Sevilla.",
+   "url": "https://www.juntadeandalucia.es/boja/2026/213/43.html",
+   "org": "Consejería de Educación",
+   "sec": "3. Otras disposiciones",
+   "bol": "213/2026",
+   "fecha": "2026-11-04",
+   "imp": false,
+   "ruido": true,
+   "emoji": "🏫",
+   "tipo": "Centros"
+  },
   {
    "t": "Resolución de 26 de octubre de 2026, de la Secretaría General Técnica, por la que se acuerda la remisión del expediente administrativo a la Sección Tercera de la Sala de lo Contencioso-Administrativo de Sevilla del Tribunal Superior de Justicia de Andalucía, Ceuta y Melilla y se emplaza a los terceros interesados.",
    "url": "https://www.juntadeandalucia.es/boja/2026/211/32.html",
