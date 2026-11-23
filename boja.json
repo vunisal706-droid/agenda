@@ -1,6 +1,30 @@
 {
- "actualizado": "2026-11-20T15:38+00:00",
+ "actualizado": "2026-11-23T18:31+00:00",
  "items": [
+  {
+   "t": "Resolución de 16 de noviembre de 2026, de la Delegación Territorial de Educación en Almería, de concesión de subvenciones a entidades sin ánimo de lucro para el desarrollo de programas de ámbito provincial dirigidos a la mediación intercultural durante el curso escolar 2026/2027.",
+   "url": "https://www.juntadeandalucia.es/boja/2026/226/37.html",
+   "org": "Consejería de Educación",
+   "sec": "3. Otras disposiciones",
+   "bol": "226/2026",
+   "fecha": "2026-11-23",
+   "imp": false,
+   "ruido": true,
+   "emoji": "💶",
+   "tipo": "Ayudas"
+  },
+  {
+   "t": "Resolución de 16 de noviembre de 2026, de la Delegación Territorial de Educación en Almería, de concesión de subvenciones a entidades sin ánimo de lucro para el desarrollo de programas para la prevención, seguimiento y control del absentismo escolar durante el curso 2026/2027.",
+   "url": "https://www.juntadeandalucia.es/boja/2026/226/36.html",
+   "org": "Consejería de Educación",
+   "sec": "3. Otras disposiciones",
+   "bol": "226/2026",
+   "fecha": "2026-11-23",
+   "imp": false,
+   "ruido": true,
+   "emoji": "💶",
+   "tipo": "Ayudas"
+  },
   {
    "t": "Resolución de 12 de noviembre de 2026, de la Delegación Territorial de Educación en Granada, de concesión de subvenciones a asociaciones sin ánimo de lucro para el desarrollo de programas de ámbito provincial dirigidos a la mediación intercultural durante el curso 2026/2027.",
    "url": "https://www.juntadeandalucia.es/boja/2026/223/39.html",
